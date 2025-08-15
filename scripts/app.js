@@ -125,7 +125,7 @@ async function loadAndRenderAlbums() {
   try {
     const raw = await fetchJSON(CONFIG.jsonPath);
 
-    // Normalize → add year/slug, sort by releaseDate desc, resolve covers
+    // Normalize → add year/slug and sort by releaseDate desc
     const normalized = (Array.isArray(raw) ? raw : [])
       .map(item => ({
         ...item,
@@ -136,7 +136,7 @@ async function loadAndRenderAlbums() {
       }))
       .sort((a, b) => b._dateValue - a._dateValue);
 
-    // Resolve cover URLs (concurrently)
+    // Resolve cover URLs concurrently
     const withCovers = await Promise.all(
       normalized.map(async a => ({ ...a, cover: await resolveCover(a) }))
     );
