@@ -116,22 +116,22 @@ export async function loadFeaturedAlbum() {
 }
 
 export async function loadLatestReleaseAlbum() {
-  const releaseArtEl = document.querySelector('.release-art img');
-  const releaseTitleEl = document.getElementById('release-heading');
-  const releaseTextEl = document.querySelector('.latest-release p');
-  const streamBtns = document.querySelectorAll('.stream-btn');
+  const coverEl = document.getElementById('latest-release-cover');
+  const titleEl = document.getElementById('release-heading');
+  const descEl = document.getElementById('release-description');
   const badgeEl = document.getElementById('latest-badge');
-  if (!releaseArtEl || !releaseTitleEl || !releaseTextEl || streamBtns.length === 0) return;
+  const streamBtns = document.querySelectorAll('.latest-release-card .stream-btn');
+  if (!coverEl || !titleEl || !descEl || streamBtns.length === 0) return;
   try {
     const raw = await fetchJSON(CONFIG.jsonPath);
     const items = Array.isArray(raw) ? raw : [];
     const latest = items.find(a => a.latest);
     if (!latest) return;
     latest.cover = await resolveCover(latest);
-    releaseArtEl.src = latest.cover;
-    releaseArtEl.alt = `Album cover for ${latest.title}`;
-    releaseTitleEl.textContent = latest.title ? latest.title : 'Latest Release';
-    releaseTextEl.textContent = latest.description || 'Check out the newest track from LLH, blending dreamy textures with cinematic vibes.';
+    coverEl.src = latest.cover;
+    coverEl.alt = `Album cover for ${latest.title}`;
+    titleEl.textContent = latest.title ? latest.title : 'Latest Release';
+    descEl.textContent = latest.description || 'Check out the newest track from LLH, blending dreamy textures with cinematic vibes.';
     if (badgeEl) {
       badgeEl.innerHTML = latest.type === 'single' ? '<span class="badge badge-single">Single</span>' : '';
     }

@@ -11,7 +11,8 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://llhmusic.com/" />
   <meta property="og:image" content="https://llhmusic.com/assets/cover.jpg" />
-  <link rel="icon" href="assets/favicon.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
@@ -50,35 +51,42 @@
 
     <section class="featured-release" aria-labelledby="release-heading">
       <div class="container release-inner">
-        <div class="release-art">
-          <img src="assets/covers/cover-default.webp" alt="Album cover" />
-        </div>
-        <div class="latest-release">
-          <div class="latest-release-header">Latest Release</div>
-          <h2 id="release-heading" class="section-title" style="display:inline-block;"></h2><span id="latest-badge" style="display:inline-block; vertical-align:middle; margin-left:8px;"></span>
-          <p></p>
-          <div class="stream-buttons">
-            <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="Spotify">
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="12" fill="currentColor"/>
-                <path d="M7 10c3-1 7-1 10 1M7 14c2.8-.8 6-.8 8.5.5M7 17c2-.6 4.3-.6 6 .4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
-              </svg>
-              Spotify
-            </a>
-            <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="Apple Music">
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="9" cy="17" r="3" fill="currentColor"/>
-                <path d="M14 7v10a3 3 0 1 0 3-3h-3" fill="currentColor"/>
-              </svg>
-              Apple Music
-            </a>
-            <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/>
-                <polygon points="10,9 15,12 10,15" fill="#fff"/>
-              </svg>
-              YouTube
-            </a>
+        <div class="latest-release-card">
+          <div class="latest-release-header">LATEST RELEASE</div>
+          <div class="latest-release-content">
+            <div class="latest-release-cover">
+              <img id="latest-release-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
+            </div>
+            <div class="latest-release-info">
+              <div class="release-title-row">
+                <h2 id="release-heading" class="release-title"></h2>
+                <span id="latest-badge"></span>
+              </div>
+              <p id="release-description"></p>
+              <div class="stream-buttons">
+                <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="Spotify">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="12" r="12" fill="currentColor"/>
+                    <path d="M7 10c3-1 7-1 10 1M7 14c2.8-.8 6-.8 8.5.5M7 17c2-.6 4.3-.6 6 .4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                  </svg>
+                  Spotify
+                </a>
+                <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="Apple Music">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="9" cy="17" r="3" fill="currentColor"/>
+                    <path d="M14 7v10a3 3 0 1 0 3-3h-3" fill="currentColor"/>
+                  </svg>
+                  Apple Music
+                </a>
+                <a class="btn stream-btn" href="#" target="_blank" rel="noopener" aria-label="YouTube">
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
+                    <rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/>
+                    <polygon points="10,9 15,12 10,15" fill="#fff"/>
+                  </svg>
+                  YouTube
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
