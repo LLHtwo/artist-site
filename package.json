@@ -2,9 +2,9 @@
   "name": "my-artist-website",
   "version": "1.0.0",
   "description": "A personal website showcasing the artist and their albums.",
-  "main": "src/index.html",
+  "main": "index.html",
   "scripts": {
-    "start": "live-server src"
+    "start": "live-server ."
   },
   "keywords": [
     "artist",
