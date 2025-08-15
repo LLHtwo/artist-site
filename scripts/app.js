@@ -238,6 +238,7 @@ async function loadLatestReleaseAlbum() {
   const releaseTitleEl = document.getElementById('release-heading');
   const releaseTextEl = document.querySelector('.latest-release p');
   const streamBtns = document.querySelectorAll('.stream-btn');
+  const badgeEl = document.getElementById('latest-badge');
   if (!releaseArtEl || !releaseTitleEl || !releaseTextEl || streamBtns.length === 0) return;
 
   try {
@@ -250,6 +251,9 @@ async function loadLatestReleaseAlbum() {
     releaseArtEl.alt = `Album cover for ${latest.title}`;
     releaseTitleEl.textContent = latest.title ? latest.title : 'Latest Release';
     releaseTextEl.textContent = latest.description || 'Check out the newest track from LLH, blending dreamy textures with cinematic vibes.';
+    if (badgeEl) {
+      badgeEl.innerHTML = latest.type === 'single' ? '<span class="badge badge-single">Single</span>' : '';
+    }
     // Set stream links if available
     streamBtns.forEach(btn => {
       if (btn.getAttribute('aria-label') === 'Spotify' && latest.spotify) {

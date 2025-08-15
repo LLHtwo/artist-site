@@ -212,8 +212,11 @@
     }
 
     .release-art img {
-      width: 260px;
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
       border-radius: 16px;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
     }
 
     .featured-label {
@@ -234,6 +237,14 @@
     }
     .latest-release {
       flex: 1;
+    }
+
+    .latest-release-header {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--fg);
+      margin-bottom: 18px;
+      letter-spacing: 0.2px;
     }
 
     .stream-buttons {
