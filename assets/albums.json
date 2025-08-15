@@ -1,17 +1,26 @@
 [
-    {
-        "title": "Album One",
-        "releaseDate": "2021-01-01",
-        "link": "https://example.com/album-one"
-    },
-    {
-        "title": "Album Two",
-        "releaseDate": "2022-05-15",
-        "link": "https://example.com/album-two"
-    },
-    {
-        "title": "Album Three",
-        "releaseDate": "2023-03-10",
-        "link": "https://example.com/album-three"
-    }
+  {
+    "title": "Make Me Feel Alright",
+    "releaseDate": "2024-03-16",
+    "type": "album",
+    "link": "..."
+  },
+  {
+    "title": "Imagination",
+    "type": "album",
+    "releaseDate": "2024-07-31",
+    "link": "..."
+  },
+  {
+    "title": "Break It Down",
+    "type": "single",
+    "releaseDate": "2025-04-01",
+    "link": "..."
+  },
+  {
+    "title": "secret",
+    "type": "album",
+    "releaseDate": "2025-08-20",
+    "link": "..."
+  }
 ]

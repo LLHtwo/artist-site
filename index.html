@@ -1,29 +1,71 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Artist Website</title>
-    <link rel="stylesheet" href="styles/main.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LLH — Artist</title>
+  <meta name="description" content="LLH — artist portfolio, music links, and latest releases." />
+  <meta name="theme-color" content="#0f0f12" />
+  <!-- Open Graph / Social preview -->
+  <meta property="og:title" content="LLH — Artist" />
+  <meta property="og:description" content="Artist portfolio, music links, and latest releases." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://llhmusic.com/" />
+  <meta property="og:image" content="https://llhmusic.com/assets/cover.jpg" />
+  <link rel="icon" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Artist Page</h1>
-        <p>Discover my music and connect with me on social media!</p>
+  <div class="container">
+    <header class="header" role="banner">
+      <a class="brand" href="index.html" aria-label="LLH home">
+        <div class="logo" aria-hidden="true"></div>
+        <span class="brand-name">LLH</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="navlink" href="music.html">Music</a>
+        <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="contact.html">Contact</a>
+      </nav>
     </header>
-    <section id="albums">
-        <h2>Albums</h2>
-        <div id="album-list"></div>
-    </section>
-    <section id="social-media">
-        <h2>Connect with Me</h2>
-        <ul>
-            <li><a href="https://facebook.com/yourprofile" target="_blank">Facebook</a></li>
-            <li><a href="https://instagram.com/yourprofile" target="_blank">Instagram</a></li>
-            <li><a href="https://twitter.com/yourprofile" target="_blank">Twitter</a></li>
-            <li><a href="https://spotify.com/yourprofile" target="_blank">Spotify</a></li>
-        </ul>
-    </section>
-    <script src="scripts/app.js"></script>
+
+    <main id="main" class="main" tabindex="-1">
+      <section class="hero hero-split" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <h1 id="hero-title" class="hero-title">LLH</h1>
+          <p class="hero-sub">Dreamy textures, cinematic arcs, and rap-adjacent energy.</p>
+          <div class="socials" aria-label="Social links">
+            <a class="chip" href="https://open.spotify.com/artist/" target="_blank" rel="noopener">Spotify</a>
+            <a class="chip" href="https://music.apple.com/" target="_blank" rel="noopener">Apple Music</a>
+            <a class="chip" href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+            <a class="chip" href="https://youtube.com/@" target="_blank" rel="noopener">YouTube</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-bg" style="background-image:url('https://via.placeholder.com/400x400?text=Background');"></div>
+          <div id="featured-release" class="featured-release"></div>
+        </div>
+      </section>
+
+      <section id="music" class="section" aria-labelledby="albums-heading">
+        <h2 id="albums-heading" class="section-title">Latest Releases</h2>
+        <div id="albums" class="grid" role="list" data-limit="3"></div>
+      </section>
+
+      <section id="about" class="section about-short" aria-labelledby="about-heading">
+        <h2 id="about-heading" class="section-title">About</h2>
+        <p class="muted">LLH is a 20-year-old artist and producer from Germany. He blends electronic textures with rap sensibilities and cinematic arcs.</p>
+      </section>
+
+      <div class="split"></div>
+
+    </main>
+    <footer class="footer" role="contentinfo">
+      <p>© <span id="year"></span> LLH — All rights reserved.</p>
+    </footer>
+  </div>
+
+  <noscript>JavaScript is required to load albums.</noscript>
+  <script defer src="./scripts/app.js"></script>
 </body>
 </html>
