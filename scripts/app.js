@@ -184,10 +184,40 @@ function setCopyrightYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+async function loadFeaturedAlbum() {
+  const coverEl = $('#featured-cover');
+  const labelEl = $('#featured-label');
+  const titleEl = $('#featured-title');
+  const subtextEl = $('#featured-subtext');
+  const listenBtn = $('#listen-btn');
+  if (!coverEl || !labelEl || !titleEl) return;
+
+  try {
+    const raw = await fetchJSON(CONFIG.jsonPath);
+    const items = Array.isArray(raw) ? raw : [];
+    const featured = items.find(a => a.featured);
+    if (!featured) return;
+    featured.cover = await resolveCover(featured);
+    coverEl.src = featured.cover;
+    coverEl.alt = `Cover of ${featured.title}`;
+    const upcoming = isFuture(featured.releaseDate);
+    labelEl.textContent = upcoming ? 'Upcoming' : 'Latest Release';
+    titleEl.textContent = `“${featured.title}”`;
+    if (subtextEl) {
+      const type = featured.type ? featured.type.charAt(0).toUpperCase() + featured.type.slice(1) : '';
+      subtextEl.textContent = type;
+    }
+    if (listenBtn && featured.link) listenBtn.href = featured.link;
+  } catch (err) {
+    console.error('Failed to load featured album:', err);
+  }
+}
+
 
 // Init
 
 document.addEventListener('DOMContentLoaded', () => {
   copyrightYear = setCopyrightYear();
   loadAndRenderAlbums();
+  loadFeaturedAlbum();
 });
