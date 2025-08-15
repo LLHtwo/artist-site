@@ -101,6 +101,10 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
       background: linear-gradient(135deg, #1b1b20, #0f0f12);
       padding: 0 24px;
     }
@@ -130,6 +134,7 @@
       border-radius: 16px;
       margin-bottom: 24px;
     }
+
 
     .hero-title {
       font-size: clamp(48px, 10vw, 96px);
@@ -163,6 +168,18 @@
     }
 
     .featured-cover {
+    .latest-release {
+      margin-top: 60px;
+    }
+
+    .release-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .release-art img {
       width: 260px;
       border-radius: 16px;
     }
@@ -182,6 +199,21 @@
     .featured-subtext {
       margin: 0;
       color: var(--muted);
+    .release-info {
+      flex: 1;
+    }
+
+    .stream-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .stream-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .social-links {
