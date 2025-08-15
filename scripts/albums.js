@@ -3,6 +3,16 @@
 import { CONFIG } from './config.js';
 import { $, slugify, isFuture, formatFancyDate, fetchJSON } from './utils.js';
 
+let albumsCache;
+async function getAlbums() {
+  if (!albumsCache) {
+    const raw = await fetchJSON(CONFIG.jsonPath);
+    albumsCache = Array.isArray(raw) ? raw : [];
+  }
+  return albumsCache;
+}
+
+// Determine the appropriate cover image for an album, checking multiple file extensions.
 export async function resolveCover(album) {
   if (album.cover) return album.cover;
   const slug = slugify(album.title || 'album');
@@ -18,6 +28,7 @@ export async function resolveCover(album) {
   return CONFIG.defaultCover;
 }
 
+// Build markup for a single album card.
 function albumCardHTML(a, { highlight = false } = {}) {
   const isSingle = a.type === 'single';
   const future = isFuture(a.releaseDate);
@@ -51,12 +62,12 @@ function albumCardHTML(a, { highlight = false } = {}) {
   `;
 }
 
+// Render the albums listing and newest release section.
 export async function loadAndRenderAlbums() {
   const target = $('#albums');
   if (!target) return;
   try {
-    const raw = await fetchJSON(CONFIG.jsonPath);
-    const items = Array.isArray(raw) ? raw : [];
+    const items = await getAlbums();
     const withCovers = await Promise.all(items.map(async a => ({ ...a, cover: await resolveCover(a) })));
     const released = withCovers.filter(a => !isFuture(a.releaseDate));
     const upcoming = withCovers.filter(a => isFuture(a.releaseDate));
@@ -87,6 +98,7 @@ export async function loadAndRenderAlbums() {
   }
 }
 
+// Populate the hero section with the featured album.
 export async function loadFeaturedAlbum() {
   const coverEl = $('#featured-cover');
   const labelEl = $('#featured-label');
@@ -95,8 +107,7 @@ export async function loadFeaturedAlbum() {
   const listenBtn = $('#listen-btn');
   if (!coverEl || !labelEl || !titleEl) return;
   try {
-    const raw = await fetchJSON(CONFIG.jsonPath);
-    const items = Array.isArray(raw) ? raw : [];
+    const items = await getAlbums();
     const featured = items.find(a => a.featured);
     if (!featured) return;
     featured.cover = await resolveCover(featured);
@@ -115,6 +126,7 @@ export async function loadFeaturedAlbum() {
   }
 }
 
+// Populate the "latest release" card.
 export async function loadLatestReleaseAlbum() {
   const coverEl = document.getElementById('latest-release-cover');
   const titleEl = document.getElementById('release-heading');
@@ -123,8 +135,7 @@ export async function loadLatestReleaseAlbum() {
   const streamBtns = document.querySelectorAll('.latest-release-card .stream-btn');
   if (!coverEl || !titleEl || !descEl || streamBtns.length === 0) return;
   try {
-    const raw = await fetchJSON(CONFIG.jsonPath);
-    const items = Array.isArray(raw) ? raw : [];
+    const items = await getAlbums();
     const latest = items.find(a => a.latest);
     if (!latest) return;
     latest.cover = await resolveCover(latest);
