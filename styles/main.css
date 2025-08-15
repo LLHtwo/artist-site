@@ -26,9 +26,6 @@
     .navlink{padding:8px 12px; border-radius:12px; background:#141418; color:#dde1ee}
     .navlink:hover{background:#191a20}
 
-    .hero{padding:40px 0 24px}
-    .hero h2{font-size:clamp(28px, 3vw + 18px, 48px); line-height:1.1; margin:0 0 12px}
-    .hero p{color:var(--muted); margin:0}
 
     .socials{display:flex; gap:10px; margin-top:18px}
     .chip{display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:999px; background:#17171c; color:#e8eaf3}
@@ -103,6 +100,7 @@
     .hero {
       min-height: 100vh;
       display: flex;
+      align-items: center;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -110,6 +108,33 @@
       background: linear-gradient(135deg, #1b1b20, #0f0f12);
       padding: 0 24px;
     }
+
+    .hero-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .hero-wrapper {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .hero-main {
+      max-width: 420px;
+    }
+
+    .hero-photo {
+      width: 100%;
+      max-width: 240px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+    }
+
 
     .hero-title {
       font-size: clamp(48px, 10vw, 96px);
@@ -136,6 +161,13 @@
       background: #a0e8ff;
     }
 
+    .hero-featured {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .featured-cover {
     .latest-release {
       margin-top: 60px;
     }
@@ -152,6 +184,21 @@
       border-radius: 16px;
     }
 
+    .featured-label {
+      margin: 0;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .featured-title {
+      margin: 4px 0;
+      font-size: clamp(24px, 5vw, 40px);
+    }
+
+    .featured-subtext {
+      margin: 0;
+      color: var(--muted);
     .release-info {
       flex: 1;
     }
