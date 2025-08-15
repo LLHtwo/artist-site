@@ -1,3 +1,23 @@
+// Utility: Get average color from an image
+function getAverageColor(imgEl, callback) {
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = imgEl.naturalWidth;
+  canvas.height = imgEl.naturalHeight;
+  ctx.drawImage(imgEl, 0, 0);
+  const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+  let r = 0, g = 0, b = 0, count = 0;
+  for (let i = 0; i < data.length; i += 4) {
+    r += data[i];
+    g += data[i + 1];
+    b += data[i + 2];
+    count++;
+  }
+  r = Math.round(r / count);
+  g = Math.round(g / count);
+  b = Math.round(b / count);
+  callback(`rgb(${r},${g},${b})`);
+}
 // scripts/app.js
 
 
@@ -213,11 +233,61 @@ async function loadFeaturedAlbum() {
   }
 }
 
+async function loadLatestReleaseAlbum() {
+  const releaseArtEl = document.querySelector('.release-art img');
+  const releaseTitleEl = document.getElementById('release-heading');
+  const releaseTextEl = document.querySelector('.latest-release p');
+  const streamBtns = document.querySelectorAll('.stream-btn');
+  if (!releaseArtEl || !releaseTitleEl || !releaseTextEl || streamBtns.length === 0) return;
+
+  try {
+    const raw = await fetchJSON(CONFIG.jsonPath);
+    const items = Array.isArray(raw) ? raw : [];
+    const latest = items.find(a => a.latest);
+    if (!latest) return;
+    latest.cover = await resolveCover(latest);
+    releaseArtEl.src = latest.cover;
+    releaseArtEl.alt = `Album cover for ${latest.title}`;
+    releaseTitleEl.textContent = latest.title ? latest.title : 'Latest Release';
+    releaseTextEl.textContent = latest.description || 'Check out the newest track from LLH, blending dreamy textures with cinematic vibes.';
+    // Set stream links if available
+    streamBtns.forEach(btn => {
+      if (btn.getAttribute('aria-label') === 'Spotify' && latest.spotify) {
+        btn.href = latest.spotify;
+      } else if (btn.getAttribute('aria-label') === 'Apple Music' && latest.apple) {
+        btn.href = latest.apple;
+      } else if (btn.getAttribute('aria-label') === 'YouTube' && latest.youtube) {
+        btn.href = latest.youtube;
+      }
+    });
+  } catch (err) {
+    console.error('Failed to load latest release album:', err);
+  }
+}
+
 
 // Init
 
 document.addEventListener('DOMContentLoaded', () => {
   copyrightYear = setCopyrightYear();
   loadAndRenderAlbums();
+
+  // Set hero background to average color of featured album cover
+  const featuredImg = document.getElementById('featured-cover');
+  const heroSection = document.querySelector('.hero');
+  if (featuredImg && heroSection) {
+    featuredImg.addEventListener('load', function() {
+      getAverageColor(featuredImg, function(avgColor) {
+        heroSection.style.background = `linear-gradient(180deg, ${avgColor} 0%, transparent 100%)`;
+      });
+    });
+    // If already loaded (from cache)
+    if (featuredImg.complete) {
+      getAverageColor(featuredImg, function(avgColor) {
+        heroSection.style.background = `linear-gradient(180deg, ${avgColor} 0%, transparent 100%)`;
+      });
+    }
+  }
   loadFeaturedAlbum();
+  loadLatestReleaseAlbum();
 });

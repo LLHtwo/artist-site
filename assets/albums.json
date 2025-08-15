@@ -15,12 +15,19 @@
     "title": "Break It Down",
     "type": "single",
     "releaseDate": "2025-04-01",
+    "link": "...",
+    "latest": true
+  },
+  {
+    "title": "Secret",
+    "type": "album",
+    "releaseDate": "2025-08-20",
     "link": "..."
   },
   {
-    "title": "Born for More",
+    "title": "Born For More",
     "type": "album",
-    "releaseDate": "2025-08-20",
+    "releaseDate": "2025-10-01",
     "link": "...",
     "featured": true
   }

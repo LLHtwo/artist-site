@@ -3,35 +3,68 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLH — Contact</title>
-  <meta name="description" content="Contact LLH, artist and producer." />
-  <meta name="theme-color" content="#0f0f12" />
+  <title>Contact — LLH</title>
+  <meta name="description" content="Contact LLH — artist and producer." />
   <link rel="icon" href="/assets/favicon.png" />
   <link rel="stylesheet" href="./styles/main.css" />
 </head>
 <body>
-  <div class="container">
-    <header class="header" role="banner">
-      <a class="brand" href="index.html" aria-label="LLH home">
-        <div class="logo" aria-hidden="true"></div>
+  <header class="header" role="banner">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Home">
         <span class="brand-name">LLH</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a class="navlink" href="music.html">Music</a>
         <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="music.html">Music</a>
         <a class="navlink" href="contact.html">Contact</a>
       </nav>
-    </header>
-    <main id="main" class="main" tabindex="-1">
-      <section id="contact" class="section" aria-labelledby="contact-heading">
-        <h2 id="contact-heading" class="section-title">Contact</h2>
-        <p>Email: <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
-      </section>
-    </main>
-    <footer class="footer" role="contentinfo">
-      <p>© <span id="year"></span> LLH — All rights reserved.</p>
-    </footer>
-  </div>
+    </div>
+  </header>
+
+  <main id="main" class="main" tabindex="-1">
+    <section class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <h1 id="contact-heading" class="section-title">Contact</h1>
+        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, euismod cursus enim nisi euismod.</p>
+        <form class="contact-form" autocomplete="off" style="max-width:400px;margin-top:32px;">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required placeholder="Your name" style="width:100%;margin-bottom:12px;">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required placeholder="Your email" style="width:100%;margin-bottom:12px;">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required placeholder="Your message" rows="5" style="width:100%;margin-bottom:12px;"></textarea>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Send</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="year"></span> LLH — All rights reserved. <a href="mailto:contact@example.com">contact@example.com</a></p>
+      <div class="footer-social">
+        <a href="#" target="_blank" rel="noopener" aria-label="Spotify">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="12" fill="currentColor"/>
+            <path d="M7 10c3-1 7-1 10 1M7 14c2.8-.8 6-.8 8.5.5M7 17c2-.6 4.3-.6 6 .4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
+          </svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
+            <circle cx="12" cy="12" r="5" fill="#fff"/>
+          </svg>
+        </a>
+        <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/>
+            <polygon points="10,9 15,12 10,15" fill="#fff"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
   <script defer src="./scripts/app.js"></script>
 </body>
 </html>
