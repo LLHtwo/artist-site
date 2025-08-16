@@ -1,0 +1,11 @@
+/* styles/all-components.css
+   Combines all component styles for the site. */
+@import url('components/album.css');
+@import url('components/badge.css');
+@import url('components/featured-section.css');
+@import url('components/hero.css');
+@import url('components/latest-release.css');
+@import url('components/layout.css');
+@import url('components/music-page.css');
+@import url('components/notes.css');
+@import url('components/socials.css');

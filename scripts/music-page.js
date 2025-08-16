@@ -46,28 +46,26 @@
       return;
     }
 
-    // Smaller, right-sided hero layout
-    const hero = el('div', { class: 'hero-content hero-small' });
-    // Info on left
-    const info = el('div', { class: 'hero-info hero-info-left' });
-    info.innerHTML = `
-      <h1 class="hero-title">${a.title}</h1>
-      <p class="hero-meta">${capitalize(a.type)}${a.releaseDate ? ' • ' + a.releaseDate : ''}</p>
-      ${a.notes[0] ? `<p class="hero-tagline">${escapeHTML(a.notes[0])}</p>` : ''}
-      <div class="hero-actions"><a class="btn btn-primary listen-btn" href="${a.link}" target="_blank" rel="noopener">Listen</a></div>
+    // Rebuilt layout for featured section (no modal, no click)
+    root.innerHTML = `
+      <div class="featured-section">
+        <div class="featured-section-header-row">
+          <span class="featured-section-header">Featured</span>
+        </div>
+        <div class="featured-section-content">
+          <div class="featured-section-art">
+            <img src="${a.cover}" alt="${a.title} cover">
+          </div>
+          <div class="featured-section-info">
+            <h2 class="featured-section-title">${a.title}</h2>
+            <p class="featured-section-meta">${capitalize(a.type)}${a.releaseDate ? ' • ' + a.releaseDate : ''}</p>
+            ${a.notes[0] ? `<p class="featured-section-tagline">${escapeHTML(a.notes[0])}</p>` : ''}
+            <p class="featured-section-subtext">This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.</p>
+            <div class="featured-section-actions"><a class="btn btn-primary listen-btn" href="${a.link}" target="_blank" rel="noopener">Listen</a></div>
+          </div>
+        </div>
+      </div>
     `;
-    // Art on right
-    const art = el('div', { class: 'hero-art hero-art-right' });
-    art.appendChild(el('img', { src: a.cover, alt: `${a.title} cover` }));
-    hero.append(info, art);
-
-    hero.addEventListener('click', ev => {
-      if (ev.target.closest('a')) return;
-      openModal(a);
-    });
-
-    root.innerHTML = '';
-    root.appendChild(hero);
   }
 
   function renderDiscography(root, albums){

@@ -1,0 +1,22 @@
+/* Album highlight styles */
+.album.highlight {
+  border: 2px solid var(--accent);
+  box-shadow: 0 2px 24px rgba(125,211,252,0.12);
+  background: linear-gradient(180deg, #18181b, #23232a);
+}
+
+.newest-release {
+  grid-column: span 12;
+  margin-bottom: 24px;
+  padding: 12px 0;
+}
+.newest-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 10px;
+}
+
+.album.upcoming {
+  border-style: solid;
+}
