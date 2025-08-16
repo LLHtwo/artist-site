@@ -67,3 +67,18 @@ export function setCopyrightYear() {
   if (el) el.textContent = new Date().getFullYear();
 }
 
+export function capitalize(s = '') {
+  s = String(s);
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+export function escapeHTML(str = '') {
+  return String(str).replace(/[&<>"']/g, c => ({
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#39;'
+  }[c]));
+}
+
