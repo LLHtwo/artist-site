@@ -29,11 +29,39 @@
 
   <main id="main" class="main" tabindex="-1">
     <!-- Featured hero (smaller, right-sided) -->
+    <!-- Featured hero (compact) -->
     <section id="hero" class="hero hero--compact" aria-labelledby="featured-heading">
-        <div class="container hero-container">
-          <div id="featured" class="featured-card" aria-live="polite"></div>
-        </div>
+      <div class="container hero-container">
+        <article id="featured" class="featured-card" aria-live="polite">
+          <div class="featured-section">
+            <div class="featured-section-header-row">
+              <span class="featured-section-header">Featured</span>
+            </div>
+
+            <div class="featured-section-content">
+              <!-- INFO (left) -->
+              <div class="featured-section-info">
+                <h2 id="featured-title" class="featured-section-title"></h2>
+                <p id="featured-meta" class="featured-section-meta"></p>
+                <p id="featured-tagline" class="featured-section-tagline" hidden></p>
+                <p class="featured-section-subtext">
+                  This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.
+                </p>
+                <div class="featured-section-actions">
+                  <a id="featured-link" class="btn btn-primary listen-btn" href="#" target="_blank" rel="noopener">Listen</a>
+                </div>
+              </div>
+
+              <!-- COVER (right) -->
+              <figure class="featured-section-art">
+                <img id="featured-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
+              </figure>
+            </div>
+          </div>
+        </article>
+      </div>
     </section>
+
 
 
     <!-- Discography grid -->
