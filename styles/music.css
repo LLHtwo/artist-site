@@ -1,0 +1,8 @@
+/* Music page bundle - imports components used on the music page */
+@import url('components/layout.css');
+@import url('components/music-page.css');
+@import url('components/featured-section.css');
+@import url('components/album.css');
+@import url('components/badge.css');
+
+/* Any music-only overrides can go here */

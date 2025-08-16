@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#0f0f12" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/music.css" />
   <!-- Hint the browser that we'll fetch the JSON for this page -->
   <link rel="preload" as="fetch" href="assets/albums.json" crossorigin="anonymous" />
 </head>
@@ -30,31 +30,31 @@
   <main id="main" class="main" tabindex="-1">
     <!-- Featured hero (smaller, right-sided) -->
     <!-- Featured hero (compact) -->
-    <section id="hero" class="hero hero--compact" aria-labelledby="featured-heading">
-      <div class="container hero-container">
-        <article id="featured" class="featured-card" aria-live="polite">
-          <div class="featured-section">
-            <div class="featured-section-header-row">
-              <span class="featured-section-header">Featured</span>
+    <section id="hero" class="hero hero--compact music-hero" aria-labelledby="featured-heading">
+      <div class="container hero-container music-hero-container">
+        <article id="featured" class="featured-card music-featured-card" aria-live="polite">
+          <div class="featured-section music-featured-section">
+            <div class="featured-section-header-row music-featured-header-row">
+              <span class="featured-section-header music-featured-header">Featured</span>
             </div>
 
-            <div class="featured-section-content">
+            <div class="featured-section-content music-featured-content">
               <!-- INFO (left) -->
-              <div class="featured-section-info">
-                <h2 id="featured-title" class="featured-section-title"></h2>
-                <p id="featured-meta" class="featured-section-meta"></p>
-                <p id="featured-tagline" class="featured-section-tagline" hidden></p>
-                <p class="featured-section-subtext">
+              <div class="featured-section-info music-featured-info">
+                <h2 id="featured-title" class="featured-section-title music-featured-title"></h2>
+                <p id="featured-meta" class="featured-section-meta music-featured-meta"></p>
+                <p id="featured-tagline" class="featured-section-tagline music-featured-tagline" hidden></p>
+                <p class="featured-section-subtext music-featured-subtext">
                   This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.
                 </p>
-                <div class="featured-section-actions">
-                  <a id="featured-link" class="btn btn-primary listen-btn" href="#" target="_blank" rel="noopener">Listen</a>
+                <div class="featured-section-actions music-featured-actions">
+                  <a id="featured-link" class="btn btn-primary listen-btn music-listen-btn" href="#" target="_blank" rel="noopener">Listen</a>
                 </div>
               </div>
 
               <!-- COVER (right) -->
-              <figure class="featured-section-art">
-                <img id="featured-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
+              <figure class="featured-section-art music-featured-art">
+                <img id="featured-cover" class="music-featured-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
               </figure>
             </div>
           </div>
@@ -124,7 +124,6 @@
 
     <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
          discography grid and modal from assets/albums.json. -->
-  <script type="module" src="scripts/main.js"></script>
-  <script type="module" src="scripts/music-page.js"></script>
+  <script type="module" src="scripts/all.js"></script>
 </body>
 </html>

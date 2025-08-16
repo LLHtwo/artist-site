@@ -57,6 +57,14 @@ nav{display:flex; gap:16px; flex-wrap:wrap}
   opacity: 1;
 }
 
+/* Small / ghost button variants for music page */
+.btn-small { padding: 6px 10px; border-radius: 10px; font-size: 0.9rem; }
+.btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--fg); }
+.btn-ghost:hover { background: rgba(255,255,255,0.02); }
+
+.album-actions { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+
+
 @media (min-width:640px){ .album{grid-column: span 6;} }
 @media (min-width:980px){ .album{grid-column: span 4;} }
 

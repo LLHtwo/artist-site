@@ -1,27 +1,77 @@
 [
   {
-    "slug": "born-for-more",
-    "title": "Born For More — Story & Process",
-    "updatedAt": "2025-08-14",
-    "quote": "We recorded the hook at 2am with the city humming outside.",
-    "body": "This track started as a voice memo...\n\nVerse guitars were DI with a gentle chorus...",
+    "slug": "make-me-feel-alright",
+    "title": "Make Me Feel Alright — Story & Process",
+    "blurb": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus finibus ex sed magna varius, nec mattis lacus pretium.",
     "sections": [
       {
-        "title": "Writing",
-        "body": "I wanted the lyric to feel inevitable rather than triumphant..."
+        "section-title": "Writing",
+        "body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur euismod, felis a feugiat tincidunt, dui mauris tincidunt purus. Phasellus nec elementum erat. Sed vel eros fermentum, laoreet risus at, volutpat lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Cras ac tortor nec velit ultricies ullamcorper. Integer eu orci vitae massa pharetra malesuada. Nam commodo nisi in magna dapibus fermentum."
       },
       {
-        "title": "Production",
-        "body": "Warm synth bed, mono bass to anchor, widening only on the drops..."
+        "section-title": "Production",
+        "body": "Suspendisse potenti. Nullam convallis, augue vitae aliquam pretium, justo neque fermentum urna, ut facilisis nulla massa vel mauris. Quisque ac risus ac velit accumsan fringilla. Aliquam erat volutpat. Mauris varius urna in lectus posuere viverra. Donec aliquet felis et diam tempor, nec egestas magna viverra. Curabitur tristique nunc in sodales egestas. Praesent lacinia, purus sed venenatis interdum, libero arcu accumsan libero, non tincidunt mauris justo eget erat."
       }
-    ],
-    "media": [
-      { "type": "image", "src": "assets/notes/bfm-session.jpg", "alt": "Session view" },
-      { "type": "audio", "src": "assets/notes/bfm-demo.mp3" }
+    ]
+  },
+  {
+    "slug": "imagination",
+    "title": "Imagination — Story & Process",
+    "blurb": "Praesent commodo cursus magna, vel scelerisque nisl consectetur. Aliquam nec vestibulum nisi.",
+    "sections": [
+      {
+        "section-title": "Writing",
+        "body": "Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum. Pellentesque tincidunt nunc a lectus pretium, at vulputate ipsum interdum. Etiam lacinia, felis ut porttitor mattis, lacus erat pulvinar mi, ut dapibus erat ipsum sit amet metus. Vivamus eget nibh vel ex facilisis accumsan. Vestibulum eget sem magna. Morbi id mauris eget eros congue aliquet at at eros. Aenean mattis nunc vitae felis consequat maximus."
+      },
+      {
+        "section-title": "Production",
+        "body": "Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Suspendisse potenti. Nam ullamcorper viverra erat, ut ullamcorper lectus commodo vel. Donec nec tincidunt lectus, ut pretium lectus. Morbi egestas nisl vitae nunc ullamcorper, non aliquet nisl tincidunt. Sed sit amet nibh dignissim, posuere lacus non, efficitur nulla. Pellentesque non ullamcorper nisl. Mauris at erat nec magna congue dapibus ac nec justo."
+      }
     ]
   },
   {
     "slug": "break-it-down",
-    "body": "<p>Kick off was a late-night loop. Chorus widens at 1:12...</p>"
+    "title": "Break It Down — Story & Process",
+    "blurb": "Cras mattis consectetur purus sit amet fermentum. Nulla vitae elit libero, a pharetra augue.",
+    "sections": [
+      {
+        "section-title": "Writing",
+        "body": "Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh. Nam ullamcorper, risus a iaculis pulvinar, leo turpis posuere erat, at posuere nisi mi ut magna. Sed blandit, sapien at aliquam iaculis, orci purus laoreet est, ac sollicitudin sapien lectus non nulla. Mauris feugiat nunc sed quam volutpat, sed suscipit nibh cursus. Donec ac viverra augue, ac fringilla magna. Integer non dui non sapien pretium varius."
+      },
+      {
+        "section-title": "Production",
+        "body": "Etiam porta sem malesuada magna mollis euismod. Nulla vitae elit libero, a pharetra augue. Cras mattis, justo et volutpat suscipit, orci justo congue lorem, id hendrerit orci nunc eget nulla. Integer sit amet volutpat lorem. Suspendisse potenti. Vestibulum convallis nibh id mi feugiat, vitae fermentum eros ultrices. Sed tincidunt finibus mi, non tincidunt mauris mattis et. Aenean laoreet sem sed sem pulvinar, nec gravida magna ultrices."
+      }
+    ]
+  },
+  {
+    "slug": "test",
+    "title": "Secret — Story & Process",
+    "blurb": "Vivamus sagittis lacus vel augue laoreet rutrum. Integer posuere erat a ante venenatis dapibus.",
+    "sections": [
+      {
+        "section-title": "Writing",
+        "body": "Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Vestibulum id viverra odio, nec sagittis erat. Proin tincidunt purus et sapien finibus, nec porttitor lectus cursus. Donec nec lacinia justo, in tincidunt eros. Pellentesque condimentum turpis sit amet nisl malesuada, nec fermentum nulla consequat. Fusce congue dignissim sapien, sed vehicula elit pretium nec. Ut ornare augue in tortor malesuada posuere. Suspendisse accumsan augue sed malesuada dapibus."
+      },
+      {
+        "section-title": "Production",
+        "body": "Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce fermentum felis sed mattis aliquam. Morbi faucibus quam ac magna consectetur, ac bibendum felis dictum. Sed ac risus orci. Proin nec nibh a sem cursus commodo vel nec orci. Quisque vulputate odio nec lacus efficitur, vitae congue sapien vestibulum. Integer nec lacinia sapien, eget tempor lorem. Mauris malesuada magna nec odio dapibus luctus."
+      }
+    ]
+  },
+  {
+    "slug": "born-for-more",
+    "title": "Born For More — Story & Process",
+    "blurb": "One of my favorite Albums. Donec ullamcorper nulla non metus auctor fringilla.",
+    "sections": [
+      {
+        "section-title": "Writing",
+        "body": "I wanted the lyric to feel inevitable rather than triumphant. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras mattis consectetur purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Sed posuere consectetur est at lobortis. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit."
+      },
+      {
+        "section-title": "Production",
+        "body": "Warm synth bed, mono bass to anchor, widening only on the drops. Suspendisse potenti, nam lacinia arcu quis velit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Etiam porta sem malesuada magna mollis euismod. Maecenas sed diam eget risus varius blandit sit amet non magna. Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et."
+      }
+    ]
   }
 ]

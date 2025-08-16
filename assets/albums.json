@@ -3,11 +3,7 @@
     "title": "Make Me Feel Alright",
     "releaseDate": "2024-03-16",
     "type": "album",
-    "link": "test",
-    "notes": [
-      "Short context paragraph…",
-      "Another paragraph…"
-    ]
+    "link": "test"
   },
   {
     "title": "Imagination",
@@ -23,9 +19,9 @@
     "latest": true
   },
   {
-    "title": "shhhh",
+    "title": "Test",
     "type": "album",
-    "releaseDate": "2025-08-07",
+    "releaseDate": "2025-08-20",
     "link": "..."
   },
   {

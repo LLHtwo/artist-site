@@ -11,17 +11,17 @@
   position: relative;
   z-index: 2;
 }
-.latest-release-header {
+.latest-release-header, .home-latest-release-header {
   font-size: 1.3rem;
   color: var(--muted);
   text-align: right;
 }
-.latest-release-content {
+.latest-release-content, .home-latest-release-content {
   display: flex;
   flex-direction: row;
   gap: 2rem;
 }
-.latest-release-cover {
+.latest-release-cover, .home-latest-release-cover {
   flex: 0 0 180px;
   display: flex;
   align-items: center;
@@ -40,14 +40,20 @@
   flex-direction: column;
   justify-content: center;
 }
-.release-title {
+.latest-release-info, .home-latest-release-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.release-title, .home-release-title {
   font-size: 2rem;
   font-weight: 800;
   color: #fff;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.release-title-row {
+.release-title-row, .home-release-title-row {
   display: flex;
   align-items: center;
   gap: 10px;

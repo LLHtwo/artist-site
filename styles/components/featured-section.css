@@ -1,5 +1,5 @@
 /* --- Featured Section (Rebuilt) --- */
-body.music-page .featured-card .featured-section {
+body.music-page .featured-card .featured-section, body.music-page .music-featured-card .music-featured-section {
   background: var(--card);
   border: 2px solid var(--accent);
   border-radius: 20px;
@@ -10,13 +10,13 @@ body.music-page .featured-card .featured-section {
   align-items: center;
   margin-bottom: 32px;
 }
-body.music-page .featured-card .featured-section-header-row {
+body.music-page .featured-card .featured-section-header-row, body.music-page .music-featured-card .music-featured-header-row {
   width: 100%;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 10px;
 }
-body.music-page .featured-card .featured-section-header {
+body.music-page .featured-card .featured-section-header, body.music-page .music-featured-card .music-featured-header {
   font-size: 1.15rem;
   color: var(--muted);
   font-weight: 700;
@@ -27,51 +27,51 @@ body.music-page .featured-card .featured-section-header {
   border-radius: 12px;
   box-shadow: 0 1px 6px rgba(125,211,252,0.08);
 }
-body.music-page .featured-card .featured-section-content {
+body.music-page .featured-card .featured-section-content, body.music-page .music-featured-card .music-featured-content {
   display: flex;
   flex-direction: row;
   gap: 32px;
   align-items: center;
   width: 100%;
 }
-body.music-page .featured-card .featured-section-art img {
+body.music-page .featured-card .featured-section-art img, body.music-page .music-featured-card .music-featured-art img {
   width: 160px;
   height: 160px;
   border-radius: 16px;
   object-fit: cover;
   box-shadow: 0 2px 16px rgba(0,0,0,0.25);
 }
-body.music-page .featured-card .featured-section-info {
+body.music-page .featured-card .featured-section-info, body.music-page .music-featured-card .music-featured-info {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-body.music-page .featured-card .featured-section-title {
+body.music-page .featured-card .featured-section-title, body.music-page .music-featured-card .music-featured-title {
   font-size: 2rem;
   font-weight: 800;
   margin: 0 0 8px 0;
   color: #fff;
 }
-body.music-page .featured-card .featured-section-meta {
+body.music-page .featured-card .featured-section-meta, body.music-page .music-featured-card .music-featured-meta {
   font-size: 1rem;
   color: var(--muted);
   margin-bottom: 2px;
 }
-body.music-page .featured-card .featured-section-tagline {
+body.music-page .featured-card .featured-section-tagline, body.music-page .music-featured-card .music-featured-tagline {
   margin-top: 2px;
   margin-bottom: 2px;
 }
-body.music-page .featured-card .featured-section-subtext {
+body.music-page .featured-card .featured-section-subtext, body.music-page .music-featured-card .music-featured-subtext {
   margin-top: 8px;
   margin-bottom: 10px;
   color: var(--muted);
   font-size: 1rem;
 }
-body.music-page .featured-card .featured-section-actions {
+body.music-page .featured-card .featured-section-actions, body.music-page .music-featured-card .music-featured-actions {
   margin-top: 8px;
 }
 @media (max-width: 700px) {
-  body.music-page .featured-card .featured-section-content {
+  body.music-page .featured-card .featured-section-content, body.music-page .music-featured-card .music-featured-content {
     flex-direction: column;
     gap: 18px;
     align-items: flex-start;
