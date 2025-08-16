@@ -476,19 +476,45 @@
   .notes-toc { position: static; }
 }
 
-/* --- Music page layout --- */
-body.music-page .hero { padding: 60px 0; }
-body.music-page .hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 32px; }
-body.music-page .hero-art img { width: 300px; height: 300px; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
-body.music-page .hero-info { max-width: 500px; }
-body.music-page .hero-title { font-size: clamp(32px,6vw,64px); margin: 0; }
-body.music-page .hero-meta { color: var(--muted); margin: 8px 0; }
-body.music-page .hero-tagline { margin: 8px 0 24px; }
-body.music-page .hero-actions .btn { font-size: 18px; padding: 12px 24px; }
-@media (min-width:768px){
-  body.music-page .hero-content{ flex-direction: row; text-align: left; }
-  body.music-page .hero-info{ text-align: left; }
+/* --- Music page: truly compact hero + unified bg --- */
+body.music-page .hero.hero--compact {
+  min-height: auto;                 /* stop the 100vh hero */
+  background: var(--bg);            /* same as the page bg */
+  padding-block: 28px;              /* regular section spacing */
+  border-bottom: 1px solid #1e2028; /* subtle divider (optional) */
+  display: block;
 }
+
+/* Layout of the small featured row */
+body.music-page .hero.hero--compact .hero-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Expecting JS to inject: .hero-content.hero-small with art + copy */
+body.music-page .hero.hero--compact #featured .hero-content.hero-small {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Artwork size */
+body.music-page .hero.hero--compact #featured .hero-small .hero-art img {
+  width: 160px;
+  height: 160px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+
+/* Title + tiny descri*
+
+
+/* Optional: if that empty spacer is creating odd widths, hide it on compact */
+body.music-page .hero.hero--compact .hero-spacer { display: none; }
+
+
 
 body.music-page .discography-grid { display: grid; gap: 24px; }
 @media (max-width:639px){ body.music-page .discography-grid { grid-template-columns: 1fr; } }

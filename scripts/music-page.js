@@ -46,17 +46,20 @@
       return;
     }
 
-    const hero = el('div', { class: 'hero-content' });
-    const art = el('div', { class: 'hero-art' });
-    art.appendChild(el('img', { src: a.cover, alt: `${a.title} cover` }));
-    const info = el('div', { class: 'hero-info' });
+    // Smaller, right-sided hero layout
+    const hero = el('div', { class: 'hero-content hero-small' });
+    // Info on left
+    const info = el('div', { class: 'hero-info hero-info-left' });
     info.innerHTML = `
       <h1 class="hero-title">${a.title}</h1>
       <p class="hero-meta">${capitalize(a.type)}${a.releaseDate ? ' • ' + a.releaseDate : ''}</p>
       ${a.notes[0] ? `<p class="hero-tagline">${escapeHTML(a.notes[0])}</p>` : ''}
       <div class="hero-actions"><a class="btn btn-primary listen-btn" href="${a.link}" target="_blank" rel="noopener">Listen</a></div>
     `;
-    hero.append(art, info);
+    // Art on right
+    const art = el('div', { class: 'hero-art hero-art-right' });
+    art.appendChild(el('img', { src: a.cover, alt: `${a.title} cover` }));
+    hero.append(info, art);
 
     hero.addEventListener('click', ev => {
       if (ev.target.closest('a')) return;
