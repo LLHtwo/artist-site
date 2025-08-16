@@ -1,8 +1,0 @@
-.navlink{padding:8px 12px; border-radius:12px; background:#141418; color:#dde1ee}
-.navlink:hover{background:#191a20}
-.btn{padding:8px 12px; border-radius:12px; background:#20222c; color:#e7eaf7}
-.btn:hover{background:#262938}
-.btn-secondary{background:#18181b; color:#a6aab7; border:1px solid #23232a; font-weight:500; opacity:0.85}
-.btn-secondary:hover{background:#23232a; color:#dde1ee; opacity:1}
-.btn-primary{background:var(--accent); color:#0f0f12; font-weight:600}
-.btn-primary:hover{background:#a0e8ff}
