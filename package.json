@@ -1,0 +1,13 @@
+{
+  "name": "artist-site",
+  "version": "1.0.0",
+  "description": "This project is a personal website showcasing my work as an artist. It includes sections for albums, a featured release, and links to social platforms.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,4 +1,5 @@
 import { slugify } from './utils.js';
+import { albumCard } from './components/album-card.js';
 
 const ALBUMS_URL = 'assets/albums.json';
 
@@ -75,21 +76,12 @@ function renderDiscography(root, albums){
   root.innerHTML = '';
   for (const a of albums){
     const card = albumCard(a);
+    card.tabIndex = 0;
+    card.classList.add('album-card');
+    card.addEventListener('click', () => openModal(a));
+    card.addEventListener('keydown', e => { if (e.key === 'Enter') openModal(a); });
     root.appendChild(card);
   }
-}
-
-function albumCard(a){
-  const card = el('article', { class: 'album-card', tabindex: '0' });
-  card.innerHTML = `
-    <img class="album-cover" src="${a.cover}" alt="${a.title} cover">
-    <h3 class="album-title">${a.title}</h3>
-    <p class="album-meta">${capitalize(a.type)}${a.releaseDate ? ' • ' + a.releaseDate : ''}</p>
-    ${a.notes[0] ? `<p class="album-blurb">${escapeHTML(a.notes[0])}</p>` : ''}
-  `;
-  card.addEventListener('click', () => openModal(a));
-  card.addEventListener('keydown', e => { if (e.key === 'Enter') openModal(a); });
-  return card;
 }
 
 function openModal(album){

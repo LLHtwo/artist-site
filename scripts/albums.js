@@ -2,6 +2,7 @@
 
 import { CONFIG } from './config.js';
 import { $, slugify, isFuture, formatFancyDate, fetchJSON } from './utils.js';
+import { albumCard } from './components/album-card.js';
 
 let albumsCache;
 async function getAlbums() {
@@ -28,40 +29,6 @@ export async function resolveCover(album) {
   return CONFIG.defaultCover;
 }
 
-// Build markup for a single album card.
-function albumCardHTML(a, { highlight = false } = {}) {
-  const isSingle = a.type === 'single';
-  const future = isFuture(a.releaseDate);
-  const dateDisplay = formatFancyDate(a.releaseDate);
-  const badge = isSingle ? `<span class="badge badge-single">Single</span>` : '';
-  const cardClass = [
-    'album',
-    isSingle ? 'single' : '',
-    highlight ? 'highlight' : '',
-    future ? 'upcoming' : ''
-  ].filter(Boolean).join(' ');
-
-  const linkBtn = a.link ? `<a class="btn" href="${a.link}" target="_blank" rel="noopener">Listen</a>` : '';
-  const spotifyBtn = a.spotify ? `<a class="btn" href="${a.spotify}" target="_blank" rel="noopener">Spotify</a>` : '';
-  const appleBtn = a.apple ? `<a class="btn" href="${a.apple}" target="_blank" rel="noopener">Apple</a>` : '';
-
-  return `
-    <article class="${cardClass}" role="listitem">
-      <img class="cover" src="${a.cover}" alt="Cover of ${a.title}" loading="lazy"
-           onerror="this.onerror=null;this.src='${CONFIG.defaultCover}';" />
-      <div class="meta">
-        <div class="title">${a.title} ${badge}</div>
-        <div class="date">${dateDisplay}</div>
-        <div class="buttons">
-          ${linkBtn}
-          ${spotifyBtn}
-          ${appleBtn}
-        </div>
-      </div>
-    </article>
-  `;
-}
-
 // Render the albums listing and newest release section.
 export async function loadAndRenderAlbums() {
   const target = $('#albums');
@@ -78,19 +45,19 @@ export async function loadAndRenderAlbums() {
       html += `
         <section class="newest-release" aria-label="Upcoming Releases">
           <h3 class="newest-title">Upcoming Releases</h3>
-          ${upcoming.map(a => albumCardHTML(a, { highlight: true })).join('')}
+          ${upcoming.map(a => albumCard(a, { highlight: true }).outerHTML).join('')}
         </section>
       `;
     } else if (released.length > 0) {
       html += `
         <section class="newest-release" aria-label="Newest Release">
           <h3 class="newest-title">Newest Release</h3>
-          ${albumCardHTML(released[0], { highlight: true })}
+          ${albumCard(released[0], { highlight: true }).outerHTML}
         </section>
       `;
       finalReleased.shift();
     }
-    html += finalReleased.map(a => albumCardHTML(a)).join('');
+    html += finalReleased.map(a => albumCard(a).outerHTML).join('');
     target.innerHTML = html;
   } catch (err) {
     console.error('Failed to load albums:', err);
