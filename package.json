@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "build:css": "node scripts/build-css.js",
+    "build": "npm run build:css"
   },
   "keywords": [],
   "author": "",
