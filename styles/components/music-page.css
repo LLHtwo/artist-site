@@ -17,12 +17,6 @@ body.music-page .hero.hero--compact .hero-container {
   max-width: 100vw;
 }
 
-#hero {
-  background: none !important;
-  background-image: none !important;
-}
-
-
 /* Center whatever JS injects into #featured */
 #featured {
   display: flex;

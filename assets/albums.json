@@ -22,7 +22,8 @@
     "title": "Test",
     "type": "album",
     "releaseDate": "2025-08-20",
-    "link": "..."
+    "link": "...",
+    "hidden": true
   },
   {
     "title": "Born For More",
