@@ -1,14 +1,27 @@
 // scripts/main.js
 
 import { setCopyrightYear, getAverageColor } from './utils.js';
-import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum } from './albums.js';
+import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum, renderMusicPage } from './albums.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Basic page setup and album list
+  // Basic page setup
   setCopyrightYear();
-  loadAndRenderAlbums();
 
-  // Dynamically tint the hero section with the average color of the featured cover
+  // Decide which albums renderer to use
+  const isMusicPage =
+    window.location.pathname.endsWith('/music.html') ||
+    document.getElementById('music-heading') ||      // fallback: element check
+    document.getElementById('discography-grid');     // future-proof
+
+  if (isMusicPage) {
+    // New unified Featured + Discography + Notes experience
+    renderMusicPage();
+  } else {
+    // Old list renderer (does nothing if #albums isn't present)
+    loadAndRenderAlbums();
+  }
+
+  // Dynamically tint the hero section with the average color of the featured cover (home only; no-ops elsewhere)
   const featuredImg = document.getElementById('featured-cover');
   const heroSection = document.querySelector('.hero');
   if (featuredImg && heroSection) {
@@ -19,8 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (featuredImg.complete) applyColor();
   }
 
-  // Load album-specific sections
+  // Home page widgets (safe to call; they return early if the elements don't exist)
   loadFeaturedAlbum();
   loadLatestReleaseAlbum();
 });
-

@@ -1,0 +1,27 @@
+[
+  {
+    "slug": "born-for-more",
+    "title": "Born For More — Story & Process",
+    "updatedAt": "2025-08-14",
+    "quote": "We recorded the hook at 2am with the city humming outside.",
+    "body": "This track started as a voice memo...\n\nVerse guitars were DI with a gentle chorus...",
+    "sections": [
+      {
+        "title": "Writing",
+        "body": "I wanted the lyric to feel inevitable rather than triumphant..."
+      },
+      {
+        "title": "Production",
+        "body": "Warm synth bed, mono bass to anchor, widening only on the drops..."
+      }
+    ],
+    "media": [
+      { "type": "image", "src": "assets/notes/bfm-session.jpg", "alt": "Session view" },
+      { "type": "audio", "src": "assets/notes/bfm-demo.mp3" }
+    ]
+  },
+  {
+    "slug": "break-it-down",
+    "body": "<p>Kick off was a late-night loop. Chorus widens at 1:12...</p>"
+  }
+]

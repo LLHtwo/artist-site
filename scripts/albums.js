@@ -115,7 +115,7 @@ export async function loadFeaturedAlbum() {
     coverEl.alt = `Cover of ${featured.title}`;
     const upcoming = isFuture(featured.releaseDate);
     labelEl.textContent = upcoming ? 'Upcoming' : 'Latest Release';
-    titleEl.textContent = `“${featured.title}”`;
+    titleEl.textContent = featured.title;
     if (subtextEl) {
       const type = featured.type ? featured.type.charAt(0).toUpperCase() + featured.type.slice(1) : '';
       subtextEl.textContent = type;
@@ -160,3 +160,172 @@ export async function loadLatestReleaseAlbum() {
   }
 }
 
+// ------------------------
+// Music page: unified render
+// ------------------------
+export async function renderMusicPage() {
+  const mount = $('#albums');
+  if (!mount) return;
+
+  try {
+    const items = await getAlbums();
+    const withCovers = await Promise.all(items.map(async a => ({ ...a, cover: await resolveCover(a) })));
+
+    // Sort newest first for convenience
+    const sorted = withCovers.slice().sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+
+    // Featured pick: prefer any upcoming; else explicit .featured; else latest released
+    const upcoming = sorted.filter(a => isFuture(a.releaseDate));
+    const released = sorted.filter(a => !isFuture(a.releaseDate));
+    const featuredPick = upcoming[0] || sorted.find(a => a.featured) || released[0] || sorted[0];
+
+    // Build sections
+    const featuredHTML = featuredPick ? sectionFeaturedHTML(featuredPick) : '';
+    const toolbarHTML = toolbarFiltersHTML();
+    const gridHTML = sectionGridHTML(sorted);
+    const notesHTML = sectionNotesHTML(sorted);
+
+    mount.innerHTML = `
+      ${featuredHTML}
+      ${toolbarHTML}
+      ${gridHTML}
+      ${notesHTML}
+    `;
+
+    // Hook up filters
+    wireUpFilters();
+  } catch (err) {
+    console.error('renderMusicPage failed:', err);
+    mount.innerHTML = `<div class="muted">Couldn’t load albums right now. Please try again later.</div>`;
+  }
+}
+
+// ------------------------
+// Section templates
+// ------------------------
+function sectionFeaturedHTML(a) {
+  const future = isFuture(a.releaseDate);
+  const dateDisplay = formatFancyDate(a.releaseDate);
+  const typeLabel = a.type ? a.type.charAt(0).toUpperCase() + a.type.slice(1) : 'Release';
+
+  const spotifyBtn = a.spotify ? `<a class="btn" href="${a.spotify}" target="_blank" rel="noopener">Spotify</a>` : '';
+  const appleBtn   = a.apple   ? `<a class="btn" href="${a.apple}"   target="_blank" rel="noopener">Apple</a>`   : '';
+  const linkBtn    = a.link    ? `<a class="btn" href="${a.link}"    target="_blank" rel="noopener">Listen</a>`  : '';
+
+  // Uses your existing card styles: .newest-release + .album.highlight
+  return `
+    <section class="newest-release" aria-label="Featured Release">
+      <h3 class="newest-title">${future ? 'Upcoming' : 'Featured'}</h3>
+      <article class="album highlight ${future ? 'upcoming' : ''}">
+        <img class="cover" src="${a.cover}" alt="Cover of ${a.title}" loading="eager"
+             onerror="this.onerror=null;this.src='${CONFIG.defaultCover}';" />
+        <div class="meta">
+          <div class="title">
+            ${a.title}
+            ${a.type === 'single' ? '<span class="badge badge-single">Single</span>' : ''}
+          </div>
+          <div class="year">${typeLabel} • ${dateDisplay}</div>
+          <div class="actions">
+            ${spotifyBtn}${appleBtn}${linkBtn}
+          </div>
+        </div>
+      </article>
+    </section>
+  `;
+}
+
+function toolbarFiltersHTML() {
+  // Uses your chip look & feel from .btn/.chip classes; no extra CSS required
+  return `
+    <section class="section" aria-label="Discography controls">
+      <div class="actions" role="group" aria-label="Filters">
+        <button class="btn" data-filter="all" aria-pressed="true">All</button>
+        <button class="btn" data-filter="album" aria-pressed="false">Albums</button>
+        <button class="btn" data-filter="ep" aria-pressed="false">EPs</button>
+        <button class="btn" data-filter="single" aria-pressed="false">Singles</button>
+        <button class="btn" data-filter="feature" aria-pressed="false">Features</button>
+      </div>
+    </section>
+  `;
+}
+
+function sectionGridHTML(list) {
+  // Reuse your grid + card styles (.grid .album etc.)
+  const cards = list.map(a => {
+    const future = isFuture(a.releaseDate);
+    const dateDisplay = formatFancyDate(a.releaseDate);
+    const isSingle = a.type === 'single';
+    const badge = isSingle ? `<span class="badge badge-single">Single</span>` : '';
+
+    const spotifyBtn = a.spotify ? `<a class="btn" href="${a.spotify}" target="_blank" rel="noopener">Spotify</a>` : '';
+    const appleBtn   = a.apple   ? `<a class="btn" href="${a.apple}"   target="_blank" rel="noopener">Apple</a>`   : '';
+    const linkBtn    = a.link    ? `<a class="btn" href="${a.link}"    target="_blank" rel="noopener">Listen</a>`  : '';
+
+    return `
+      <article class="album ${future ? 'upcoming' : ''}" role="listitem"
+               data-type="${a.type || 'album'}" data-year="${(a.releaseDate || '').slice(0,4)}">
+        <img class="cover" src="${a.cover}" alt="Cover of ${a.title}" loading="lazy"
+             onerror="this.onerror=null;this.src='${CONFIG.defaultCover}';" />
+        <div class="meta">
+          <div class="title">${a.title} ${badge}</div>
+          <div class="year">${dateDisplay}</div>
+          <div class="actions">
+            ${spotifyBtn}${appleBtn}${linkBtn}
+            <a class="btn" href="#note-${slugify(a.title)}">About</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join('');
+
+  return `
+    <section class="section" aria-labelledby="discog-heading">
+      <h2 id="discog-heading" class="section-title">Discography</h2>
+      <div id="discography-grid" class="grid" aria-live="polite">${cards}</div>
+    </section>
+  `;
+}
+
+function sectionNotesHTML(list) {
+  const notes = list.map(a => {
+    const noteText = a.notes || a.about || a.longDescription || a.description || '';
+    const typeLabel = a.type ? a.type.charAt(0).toUpperCase() + a.type.slice(1) : 'Release';
+    const dateDisplay = formatFancyDate(a.releaseDate);
+    return `
+      <details id="note-${slugify(a.title)}" class="album-note">
+        <summary>
+          <strong>${a.title}</strong>
+          <span class="year" style="margin-left:8px; color:var(--muted)">${typeLabel} • ${dateDisplay}</span>
+        </summary>
+        ${noteText ? `<p style="margin-top:8px">${noteText}</p>` : `<p style="margin-top:8px; color:var(--muted)">No notes yet.</p>`}
+      </details>
+    `;
+  }).join('');
+
+  return `
+    <section class="section" aria-labelledby="notes-heading">
+      <h2 id="notes-heading" class="section-title">Album notes</h2>
+      <div id="album-notes">${notes}</div>
+    </section>
+  `;
+}
+
+// ------------------------
+// Filters
+// ------------------------
+function wireUpFilters() {
+  const grid = $('#discography-grid');
+  if (!grid) return;
+  const buttons = document.querySelectorAll('[data-filter]');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => b.setAttribute('aria-pressed', 'false'));
+      btn.setAttribute('aria-pressed', 'true');
+      const f = btn.dataset.filter;
+      [...grid.children].forEach(card => {
+        const type = (card.getAttribute('data-type') || 'album').toLowerCase();
+        card.style.display = (f === 'all' || f === type) ? '' : 'none';
+      });
+    });
+  });
+}
