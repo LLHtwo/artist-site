@@ -12,7 +12,7 @@
   <!-- Hint the browser that we'll fetch the JSON for this page -->
   <link rel="preload" as="fetch" href="assets/albums.json" crossorigin="anonymous" />
 </head>
-<body>
+<body class="music-page">
   <!-- Top nav identical to index.html -->
   <header class="header" role="banner">
     <div class="container">
@@ -28,53 +28,41 @@
   </header>
 
   <main id="main" class="main" tabindex="-1">
-  <section class="section" aria-labelledby="music-heading">
-    <div class="container">
-      <h1 id="music-heading" class="section-title">Music</h1>
-      <p class="muted">
-        Featured & upcoming first, then the full discography. Notes are at the end.
-        Populated from <code>assets/albums.json</code>.
-      </p>
-    </div>
-  </section>
+    <!-- Featured hero -->
+    <section id="hero" class="hero" aria-labelledby="featured-heading">
+      <div class="container" id="featured" aria-live="polite"></div>
+    </section>
 
-  <!-- 1) Featured / Upcoming -->
-  <section class="section" aria-labelledby="featured-heading">
-    <div class="container">
-      <h2 id="featured-heading" class="section-title">Featured / Upcoming</h2>
-      <div id="featured" class="grid" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- 2) Discography -->
-  <section class="section" aria-labelledby="discog-heading">
-    <div class="container">
-      <h2 id="discog-heading" class="section-title">Discography</h2>
-      <div id="discography" class="grid" aria-live="polite"></div>
-    </div>
-  </section>
-
-  <!-- 3) Notes (separate, scrollable, linkable) -->
-  <section class="section" aria-labelledby="notes-heading">
-    <div class="container">
-      <h2 id="notes-heading" class="section-title">Notes</h2>
-      <div id="notes" class="notes" aria-live="polite">
-        <!-- JS will inject a list of <article> blocks like:
-        <article class="note" id="note-<slug>">
-          <h3 class="note-title">Title <small class="note-meta">(<time datetime="YYYY-MM-DD">YYYY</time> · Album)</small></h3>
-          <div class="note-body"><p>…</p></div>
-        </article>
-        -->
+    <!-- Discography grid -->
+    <section class="section" aria-labelledby="discog-heading">
+      <div class="container">
+        <h2 id="discog-heading" class="section-title">Discography</h2>
+        <div id="discography" class="discography-grid" aria-live="polite"></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <noscript>
-    <div class="container">
-      <p class="muted">JavaScript is disabled, so releases can’t be loaded. Enable JavaScript to see the discography.</p>
-    </div>
-  </noscript>
-</main>
+    <!-- Closing call-to-action -->
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <p class="cta-text">Follow on Spotify for new releases.</p>
+        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Follow on Spotify</a>
+        <div class="cta-socials">
+          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+          <a href="#" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
+          <a href="#" aria-label="Twitter" target="_blank" rel="noopener">TW</a>
+        </div>
+      </div>
+    </section>
+
+    <noscript>
+      <div class="container">
+        <p class="muted">JavaScript is disabled, so releases can’t be loaded. Enable JavaScript to see the discography.</p>
+      </div>
+    </noscript>
+  </main>
+
+  <!-- Floating album modal -->
+  <div id="album-modal" class="modal hidden" aria-hidden="true"></div>
 
 
   <footer class="footer" role="contentinfo">
@@ -103,8 +91,8 @@
     </div>
   </footer>
 
-  <!-- Page script: detects this is the music page and calls renderMusicPage(),
-       which reads assets/albums.json via CONFIG.jsonPath and builds the layout. -->
+    <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
+         discography grid and modal from assets/albums.json. -->
   <script type="module" src="scripts/main.js"></script>
   <script type="module" src="scripts/music-page.js"></script>
 </body>

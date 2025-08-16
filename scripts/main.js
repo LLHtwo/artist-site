@@ -1,22 +1,16 @@
 // scripts/main.js
 
 import { setCopyrightYear, getAverageColor } from './utils.js';
-import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum, renderMusicPage } from './albums.js';
+import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum } from './albums.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Basic page setup
   setCopyrightYear();
 
   // Decide which albums renderer to use
-  const isMusicPage =
-    window.location.pathname.endsWith('/music.html') ||
-    document.getElementById('music-heading') ||      // fallback: element check
-    document.getElementById('discography-grid');     // future-proof
+  const isMusicPage = document.body.classList.contains('music-page');
 
-  if (isMusicPage) {
-    // New unified Featured + Discography + Notes experience
-    renderMusicPage();
-  } else {
+  if (!isMusicPage) {
     // Old list renderer (does nothing if #albums isn't present)
     loadAndRenderAlbums();
   }
