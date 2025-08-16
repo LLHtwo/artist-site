@@ -32,7 +32,7 @@
     <!-- Featured hero (compact) -->
     <section id="hero" class="hero hero--compact music-hero" aria-labelledby="featured-heading">
       <div class="container hero-container music-hero-container">
-        <article id="featured" class="featured-card music-featured-card" aria-live="polite">
+        <article id="featured" class="featured-card music-featured-card" aria-live="polite" data-default-no-featured="No featured release.">
           <div class="featured-section music-featured-section">
             <div class="featured-section-header-row music-featured-header-row">
               <span class="featured-section-header music-featured-header">Featured</span>
@@ -43,8 +43,8 @@
               <div class="featured-section-info music-featured-info">
                 <h2 id="featured-title" class="featured-section-title music-featured-title"></h2>
                 <p id="featured-meta" class="featured-section-meta music-featured-meta"></p>
-                <p id="featured-tagline" class="featured-section-tagline music-featured-tagline" hidden></p>
-                <p class="featured-section-subtext music-featured-subtext">
+                <p id="featured-tagline" class="featured-section-tagline music-featured-tagline" hidden data-default=""></p>
+                <p class="featured-section-subtext music-featured-subtext" data-default="This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.">
                   This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.
                 </p>
                 <div class="featured-section-actions music-featured-actions">
@@ -67,7 +67,7 @@
     <!-- Discography grid -->
     <section class="section" aria-labelledby="discog-heading">
       <div class="container">
-        <h2 id="discog-heading" class="section-title">Discography</h2>
+  <h2 id="discog-heading" class="section-title" data-default="Discography">Discography</h2>
         <div id="discography" class="discography-grid" aria-live="polite"></div>
       </div>
     </section>
@@ -75,8 +75,8 @@
     <!-- Closing call-to-action -->
     <section class="cta-section">
       <div class="container cta-inner">
-        <p class="cta-text">Follow on Spotify for new releases.</p>
-        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Follow on Spotify</a>
+  <p class="cta-text" data-default="Follow on Spotify for new releases.">Follow on Spotify for new releases.</p>
+  <a class="btn btn-primary" href="#" target="_blank" rel="noopener" data-label="Follow on Spotify">Follow on Spotify</a>
         <div class="cta-socials">
           <a href="#" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
           <a href="#" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
@@ -124,6 +124,6 @@
 
     <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
          discography grid and modal from assets/albums.json. -->
-  <script type="module" src="scripts/all.js"></script>
+  <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
