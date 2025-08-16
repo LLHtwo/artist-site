@@ -1,7 +1,7 @@
 // scripts/main.js
 
 import { setCopyrightYear, getAverageColor } from './utils.js';
-import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum } from './albums.js';
+import { loadAndRenderAlbums, loadFeaturedAlbum, loadLatestReleaseAlbum } from './home-page.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Basic page setup
