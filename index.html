@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -13,8 +14,9 @@
   <meta property="og:image" content="https://llhmusic.com/assets/cover.jpg" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/home.css" />
 </head>
+
 <body>
   <header class="header" role="banner">
     <div class="container">
@@ -30,20 +32,23 @@
   </header>
 
   <main id="main" class="main" tabindex="-1">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="container hero-wrapper">
-        <div class="hero-main">
-          <img class="hero-photo" src="assets/LLH.webp" alt="LLH performing" />
+    <section class="hero home-hero" aria-labelledby="hero-title">
+      <div class="container hero-wrapper home-hero-wrapper">
+        <div class="hero-main home-hero-main">
+          <img class="hero-photo home-hero-photo" src="assets/LLH.webp" alt="LLH performing" />
           <h1 id="hero-title" class="hero-title">LLH</h1>
-          <p class="hero-tagline">Dreamy textures, cinematic arcs, and rap-adjacent energy.</p>
-          <a id="listen-btn" class="btn btn-primary listen-btn" href="#" target="_blank" rel="noopener">Listen Now</a>
+          <p class="hero-tagline home-hero-tagline">Not one genre, but a constellation of them. Music as infinite and unpredictable as the night sky.</p>
+          <a id="listen-btn" class="btn btn-primary listen-btn home-listen-btn" href="music.html" rel="noopener"
+            data-label="Listen Now">Listen Now</a>
         </div>
-        <div class="hero-featured">
-          <img id="featured-cover" class="featured-cover" src="assets/covers/cover-default.webp" alt="Featured cover" />
-          <div class="featured-info">
-            <p id="featured-label" class="featured-label">Upcoming</p>
-            <h2 id="featured-title" class="featured-title">Born for More</h2>
-            <p id="featured-subtext" class="featured-subtext">Album</p>
+        <div class="hero-featured home-hero-featured">
+          <img id="featured-cover" class="featured-cover home-featured-cover" src="assets/covers/cover-default.webp"
+            alt="Featured cover" />
+          <div class="featured-info home-featured-info">
+            <p id="featured-label" class="featured-label home-featured-label" data-default="Upcoming">Upcoming</p>
+            <h2 id="featured-title" class="featured-title home-featured-title" data-default="Born for More">Born for
+              More</h2>
+            <p id="featured-subtext" class="featured-subtext home-featured-subtext" data-default="Album">Album</p>
           </div>
         </div>
       </div>
@@ -51,28 +56,33 @@
 
     <section class="featured-release" aria-labelledby="release-heading">
       <div class="container release-inner">
-        <div class="latest-release-card">
-          <div class="latest-release-header">LATEST RELEASE</div>
-          <div class="latest-release-content">
-            <div class="latest-release-cover">
+        <div class="latest-release-card home-latest-release-card">
+          <div class="latest-release-header home-latest-release-header" data-default="LATEST RELEASE">LATEST RELEASE
+          </div>
+          <div class="latest-release-content home-latest-release-content">
+            <div class="latest-release-cover home-latest-release-cover">
               <img id="latest-release-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
             </div>
-            <div class="latest-release-info">
-              <div class="release-title-row">
+            <div class="latest-release-info home-latest-release-info">
+              <div class="release-title-row home-release-title-row">
                 <h2 id="release-heading" class="release-title"></h2>
                 <span id="latest-badge"></span>
               </div>
-              <p id="release-description"></p>
+              <p id="release-description"
+                data-default="An addictive, loop-driven house track — hypnotic energy built for summer nights."></p>
               <div class="stream-buttons">
-                <a class="btn stream-btn" href="https://open.spotify.com/intl-de/album/2K02LBW3C9noNMMPXXKYNa" target="_blank" rel="noopener" aria-label="Spotify">
+                <a class="btn stream-btn" href="https://open.spotify.com/intl-de/album/2K02LBW3C9noNMMPXXKYNa"
+                  target="_blank" rel="noopener" aria-label="Spotify">
                   <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
                   Spotify
                 </a>
-                <a class="btn stream-btn" href="https://music.apple.com/de/album/1802276801" target="_blank" rel="noopener" aria-label="Apple Music">
+                <a class="btn stream-btn" href="https://music.apple.com/de/album/1802276801" target="_blank"
+                  rel="noopener" aria-label="Apple Music">
                   <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
                   Apple Music
                 </a>
-                <a class="btn stream-btn" href="https://youtu.be/tABgHAZtYCo" target="_blank" rel="noopener" aria-label="YouTube">
+                <a class="btn stream-btn" href="https://youtu.be/tABgHAZtYCo" target="_blank" rel="noopener"
+                  aria-label="YouTube">
                   <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
                   YouTube
                 </a>
@@ -83,54 +93,48 @@
       </div>
     </section>
 
-    <section class="social-links" aria-labelledby="social-heading">
-      <div class="container">
-        <h2 id="social-heading" class="section-title">Follow Me</h2>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-              <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
-            </a>
-          <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-              <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
-            </a>
-            <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-              <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
-            </a>
-            <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener" aria-label="Spotify">
-              <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
-            </a>
-            <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener" aria-label="Apple Music">
-              <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
-            </a>
-        </div>
-      </div>
-    </section>
-
     <section id="about" class="section about-short" aria-labelledby="about-heading">
       <div class="container">
-        <h2 id="about-heading" class="section-title">About Me</h2>
-        <p class="muted">LLH is a 20-year-old artist and producer from Germany. He blends electronic textures with rap sensibilities and cinematic arcs to craft immersive soundscapes.</p>
+        <h2 id="about-heading" class="section-title" data-default="About Me">About Me</h2>
+        <p class="muted">
+          LLH is a German artist and producer whose music lives between genres, shifting from rap and electronic to cinematic soundscapes. What started with piano lessons and choir solos evolved into self-produced projects that explore both storytelling and raw emotion. With influences ranging from Kanye West to Grimes and even Rammstein, LLH blends worlds that usually don’t meet, creating something unique, personal, and unpredictable.
+        </p>
       </div>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo">
+  <section class="social-links" aria-labelledby="social-heading">
     <div class="container">
-      <p>© <span id="year"></span> LLH — All rights reserved. <a href="mailto:contact@example.com">contact@example.com</a></p>
-      <div class="footer-social">
-        <a href="#" target="_blank" rel="noopener" aria-label="Spotify">
-          <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
-        </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
           <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
         </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
+        <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
+          <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+        </a>
+        <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
           <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
         </a>
+        <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
+          aria-label="Spotify">
+          <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+        </a>
+        <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
+          aria-label="Apple Music">
+          <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+        </a>
       </div>
+    </div>
+  </section>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <p>© <span id="year"></span> LLH — All rights reserved. <a
+          href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
     </div>
   </footer>
 
   <script type="module" src="scripts/main.js"></script>
 </body>
+
 </html>

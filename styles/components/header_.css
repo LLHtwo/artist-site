@@ -1,0 +1,52 @@
+/* components/header.css
+   Shared header / nav highlight used across the whole site.
+   This brings the 'music page' header look (sticky, subtle highlight,
+   backdrop blur, thin border) to all pages that import styles/styles.css.
+   I think this is unnecessary duplication of styles.
+*/
+/* Use the same CSS variables from layout.css (:root) */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  transition: background .14s ease, box-shadow .18s ease, border-color .12s ease;
+}
+
+.header--transparent {
+  /* variant for pages that want the header visually transparent */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: none;
+}
+
+.header.scrolled,
+.header.header--elevated {
+  /* optional elevated state (toggle via JS on scroll) */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+
+/* keep the container spacing consistent when header is sticky */
+.header .container {
+  padding-block: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px
+}
+
+/* small touch target improvement for links inside the header */
+.header .navlink {
+  padding: 8px 12px
+}
+
+/* When a page wants the original music-page solid background, use this helper */
+.header--solid {
+  background: var(--bg);
+  border-bottom: 1px solid #1e2028
+}

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,13 +9,14 @@
   <meta name="theme-color" content="#0f0f12" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-  <link rel="stylesheet" href="styles/styles.css" />
+  <link rel="stylesheet" href="styles/music.css" />
   <!-- Hint the browser that we'll fetch the JSON for this page -->
   <link rel="preload" as="fetch" href="assets/albums.json" crossorigin="anonymous" />
 </head>
+
 <body class="music-page">
   <!-- Top nav identical to index.html -->
-  <header class="header" role="banner">
+  <header class="header header--solid" role="banner">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Home">
         <span class="brand-name">LLH</span>
@@ -30,31 +32,29 @@
   <main id="main" class="main" tabindex="-1">
     <!-- Featured hero (smaller, right-sided) -->
     <!-- Featured hero (compact) -->
-    <section id="hero" class="hero hero--compact" aria-labelledby="featured-heading">
-      <div class="container hero-container">
-        <article id="featured" class="featured-card" aria-live="polite">
-          <div class="featured-section">
-            <div class="featured-section-header-row">
-              <span class="featured-section-header">Featured</span>
-            </div>
+    <section id="hero" class="hero hero--compact music-hero" aria-labelledby="featured-heading">
+      <div class="container hero-container music-hero-container">
+        <article id="featured" class="featured-card music-featured-card" aria-live="polite"
+          data-default-no-featured="No featured release.">
+          <div class="featured-section music-featured-section">
 
-            <div class="featured-section-content">
+            <div class="featured-section-content music-featured-content">
+              <div class="featured-section-header-row music-featured-header-row">
+                <span class="featured-section-header music-featured-header">Featured</span>
+              </div>
               <!-- INFO (left) -->
-              <div class="featured-section-info">
-                <h2 id="featured-title" class="featured-section-title"></h2>
-                <p id="featured-meta" class="featured-section-meta"></p>
-                <p id="featured-tagline" class="featured-section-tagline" hidden></p>
-                <p class="featured-section-subtext">
-                  This is some blind text for the featured album subtext. You can replace it with any description or info you want to highlight here.
+              <div class="featured-section-info music-featured-info">
+                <h2 id="featured-title" class="featured-section-title music-featured-title"></h2>
+                <p id="featured-meta" class="featured-section-meta music-featured-meta"></p>
+                <p id="featured-tagline" class="featured-section-tagline music-featured-tagline" hidden data-default="">
                 </p>
-                <div class="featured-section-actions">
-                  <a id="featured-link" class="btn btn-primary listen-btn" href="#" target="_blank" rel="noopener">Listen</a>
+                <p class="featured-section-subtext music-featured-subtext"
+                  data-default="If you're seeing this, something went wrong. Or the page hasn't loaded yet. Give it a moment.">
+                  If you're seeing this, something went wrong. Or the page hasn't loaded yet. Give it a moment.
+                </p>
+                <div class="featured-section-actions music-featured-actions">
                 </div>
               </div>
-
-              <!-- COVER (right) -->
-              <figure class="featured-section-art">
-                <img id="featured-cover" src="assets/covers/cover-default.webp" alt="Album cover" />
               </figure>
             </div>
           </div>
@@ -67,7 +67,7 @@
     <!-- Discography grid -->
     <section class="section" aria-labelledby="discog-heading">
       <div class="container">
-        <h2 id="discog-heading" class="section-title">Discography</h2>
+        <h2 id="discog-heading" class="section-title" data-default="Discography">Discography</h2>
         <div id="discography" class="discography-grid" aria-live="polite"></div>
       </div>
     </section>
@@ -75,19 +75,34 @@
     <!-- Closing call-to-action -->
     <section class="cta-section">
       <div class="container cta-inner">
-        <p class="cta-text">Follow on Spotify for new releases.</p>
-        <a class="btn btn-primary" href="#" target="_blank" rel="noopener">Follow on Spotify</a>
-        <div class="cta-socials">
-          <a href="#" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
-          <a href="#" aria-label="YouTube" target="_blank" rel="noopener">YT</a>
-          <a href="#" aria-label="Twitter" target="_blank" rel="noopener">TW</a>
+        <p class="cta-text" data-default="Follow on Socials for information about new releases.">Follow on Socials for
+          information about new releases.</p>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
+            <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+          </a>
+          <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
+            <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+          </a>
+          <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
+            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+          </a>
+          <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
+            aria-label="Spotify">
+            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+          </a>
+          <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
+            aria-label="Apple Music">
+            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+          </a>
         </div>
       </div>
     </section>
 
     <noscript>
       <div class="container">
-        <p class="muted">JavaScript is disabled, so releases can’t be loaded. Enable JavaScript to see the discography.</p>
+        <p class="muted">JavaScript is disabled, so releases can’t be loaded. Enable JavaScript to see the discography.
+        </p>
       </div>
     </noscript>
   </main>
@@ -98,33 +113,14 @@
 
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <p>© <span id="year"></span> LLH — All rights reserved. <a href="mailto:contact@example.com">contact@example.com</a></p>
-      <div class="footer-social">
-        <a href="#" target="_blank" rel="noopener" aria-label="Spotify">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="12" fill="currentColor"/>
-            <path d="M7 10c3-1 7-1 10 1M7 14c2.8-.8 6-.8 8.5.5M7 17c2-.6 4.3-.6 6 .4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
-          </svg>
-        </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
-            <circle cx="12" cy="12" r="5" fill="#fff"/>
-          </svg>
-        </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/>
-            <polygon points="10,9 15,12 10,15" fill="#fff"/>
-          </svg>
-        </a>
-      </div>
+      <p>© <span id="year"></span> LLH — All rights reserved. <a
+          href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
     </div>
   </footer>
 
-    <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
+  <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
          discography grid and modal from assets/albums.json. -->
   <script type="module" src="scripts/main.js"></script>
-  <script type="module" src="scripts/music-page.js"></script>
 </body>
+
 </html>
