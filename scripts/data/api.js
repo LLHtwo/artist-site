@@ -35,14 +35,14 @@ export async function getAlbums() {
       const slug = n.slug || slugify(n.title || '');
       notesBySlug.set(slug, n);
     }
-  albumsCache = (Array.isArray(raw) ? raw : []).map(a => {
+    albumsCache = (Array.isArray(raw) ? raw : []).map(a => {
       const noteObj = notesBySlug.get(slugify(a.slug || a.title || '')) || null;
       return {
         ...a,
         notes: noteObj ? normalizeNotes(noteObj) : [],
         note: noteObj
       };
-  }).filter(a => !a.hidden);
+    }).filter(a => !a.hidden);
   }
   return albumsCache;
 }

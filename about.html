@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,14 +9,15 @@
   <link rel="icon" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles/styles.css" />
 </head>
+
 <body>
-  <header class="header" role="banner">
+  <header class="header header--solid" role="banner">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Home">
         <span class="brand-name">LLH</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a class="navlink" href="about.html">About</a>
+        <a class="navlink" href="about.html" aria-current="page">About</a>
         <a class="navlink" href="music.html">Music</a>
         <a class="navlink" href="contact.html">Contact</a>
       </nav>
@@ -26,38 +28,24 @@
     <section class="section" aria-labelledby="about-heading">
       <div class="container">
         <h1 id="about-heading" class="section-title">About Me</h1>
-        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt consectetur, nisi nisl aliquam enim, euismod cursus enim nisi euismod.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod. Etiam euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod.</p>
-        <p>Morbi euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod. Etiam euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod.</p>
+        <p class="muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod, urna eu tincidunt
+          consectetur, nisi nisl aliquam enim, euismod cursus enim nisi euismod.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque euismod, nisi vel consectetur cursus,
+          nisl erat dictum enim, euismod cursus enim nisi euismod. Etiam euismod, nisi vel consectetur cursus, nisl erat
+          dictum enim, euismod cursus enim nisi euismod.</p>
+        <p>Morbi euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod. Etiam
+          euismod, nisi vel consectetur cursus, nisl erat dictum enim, euismod cursus enim nisi euismod.</p>
       </div>
     </section>
   </main>
 
   <footer class="footer" role="contentinfo">
     <div class="container">
-      <p>© <span id="year"></span> LLH — All rights reserved. <a href="mailto:contact@example.com">contact@example.com</a></p>
-      <div class="footer-social">
-        <a href="#" target="_blank" rel="noopener" aria-label="Spotify">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="12" fill="currentColor"/>
-            <path d="M7 10c3-1 7-1 10 1M7 14c2.8-.8 6-.8 8.5.5M7 17c2-.6 4.3-.6 6 .4" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>
-          </svg>
-        </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="Instagram">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" fill="currentColor"/>
-            <circle cx="12" cy="12" r="5" fill="#fff"/>
-          </svg>
-        </a>
-        <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true">
-            <rect x="2" y="5" width="20" height="14" rx="3" fill="currentColor"/>
-            <polygon points="10,9 15,12 10,15" fill="#fff"/>
-          </svg>
-        </a>
-      </div>
+      <p>© <span id="year"></span> LLH — All rights reserved. <a
+          href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
     </div>
   </footer>
   <script type="module" src="scripts/main.js"></script>
 </body>
+
 </html>

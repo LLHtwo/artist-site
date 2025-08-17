@@ -57,8 +57,10 @@ export function getUI() {
   const descEl = document.getElementById('release-description');
   _UI_CACHE = {
     listen: (listenBtn && listenBtn.dataset && listenBtn.dataset.label) || body.dataset.listenLabel || 'Listen',
-    spotify: body.dataset.spotifyLabel || 'Spotify',
-    apple: body.dataset.appleLabel || 'Apple',
+  spotify: body.dataset.spotifyLabel || 'Spotify',
+  // support both appleMusic and apple label dataset keys; default to 'Apple Music'
+  appleMusic: body.dataset.appleMusicLabel || body.dataset.appleLabel || 'Apple Music',
+  apple: body.dataset.appleLabel || 'Apple Music',
     upcoming: body.dataset.upcoming || 'Upcoming',
     newestTitle: body.dataset.newestTitle || 'Newest Release',
     upcomingTitle: body.dataset.upcomingTitle || 'Upcoming Releases',
