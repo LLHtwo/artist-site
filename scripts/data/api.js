@@ -56,10 +56,11 @@ export function normalizeNotes(n) {
     for (const s of n.sections) {
       const sectTitle = s['section-title'] || s.title;
       if (sectTitle) out.push({ type: 'title', text: sectTitle });
-      if (s.body) out.push({ type: 'text', text: stripHTML(s.body).slice(0, 200) });
+      if (s.body) out.push({ type: 'text', text: stripHTML(s.body) });
+
     }
   }
-  if (n.body && out.length === 0) out.push(stripHTML(n.body).slice(0, 200));
+  if (n.body && out.length === 0) out.push(stripHTML(n.body));
   return out;
 }
 

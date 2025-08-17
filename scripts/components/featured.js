@@ -6,7 +6,6 @@ export async function loadFeaturedAlbum() {
   const labelEl = document.getElementById('featured-label');
   const titleEl = document.getElementById('featured-title');
   const subtextEl = document.getElementById('featured-subtext');
-  const listenBtn = document.getElementById('listen-btn') || document.getElementById('featured-link');
   // require only the minimal elements; other nodes are optional across pages
   if (!coverEl || !titleEl) return;
   try {
@@ -44,7 +43,7 @@ export async function loadLatestReleaseAlbum() {
     coverEl.src = latest.cover;
     coverEl.alt = `Album cover for ${latest.title}`;
     titleEl.textContent = latest.title ? latest.title : (getUI().latestRelease || 'Latest Release');
-    descEl.textContent = latest.description || (getUI().loadError || 'Check out the newest track from LLH, blending dreamy textures with cinematic vibes.');
+    descEl.textContent = latest.description || (getUI().loadError || 'An addictive, loop-driven house track — hypnotic energy built for summer nights.');
     if (badgeEl) {
       badgeEl.innerHTML = latest.type === 'single' ? `<span class="badge badge-single">${getUI().singleLabel || 'Single'}</span>` : '';
     }

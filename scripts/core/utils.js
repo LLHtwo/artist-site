@@ -48,6 +48,37 @@ export function stripHTML(input = '') {
   return String(input).replace(/<[^>]*>/g, '');
 }
 
+// Render a very small, safe subset of Markdown inline features to HTML.
+// Escapes input then converts links, bold, and italics. Intended for
+// trusted content in assets but keeps a minimal XSS-safe escape step.
+export function renderInlineMarkdown(input = '') {
+  const s = String(input || '');
+  // basic HTML escape
+  const escapeHtml = (str) => String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+  let out = escapeHtml(s);
+
+  // convert markdown links [text](url)
+  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, text, url) => {
+    // allow only safe-ish url characters; leave raw if suspicious
+    const safeUrl = String(url).replace(/\"/g, '%22');
+    return `<a href="${safeUrl}" target="_blank" rel="noopener">${text}</a>`;
+  });
+
+  // bold **text** -> <strong>
+  out = out.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+
+  // italics *text* -> <em>
+  out = out.replace(/\*(.+?)\*/g, '<em>$1</em>');
+
+  return out;
+}
+
 // getUI depends on DOM; we export a factory that reads from document when first called
 let _UI_CACHE = null;
 export function getUI() {

@@ -4,8 +4,6 @@ body.music-page .hero.hero--compact {
   background: var(--bg);
   padding-block: 28px;
   border-bottom: 1px solid #1e2028;
-  /* Use full available width without forcing the viewport width (100vw)
-    which includes the scrollbar and can cause horizontal overflow. */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -14,7 +12,6 @@ body.music-page .hero.hero--compact {
 body.music-page .hero.hero--compact .hero-container {
   display: flex;
   justify-content: center;
-  /* center the featured card */
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -27,7 +24,7 @@ body.music-page .hero.hero--compact .hero-container {
   width: 100%;
 }
 
-/* The card (works for either .featured-section or .hero-content.hero-small) */
+/* The card */
 #featured>.featured-section,
 #featured>.hero-content.hero-small {
   --pad: 22px;
@@ -43,17 +40,9 @@ body.music-page .hero.hero--compact .hero-container {
 
   display: grid;
   grid-template-columns: 1fr auto;
-  /* text | cover (right) */
   gap: 22px;
 }
 
-/* Small badge row aligned right (support both class sets)
-  Also support moving the header row inside .featured-section-content
-  — keep it spanning/visually full-width and right-aligned. */
-/* Position the small badge/header in the top-right of the card.
-   Make the .featured-section positioned so the header can be
-   absolutely placed regardless of whether it's a direct child of
-   .featured-section or nested inside .featured-section-content. */
 #featured .featured-section {
   position: relative;
 }
@@ -63,22 +52,17 @@ body.music-page .hero.hero--compact .hero-container {
 #featured .featured-section-content .featured-section-header-row,
 #featured .featured-section-content .featured-header-row {
   position: absolute;
-  /* align with the card's padding so the badge sits at the same
-     vertical offset as the album cover */
   top: var(--pad);
   right: var(--pad);
   display: inline-flex;
   justify-content: flex-end;
   margin: 0;
   z-index: 3;
-  /* don't translate vertically so the badge lines up exactly */
   transform: none;
 }
 
-/* Mobile: don't absolutely position the badge — let it flow with the
-   content so it doesn't overlap or cause layout issues on small screens */
+/* Mobile badge flow */
 @media (max-width: 700px) {
-
   #featured .featured-section-header-row,
   #featured .featured-header-row,
   #featured .featured-section-content .featured-section-header-row,
@@ -155,27 +139,21 @@ body.music-page .hero.hero--compact .hero-container {
 #featured .hero-art {
   display: flex;
   align-items: center;
-  /* center the image vertically with the text */
   justify-content: center;
 }
 
 #featured .featured-section-art img,
 #featured .hero-art img {
   width: 200px;
-  /* fixed width */
   height: auto;
-  /* natural height */
   max-height: 200px;
-  /* keep it from getting too tall */
   border-radius: 14px;
   object-fit: cover;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
 }
 
-
-/* Mobile: stack and let the image go full width */
+/* Mobile: stack and full width */
 @media (max-width: 700px) {
-
   #featured>.featured-section,
   #featured>.hero-content.hero-small {
     grid-template-columns: 1fr;
@@ -196,10 +174,7 @@ body.music-page .hero.hero--compact .hero-container {
   }
 }
 
-
-/* Title + tiny descri*
-
-/* Optional: if that empty spacer is creating odd widths, hide it on compact */
+/* Optional spacer */
 body.music-page .hero.hero--compact .hero-spacer {
   display: none;
 }
@@ -279,48 +254,43 @@ body.music-page .modal {
   z-index: 1000;
 }
 
-body.music-page .modal-content {
-  background: var(--card);
-  max-width: 600px;
-  width: 90%;
-  max-height: 90vh;
-  overflow: auto;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  animation: fadeInUp .3s ease both;
-  position: relative;
-}
-
-body.music-page .modal-header {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 16px;
-}
 
 body.music-page .modal-cover {
-  width: 150px;
-  height: 150px;
+  width: 175px;
+  height: 175px;
   object-fit: cover;
   border-radius: 12px;
 }
 
-body.music-page .modal-close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  background: none;
-  border: none;
-  color: var(--fg);
-  font-size: 28px;
-  cursor: pointer;
+
+body.music-page .modal-body {
+  flex: 1 1 auto;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  padding-right: 6px;
 }
 
 body.music-page .modal-body p {
   margin-top: 0;
 }
 
-/* Larger modal variant for album details */
+/* Sticky blurb inside body */
+body.music-page .modal-body .modal-lead {
+  position: sticky;
+  top: 0;
+  z-index: 0;
+  background: inherit;
+  padding: 8px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+body.music-page .modal-body a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 body.music-page .modal-content--large {
   max-width: 900px;
   width: 95%;
@@ -331,6 +301,7 @@ body.music-page .modal-content--large {
 body.music-page .modal-title {
   margin: 0 0 6px;
   font-size: 1.6rem;
+  margin-right: 48px;
 }
 
 body.music-page .modal-subtitle {
@@ -369,7 +340,8 @@ body.music-page .modal-media-image {
 body.music-page .modal-streams {
   display: flex;
   gap: 10px;
-  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
 }
 
@@ -378,10 +350,10 @@ body.music-page .modal-streams .btn {
   border-radius: 12px;
 }
 
-/* Stream button styles (mirrors styles/components/latest-release.css but scoped for the music page) */
+/* Stream button styles */
 body.music-page .stream-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -404,7 +376,6 @@ body.music-page .stream-btn:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
 }
 
-/* small icon inside stream buttons */
 body.music-page .social-icon-img {
   width: 20px;
   height: auto;
@@ -412,8 +383,6 @@ body.music-page .social-icon-img {
 }
 
 @media (max-width: 600px) {
-
-  /* ensure modal buttons wrap nicely on small screens */
   body.music-page .modal-streams,
   body.music-page .stream-buttons {
     flex-direction: row;
@@ -432,6 +401,7 @@ body.music-page .social-icon-img {
     transform: translateY(0);
   }
 }
+
 
 body.music-page.modal-open {
   overflow: hidden;
@@ -471,7 +441,7 @@ body.music-page .cta-socials a:hover {
   transform: scale(1.1);
 }
 
-/* Footer: ensure the footer content is centered on the music page */
+/* Footer center */
 body.music-page .footer .container {
   display: flex;
   justify-content: center;
@@ -483,6 +453,162 @@ body.music-page .footer .container p {
   margin: 0;
 }
 
-/* Ensure the top header is sticky on the music page like the index/home page */
-/* header styles moved to components/header.css — use .header--solid for the music page if
-  a solid background is required. Example: <header class="header header--solid"> */
+/* Panel: keep your width, cap height; make it a column */
+body.music-page .modal-content {
+  background: var(--card);
+  max-width: 900px;
+  width: 95%;
+  max-height: calc(100dvh - 120px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;             /* scrolling happens in .modal-body */
+  border-radius: 16px;
+  padding: 24px;                /* keep */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  animation: fadeInUp .3s ease both;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Header stays visible; pad right so it never sits under the X */
+body.music-page .modal-header {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: inherit;
+  padding-bottom: 8px;
+  padding-right: 56px;          /* <-- added to make room for the X */
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* Close button sits above sticky header and is easy to tap */
+body.music-page .modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--fg);
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 3;                   /* <-- ensure over header */
+  padding: 6px;                 /* bigger hit target */
+}
+
+@media (max-width: 600px) {
+  body.music-page .modal-header { padding-right: 64px; } /* extra room on small screens */
+  body.music-page .modal-close { top: 6px; right: 8px; }
+}
+/* Mobile / narrow viewport adjustments for modal layout
+   Ensure the cover, title, meta, blurb and stream buttons stack vertically
+   and remain readable. Also cap heights so the modal body can scroll. */
+@media (max-width: 860px) {
+  body.music-page .modal-content,
+  body.music-page .modal-content--large {
+    width: calc(100% - 28px);
+    padding: 18px;
+    max-height: calc(100dvh - 48px);
+    flex-direction: column; /* stack header + body */
+    box-sizing: border-box;
+  }
+
+  /* Stack header content vertically so cover sits above info */
+  body.music-page .modal-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding-right: 18px; /* ensure close button has space */
+    position: sticky;
+    top: 0;
+    background: inherit;
+  }
+
+  /* Make the cover full-width (within modal) and more prominent on small screens */
+  body.music-page .modal-cover {
+    width: 100%;
+    height: auto;
+    max-height: 360px;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Ensure the info block uses full width under the cover */
+  body.music-page .modal-info {
+    width: 100%;
+  }
+
+  /* Reduce title size and remove right margin so it wraps nicely */
+  body.music-page .modal-title {
+    font-size: 1.25rem;
+    margin-right: 0;
+  }
+
+  /* Keep the close button reachable but not overlapping content */
+  body.music-page .modal-close {
+    top: 10px;
+    right: 12px;
+  }
+
+  /* Make the body a constrained scroll area so header / streams remain visible */
+  body.music-page .modal-body {
+    max-height: calc(100dvh - 460px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* On narrow screens the lead shouldn't be sticky inside the body; keep flow linear */
+  body.music-page .modal-body .modal-lead {
+    position: static;
+    top: auto;
+    z-index: auto;
+    background: transparent;
+    padding: 0;
+    border-bottom: none;
+  }
+
+  /* The stream buttons are centered under the blurb; cancel any JS translate used for centering */
+  body.music-page .modal-streams,
+  body.music-page .modal-streams .btn {
+    transform: none !important;
+  }
+}
+
+/* Extra small screens: tighten paddings and increase scroll area */
+@media (max-width: 420px) {
+  body.music-page .modal-content,
+  body.music-page .modal-content--large {
+    padding: 12px;
+    width: calc(100% - 18px);
+    max-height: calc(100dvh - 36px);
+    overflow: auto; /* make the whole card scrollable */
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* On very small screens, let the entire modal card handle scrolling
+     instead of only the .modal-body. This keeps header+cover+streams
+     readable and in flow. */
+  body.music-page .modal-body {
+    max-height: none;
+    overflow: visible;
+  }
+
+  /* Allow header to scroll with the panel instead of sticking to top */
+  body.music-page .modal-header {
+    position: relative;
+    top: auto;
+    z-index: 1;
+    border-bottom: none;
+  }
+}
+/* Blurb that lives in the header info (muted, compact) */
+body.music-page .modal-blurb {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}

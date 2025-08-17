@@ -1,5 +1,5 @@
 import { el } from '../core/dom.js';
-import { getUI, capitalize, formatFancyDate } from '../core/utils.js';
+import { getUI, capitalize, formatFancyDate, renderInlineMarkdown } from '../core/utils.js';
 
 export function openModal(album) {
   const modal = document.getElementById('album-modal');
@@ -32,6 +32,15 @@ export function openModal(album) {
   meta.className = 'modal-subtitle'; // use site's muted styling for modal meta
   meta.textContent = `${capitalize(album.type)}${album.releaseDate ? ' • ' + formatFancyDate(album.releaseDate) : ''}`;
   info.appendChild(meta);
+  // If there's a blurb or a top-level notes string, feature it here with the title/meta/streams
+  const blurbText = (album && album.note && album.note.blurb) ? album.note.blurb : ((album && album.notes && album.notes.length > 0 && typeof album.notes[0] === 'string') ? album.notes[0] : '');
+  const blurbPlaced = Boolean(blurbText);
+  if (blurbText) {
+    const blurb = document.createElement('p');
+    blurb.className = 'modal-lead modal-blurb';
+    blurb.innerHTML = renderInlineMarkdown(blurbText);
+    info.appendChild(blurb);
+  }
   const streamRow = document.createElement('div');
   streamRow.className = 'modal-streams';
   // Build a canonical list of services and ensure each button uses its own link
@@ -101,6 +110,26 @@ export function openModal(album) {
 
       streamRow.appendChild(btn);
     }
+    // Add a fourth button that links to the canonical album.link (if present)
+    if (album && album.link) {
+      const moreBtn = document.createElement('a');
+      moreBtn.className = 'btn stream-btn';
+      moreBtn.href = album.link;
+      moreBtn.target = '_blank';
+      moreBtn.rel = 'noopener';
+      moreBtn.setAttribute('aria-label', UI.open || UI.more || 'More');
+
+      // globe icon (matches other stream buttons which use inline svg images)
+      const globeImg = document.createElement('img');
+      globeImg.src = 'assets/svg/globe.svg';
+      globeImg.alt = UI.open || UI.more || 'More';
+      globeImg.className = 'social-icon-img';
+      moreBtn.appendChild(globeImg);
+
+      // label text node
+      moreBtn.appendChild(document.createTextNode(UI.open || UI.more || 'More'));
+      streamRow.appendChild(moreBtn);
+    }
   }
   info.appendChild(streamRow);
   header.appendChild(info);
@@ -115,12 +144,10 @@ export function openModal(album) {
       noteTitleEl.textContent = album.note.title;
       body.appendChild(noteTitleEl);
     }
-    if (album.note.blurb) {
-      const lead = document.createElement('p');
-      lead.className = 'modal-lead';
-      lead.textContent = album.note.blurb;
-      body.appendChild(lead);
-    } else if (album.notes && album.notes.length > 0) {
+  // blurb is displayed in the header/info area above the stream buttons; if missing,
+  // fall back to the first entry in album.notes for the modal lead. If we already
+  // placed the blurb in the header (from album.note.blurb or album.notes[0]) skip it here.
+  if (!blurbPlaced && album.notes && album.notes.length > 0) {
       const firstNote = album.notes.find(n => n != null);
       if (firstNote) {
         const lead = document.createElement('p');
@@ -131,10 +158,11 @@ export function openModal(album) {
     }
     if (album.note.sections && Array.isArray(album.note.sections)) {
       for (const sec of album.note.sections) {
-        if (sec.title) {
+        const sectTitle = sec['section-title'] || sec.title;
+        if (sectTitle) {
           const h = document.createElement('h3');
           h.className = 'modal-section-title';
-          h.textContent = sec.title;
+          h.textContent = sectTitle;
           body.appendChild(h);
         }
         if (sec.body) {
@@ -147,7 +175,8 @@ export function openModal(album) {
           }
           if (bodyHTML) {
             const p = document.createElement('p');
-            p.innerHTML = bodyHTML;
+            // render limited inline markdown from notes
+            p.innerHTML = renderInlineMarkdown(bodyHTML);
             body.appendChild(p);
           }
         }
@@ -175,33 +204,85 @@ export function openModal(album) {
       body.appendChild(mediaWrap);
     }
   } else {
-    (album.notes || []).forEach(entry => {
+    // If blurb was shown in the header and originated from album.notes[0], skip that
+    // first string so we don't duplicate it inside the body.
+    let notesToRender = album.notes || [];
+    if (blurbPlaced && notesToRender.length > 0 && typeof notesToRender[0] === 'string') {
+      // only drop the first entry if it matches the blurb text
+      if (notesToRender[0].trim() === blurbText.trim()) notesToRender = notesToRender.slice(1);
+    }
+    notesToRender.forEach(entry => {
       if (typeof entry === 'string') {
         const note = document.createElement('p');
-        note.textContent = entry;
+        note.innerHTML = renderInlineMarkdown(entry);
         body.appendChild(note);
       } else if (entry && typeof entry === 'object') {
         if (entry.type === 'title') {
           const h = document.createElement('h3');
           h.className = 'modal-section-title';
-          h.textContent = entry.text;
+          h.innerHTML = renderInlineMarkdown(entry.text || '');
           body.appendChild(h);
         } else if (entry.type === 'text') {
           const p = document.createElement('p');
-          p.textContent = entry.text;
+          p.innerHTML = renderInlineMarkdown(entry.text || '');
           body.appendChild(p);
         }
       }
     });
   }
+  // --- ADD: lock scroll by fixing body and preserving scrollY ---
+  const scrollY = window.scrollY || document.documentElement.scrollTop || 0;
+  document.body.dataset.modalScrollY = String(scrollY);
+  document.body.style.position = 'fixed';
+  document.body.style.top = `-${scrollY}px`;
+  document.body.style.left = '0';
+  document.body.style.right = '0';
+  // --- END ADD ---
+
   article.appendChild(body);
   modal.appendChild(backdrop);
   modal.appendChild(article);
+
+  // --- ADD: center stream buttons vertically between cover bottom and blurb bottom ---
+  let streamPositionResizeHandler = null;
+  function centerStreamBetweenElements() {
+    const coverEl = article.querySelector('.modal-cover');
+    const blurbEl = article.querySelector('.modal-lead.modal-blurb') || article.querySelector('.modal-lead');
+    const streamEl = article.querySelector('.modal-streams');
+    if (!coverEl || !streamEl) return;
+
+    streamEl.style.transform = '';
+
+    const coverRect = coverEl.getBoundingClientRect();
+    const blurbRect = blurbEl ? blurbEl.getBoundingClientRect() : coverRect;
+    const streamRect = streamEl.getBoundingClientRect();
+
+    const cs = getComputedStyle(streamEl);
+    const mt = parseFloat(cs.marginTop) || 0;
+    const mb = parseFloat(cs.marginBottom) || 0;
+    const effectiveStreamHeight = streamRect.height + mt + mb;
+
+    const targetY = (coverRect.bottom + blurbRect.bottom) / 2;
+    // compute center of the visual region including margins:
+    const streamCenter = streamRect.top - mt + effectiveStreamHeight / 2;
+
+    const delta = targetY - streamCenter;
+    streamEl.style.transform = `translateY(${delta}px)`;
+  }
+
+  // run once after element is in DOM (we just appended it)
+  centerStreamBetweenElements();
+  // keep it responsive
+  streamPositionResizeHandler = () => centerStreamBetweenElements();
+  window.addEventListener('resize', streamPositionResizeHandler);
+  // --- END ADD ---
+
   modal.classList.remove('hidden');
   document.body.classList.add('modal-open');
   const focusables = article.querySelectorAll('a, button');
   const first = focusables[0];
   const last = focusables[focusables.length - 1];
+  let closing = false;
   function trap(e) {
     if (e.key === 'Tab') {
       if (e.shiftKey && document.activeElement === first) {
@@ -214,14 +295,70 @@ export function openModal(album) {
     } else if (e.key === 'Escape') { close(); }
   }
   function close() {
-    modal.classList.add('hidden');
-    modal.textContent = '';
-    document.body.classList.remove('modal-open');
+    if (closing) return;
+    closing = true;
+    // remove keyboard trap immediately
     document.removeEventListener('keydown', trap);
+    // remove outside handlers immediately to prevent further events
+    if (outsideClickHandler) modal.removeEventListener('click', outsideClickHandler);
+    if (backdropClickHandler) backdrop.removeEventListener('click', backdropClickHandler);
+
+    // get previous scroll position
+    const prev = parseInt(document.body.dataset.modalScrollY || '0', 10);
+
+    // remove the fixed positioning we set when opening
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    delete document.body.dataset.modalScrollY;
+
+    // Immediately teardown the modal DOM/CSS so page reflow happens now
+    teardown();
+
+    // Ensure instant jump without smooth scroll interfering, then restore position
+    const docEl = document.documentElement;
+    const prevScrollBehavior = docEl.style.scrollBehavior;
+    docEl.style.scrollBehavior = 'auto';
+    window.scrollTo(0, prev);
+    docEl.style.scrollBehavior = prevScrollBehavior;
   }
+  // Close when clicking outside the article (on the modal root)
+  // Attach these listeners after a short delay so the original click that
+  // opened the modal doesn't immediately bubble and trigger a close.
+  // Track handlers so we can remove them on teardown and avoid duplicates
+  let outsideClickHandler = null;
+  let backdropClickHandler = null;
+  function addOutsideClickHandlers() {
+    outsideClickHandler = (e) => { if (e.target === modal) close(); };
+    backdropClickHandler = () => close();
+    modal.addEventListener('click', outsideClickHandler);
+    backdrop.addEventListener('click', backdropClickHandler);
+  }
+  setTimeout(addOutsideClickHandlers, 50);
+
+  // Safely handle teardown after animation finishes (or fallback timeout)
+  function teardown() {
+  modal.classList.add('hidden');
+  // remove outside handlers if attached
+  if (outsideClickHandler) modal.removeEventListener('click', outsideClickHandler);
+  if (backdropClickHandler) backdrop.removeEventListener('click', backdropClickHandler);
+  modal.textContent = '';
+  document.body.classList.remove('modal-open');
+  closing = false;
+
+  // remove resize listener we added
+  if (streamPositionResizeHandler) {
+    window.removeEventListener('resize', streamPositionResizeHandler);
+    streamPositionResizeHandler = null;
+  }
+  }
+
+  // (animationend/fallback are handled when closing starts)
+
   document.addEventListener('keydown', trap);
   closeBtn.addEventListener('click', close);
-  backdrop.addEventListener('click', close);
+  // (backdrop click listener is added slightly delayed above)
   first && first.focus();
 }
 
