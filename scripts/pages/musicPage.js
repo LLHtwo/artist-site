@@ -7,8 +7,6 @@ export async function initMusicPage() {
   const heroEl = document.getElementById('featured');
   const gridEl = document.getElementById('discography');
   const modalEl = document.getElementById('album-modal');
-  // Log existence of key elements to help diagnose missing DOM
-  console.debug('[music-page] elements:', { featured: !!heroEl, discography: !!gridEl, albumModal: !!modalEl });
   if (!gridEl) {
     console.warn('[music-page] discography element not found; skipping render');
     return;
@@ -25,7 +23,7 @@ export async function initMusicPage() {
       ...normalizeAlbum(a),
       cover: await resolveCover(a)
     })))).sort(sortByDateDesc);
-    console.debug('[music-page] loaded albums count:', albums.length);
+  // loaded albums count available via albums.length when needed
     if (heroEl) renderHero(heroEl, albums);
     renderDiscography(gridEl, albums);
   } catch (err) {
@@ -147,7 +145,6 @@ function renderHero(root, albums) {
     learn.addEventListener('click', () => {
       // openModal is exposed on window by modal.js
       if (typeof window.openModal === 'function') window.openModal(a);
-      else console.warn('openModal not available');
     });
     streamWrap.appendChild(learn);
   } else {

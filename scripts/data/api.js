@@ -73,7 +73,7 @@ export async function resolveCover(album) {
       const res = await fetch(url, { method: 'GET', cache: 'no-store' });
       if (res.ok) return url;
     } catch (e) {
-      console.debug('[data/api] cover fetch failed for', url, e);
+      // cover fetch failed for this candidate; ignore and try next
     }
   }
   return CONFIG.defaultCover;

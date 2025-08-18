@@ -22,7 +22,7 @@ export async function loadFeaturedAlbum() {
       const type = featured.type ? featured.type.charAt(0).toUpperCase() + featured.type.slice(1) : '';
       subtextEl.textContent = type;
     }
-    if (listenBtn && featured.link) listenBtn.href = featured.link;
+  // listen button is page-specific; do not assume presence of a global element here.
   } catch (err) {
     console.error('Failed to load featured album:', err);
   }

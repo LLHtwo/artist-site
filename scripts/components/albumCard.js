@@ -45,7 +45,7 @@ export function albumCard(a) {
       openModal(a);
     } else {
       const mod = document.getElementById('album-modal');
-      console.warn('[albumCard] openModal not available or modal element missing', { hasModal: !!mod, openModal: typeof openModal });
+      console.warn('[albumCard] openModal not available or modal element missing');
     }
   });
   card.addEventListener('keydown', e => {
@@ -54,7 +54,7 @@ export function albumCard(a) {
         openModal(a);
       } else {
         const mod = document.getElementById('album-modal');
-        console.warn('[albumCard] openModal not available (keydown)', { hasModal: !!mod, openModal: typeof openModal });
+        console.warn('[albumCard] openModal not available (keydown)');
       }
     }
   });
