@@ -84,10 +84,10 @@ let _UI_CACHE = null;
 export function getUI() {
   if (_UI_CACHE) return _UI_CACHE;
   const body = document.body || {};
-  const listenBtn = document.getElementById('listen-btn');
   const descEl = document.getElementById('release-description');
   _UI_CACHE = {
-    listen: (listenBtn && listenBtn.dataset && listenBtn.dataset.label) || body.dataset.listenLabel || 'Listen',
+    // Prefer explicit dataset on <body> to avoid querying page-specific elements by id.
+    listen: body.dataset.listenLabel || 'Listen',
   spotify: body.dataset.spotifyLabel || 'Spotify',
   // support both appleMusic and apple label dataset keys; default to 'Apple Music'
   appleMusic: body.dataset.appleMusicLabel || body.dataset.appleLabel || 'Apple Music',
