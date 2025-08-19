@@ -89,7 +89,11 @@
   gap: 10px;
 }
 
-#latest-badge {
+#latest-badge,
+.latest-release-type {
+  /* Container for small inline badges (e.g. "Single").
+     Use a dedicated class so the top-right header (.latest-release-header)
+     can be styled separately without affecting these inline badges. */
   display: inline-flex;
   align-items: center;
   line-height: 1.75;

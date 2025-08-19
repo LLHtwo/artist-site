@@ -1,6 +1,4 @@
-import { fetchJSON } from '../core/utils.js';
-import { slugify } from '../core/utils.js';
-import { stripHTML } from '../core/utils.js';
+import { fetchJSON, stripHTML } from '../core/utils.js';
 
 export const CONFIG = {
   jsonPath: 'assets/albums.json',
@@ -32,11 +30,11 @@ export async function getAlbums() {
     })();
     const notesBySlug = new Map();
     for (const n of notesRaw) {
-      const slug = n.slug || slugify(n.title || '');
-      notesBySlug.set(slug, n);
+      const slug = n.slug || '';
+      if (slug) notesBySlug.set(slug, n);
     }
     albumsCache = (Array.isArray(raw) ? raw : []).map(a => {
-      const noteObj = notesBySlug.get(slugify(a.slug || a.title || '')) || null;
+      const noteObj = notesBySlug.get(a.slug || '') || null;
       return {
         ...a,
         notes: noteObj ? normalizeNotes(noteObj) : [],
@@ -66,14 +64,16 @@ export function normalizeNotes(n) {
 
 export async function resolveCover(album) {
   if (album.cover) return album.cover;
-  const slug = slugify(album.title || 'album');
-  for (const ext of CONFIG.coverCandidates) {
-    const url = `${CONFIG.coversDir}/${slug}.${ext}`;
-    try {
-      const res = await fetch(url, { method: 'GET', cache: 'no-store' });
-      if (res.ok) return url;
-    } catch (e) {
-      // cover fetch failed for this candidate; ignore and try next
+  const slug = album.slug || '';
+  if (slug) {
+    for (const ext of CONFIG.coverCandidates) {
+      const url = `${CONFIG.coversDir}/${slug}.${ext}`;
+      try {
+        const res = await fetch(url, { method: 'GET', cache: 'no-store' });
+        if (res.ok) return url;
+      } catch (e) {
+        // cover fetch failed for this candidate; ignore and try next
+      }
     }
   }
   return CONFIG.defaultCover;

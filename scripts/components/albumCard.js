@@ -3,7 +3,8 @@ import { isFuture, formatFancyDate } from '../core/utils.js';
 import { CONFIG } from '../data/api.js';
 import { el } from '../core/dom.js';
 import { capitalize } from '../core/utils.js';
-import { openModal } from './modal.js';
+// NOTE: do not statically import the modal here. We dynamically import it on demand
+// so the modal bundle is only loaded on pages that need it (e.g. music.html).
 
 export function albumCardHTML(a, { highlight = false } = {}) {
   const isSingle = a.type === 'single';
@@ -40,22 +41,89 @@ export function albumCard(a) {
   meta.className = 'album-meta';
   meta.textContent = `${capitalize(a.type)}${a.releaseDate ? ' • ' + formatFancyDate(a.releaseDate) : ''}`;
   card.appendChild(meta);
-  card.addEventListener('click', () => {
-    if (typeof openModal === 'function') {
-      openModal(a);
-    } else {
-      const mod = document.getElementById('album-modal');
-      console.warn('[albumCard] openModal not available or modal element missing');
+  // helper: find the best external link (used as fallback)
+  const getCanonicalLink = (albumObj) => {
+    if (!albumObj || typeof albumObj !== 'object') return undefined;
+    if (albumObj.link) return albumObj.link;
+    if (albumObj.spotify) return albumObj.spotify;
+    if (albumObj.appleMusic) return albumObj.appleMusic;
+    if (albumObj['apple_music']) return albumObj['apple_music'];
+    if (albumObj['apple-music']) return albumObj['apple-music'];
+    if (albumObj.youtube) return albumObj.youtube;
+    const links = albumObj.links;
+    if (links && typeof links === 'object') {
+      if (links.spotify) return links.spotify;
+      if (links.appleMusic) return links.appleMusic;
+      if (links['apple_music']) return links['apple_music'];
+      if (links['apple-music']) return links['apple-music'];
+      if (links.youtube) return links.youtube;
+      const vals = Object.values(links).filter(Boolean);
+      if (vals.length) return vals[0];
     }
+    return undefined;
+  };
+
+  // helper: choose a mobile navigation target — prefer slug-based local page
+  const getMobileTarget = (albumObj) => {
+    if (!albumObj || typeof albumObj !== 'object') return null;
+    if (albumObj.slug) return { href: `${albumObj.slug}.html`, newTab: false };
+    if (albumObj.link && typeof albumObj.link === 'string' && albumObj.link.endsWith('.html')) {
+      return { href: albumObj.link, newTab: false };
+    }
+    const fallback = getCanonicalLink(albumObj);
+    if (fallback) return { href: fallback, newTab: true };
+    return null;
+  };
+
+  card.addEventListener('click', (ev) => {
+    // If on a small viewport, navigate to the album's fullscreen HTML page
+    const isMobile = window.matchMedia('(max-width: 600px)').matches;
+    if (isMobile) {
+      const target = getMobileTarget(a);
+      if (!target) return;
+      if (target.newTab) window.open(target.href, '_blank', 'noopener');
+      else location.href = target.href;
+      return;
+    }
+
+    // Otherwise dynamically import and open the modal as before
+    (async () => {
+      try {
+        const modalModule = await import('./modal.js');
+        if (modalModule && typeof modalModule.openModal === 'function') {
+          modalModule.openModal(a);
+          return;
+        }
+      } catch (err) {
+        // fall through to fallback warning below
+      }
+      const mod = document.getElementById('album-modal');
+      console.warn('[albumCard] openModal not available or modal element missing', mod);
+    })();
   });
+
   card.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
-      if (typeof openModal === 'function') {
-        openModal(a);
-      } else {
-        const mod = document.getElementById('album-modal');
-        console.warn('[albumCard] openModal not available (keydown)');
+      const isMobile = window.matchMedia('(max-width: 600px)').matches;
+      if (isMobile) {
+        const href = getCanonicalLink(a) || '#';
+        if (href === '#') return;
+        window.open(href, '_blank', 'noopener');
+        return;
       }
+      (async () => {
+        try {
+          const modalModule = await import('./modal.js');
+          if (modalModule && typeof modalModule.openModal === 'function') {
+            modalModule.openModal(a);
+            return;
+          }
+        } catch (err) {
+          // ignore and warn below
+        }
+        const mod = document.getElementById('album-modal');
+        console.warn('[albumCard] openModal not available (keydown)', mod);
+      })();
     }
   });
   return card;

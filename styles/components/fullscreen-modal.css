@@ -1,0 +1,254 @@
+/* Fullscreen / inline modal styles for album feature pages
+   Designed to pair with the project's modal HTML structure:
+   - .fullscreen-modal
+   - .modal-content--fullwidth
+   - .modal-header, .modal-cover, .modal-info
+   - .modal-title, .modal-subtitle, .modal-lead
+   - .modal-streams, .modal-body
+   - .modal-close
+*/
+
+:root {
+    --fm-bg: linear-gradient(180deg, #0f0f12 0%, #0b0b0d 100%);
+    --fm-contrast: #cbd5e1;
+    /* muted text */
+    --fm-border: rgba(255, 255, 255, 0.04);
+    --fm-accent: #7dd3fc;
+    /* matches project's accent used in album.css */
+}
+
+.fullscreen-modal {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.modal-content--fullwidth {
+    /* Match the regular modal panel look used by music-page.css
+       Keep the fullscreen section background on the wrapper (.fullscreen-modal)
+       but make the inner panel look and behave like the modal card. */
+    background: var(--card);
+    color: inherit;
+    max-width: 900px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    /* allow the panel to grow to fit content; page scroll will handle overflow */
+    overflow: visible;
+    max-height: none;
+}
+
+/* Keep header visible and aligned with the regular modal behavior */
+.modal-content--fullwidth .modal-header {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 0;
+    position: static;
+    background: inherit;
+    padding-bottom: 8px;
+    padding-right: 56px;
+    /* room for close button if present */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.modal-content--fullwidth .modal-body {
+    /* let the body expand naturally; no internal scroll */
+    overflow: visible;
+    max-height: none;
+}
+
+/* Make the cover a sensible, consistent size like the regular modal */
+.modal-content--fullwidth .modal-cover {
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Close button area compatibility (in case the fullscreen modal includes one) */
+.modal-content--fullwidth .modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 28px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 3;
+    padding: 6px;
+}
+
+/* Responsive: stack and increase cover prominence on small screens */
+@media (max-width: 860px) {
+    .modal-content--fullwidth {
+        width: calc(100% - 28px);
+        padding: 18px;
+        /* allow full expansion on small viewports as well */
+        max-height: none;
+        box-sizing: border-box;
+    }
+
+    .modal-content--fullwidth .modal-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding-right: 18px;
+        top: 0;
+        background: inherit;
+    }
+
+    .modal-content--fullwidth .modal-cover {
+        width: 100%;
+        height: auto;
+        max-height: 360px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .modal-content--fullwidth .modal-body {
+        max-height: none;
+        overflow: visible;
+    }
+}
+
+/* header row: cover + info */
+.modal-header {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 20px;
+    align-items: start;
+}
+
+.modal-cover {
+    width: 70%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(2, 6, 23, 0.6);
+    object-fit: cover;
+}
+
+.modal-info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.modal-subtitle {
+    margin: 0;
+    color: var(--fm-contrast);
+    font-size: 14px;
+}
+
+.modal-lead {
+    margin: 6px 0 0;
+    color: var(--fm-contrast);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Stream buttons row */
+.modal-streams {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.modal-streams .btn {
+    background: #23232a;
+    border: 1px solid #2a2d39;
+    border-radius: 0.7rem;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    color: #dde1ee;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+    transition: background 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-streams .btn:hover,
+.modal-streams .btn:focus {
+    background: #191a20;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+}
+
+.modal-streams .social-icon-img {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+}
+
+/* body content */
+.modal-body {
+    margin-top: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    display: block;
+}
+
+.modal-note-title {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.modal-section-body,
+.modal-note {
+    margin: 10px 0;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 840px) {
+    .modal-header {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-cover {
+        width: 70%;
+        margin: 0 auto;
+    }
+
+    .modal-content--fullwidth {
+        padding: 18px;
+    }
+
+    .modal-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .modal-subtitle,
+    .modal-lead {
+        text-align: center;
+    }
+
+    .modal-streams {
+        justify-content: center;
+    }
+}
+
+/* Utility: make modal visually distinct when inserted inline on a light background */
+.fullscreen-modal.light-mode {
+    background: #ffffff;
+    color: #0b0b0d;
+}
+
+.fullscreen-modal.light-mode .modal-streams .btn {
+    background: #f5f7fa;
+    color: #0b0b0d;
+}

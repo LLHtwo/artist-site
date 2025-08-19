@@ -1,6 +1,7 @@
 [
   {
     "title": "Make Me Feel Alright",
+    "slug": "make-me-feel-alright",
     "releaseDate": "2024-03-16",
     "type": "album",
     "link": "https://distrokid.com/hyperfollow/llh1/make-me-feel-alright/",
@@ -10,6 +11,7 @@
   },
   {
     "title": "Imagination",
+    "slug": "imagination",
     "type": "album",
     "releaseDate": "2024-07-31",
     "link": "https://distrokid.com/hyperfollow/llh1/imagination/",
@@ -19,26 +21,31 @@
   },
   {
     "title": "Break It Down",
+    "slug": "break-it-down",
     "type": "single",
     "releaseDate": "2025-04-01",
     "link": "https://listen.music-hub.com/kzaSd0",
     "spotify": "https://open.spotify.com/album/2K02LBW3C9noNMMPXXKYNa",
     "apple-music": "https://music.apple.com/album/1802276801",
-    "youtube": "https://youtube.com/playlist?list=OLAK5uy_kArSuZaQf8h3caNUj4uRuENriaxcBDQmU&",
-    "latest": true
+    "youtube": "https://youtube.com/playlist?list=OLAK5uy_kArSuZaQf8h3caNUj4uRuENriaxcBDQmU"
   },
   {
     "title": "Spacewalk",
+    "slug": "spacewalk",
     "type": "album",
     "releaseDate": "2025-08-20",
     "link": "https://distrokid.com/hyperfollow/llh1/spacewalk",
-    "hidden": true
+    "spotify": "https://open.spotify.com/intl-de/album/2eOKZJtuW7DCANirEvh0Ok",
+    "apple-music": "https://music.apple.com/album/...",
+    "youtube": "https://youtube.com/playlist?...",
+    "latest": true
   },
   {
     "title": "Born For More",
+    "slug": "born-for-more",
     "type": "album",
     "releaseDate": "2025-10-01",
-    "link": "...",
+    "link": "coming-soon.html",
     "featured": true
   }
 ]
