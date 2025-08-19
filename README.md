@@ -1,12 +1,5 @@
 # My Artist Website
 
-This project is a personal website showcasing my work as an artist. It includes sections for albums, a featured release, and links to social platforms.
+This project is a personal website showcasing my work as an artist. 
 
-
-## Testing
-
-Run the test suite using Node's built-in test runner:
-
-```
-npm test
-```
+Vibe-coded with ChatGPT and GitHub Copilot
