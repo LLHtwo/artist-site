@@ -1,11 +1,3 @@
-export function slugify(str = '') {
-  return String(str)
-    .toLowerCase()
-    .normalize('NFKD')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '');
-}
-
 export function isFuture(dateStr) {
   if (!dateStr) return true;
   const d = new Date(dateStr);
@@ -46,6 +38,17 @@ export function capitalize(s = '') {
 
 export function stripHTML(input = '') {
   return String(input).replace(/<[^>]*>/g, '');
+}
+
+// Simple slugify helper used by pages that generate filenames from titles.
+export function slugify(s = '') {
+  return String(s || '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-_]/g, '')
+    .replace(/[\s_]+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 }
 
 // Render a very small, safe subset of Markdown inline features to HTML.

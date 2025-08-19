@@ -5,13 +5,23 @@
    I think this is unnecessary duplication of styles.
 */
 /* Use the same CSS variables from layout.css (:root) */
+:root {
+  /* default header height available globally so body can offset content */
+  --header-height: 64px;
+}
+
 .header {
-  position: sticky;
+  /* keep the header fixed to the top of the viewport for the whole page */
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
+  width: 100%;
+  height: var(--header-height);
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   transition: background .14s ease, box-shadow .18s ease, border-color .12s ease;
 }
@@ -33,17 +43,37 @@
 
 /* keep the container spacing consistent when header is sticky */
 .header .container {
-  padding-block: 12px;
+  /* make the inner container fill the header height and align items vertically */
+  height: 100%;
+  padding-block: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px
+  gap: 12px;
 }
 
 /* small touch target improvement for links inside the header */
 .header .navlink {
   padding: 8px 12px
 }
+
+/* prevent the page content from sitting underneath the fixed header
+   NOTE: instead of forcing padding globally, opt-in per-page by adding
+   `class="has-header"` to the <body>. This avoids adding top padding on
+   headless pages (pages that intentionally have no header).
+
+   If you prefer automatic detection and accept modern browser requirements,
+   you can uncomment the `:has()` rule below to detect `.header` presence.
+*/
+body.has-header {
+  padding-top: var(--header-height);
+}
+
+/* Optional: automatic detection (modern browsers only - CSS :has() support)
+body:has(.header) {
+  padding-top: var(--header-height);
+}
+*/
 
 /* When a page wants the original music-page solid background, use this helper */
 .header--solid {

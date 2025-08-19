@@ -579,33 +579,10 @@ body.music-page .modal-close {
   }
 }
 
-/* Extra small screens: tighten paddings and increase scroll area */
-@media (max-width: 420px) {
-  body.music-page .modal-content,
-  body.music-page .modal-content--large {
-    padding: 12px;
-    width: calc(100% - 18px);
-    max-height: calc(100dvh - 36px);
-    overflow: auto; /* make the whole card scrollable */
-    -webkit-overflow-scrolling: touch;
-  }
-
-  /* On very small screens, let the entire modal card handle scrolling
-     instead of only the .modal-body. This keeps header+cover+streams
-     readable and in flow. */
-  body.music-page .modal-body {
-    max-height: none;
-    overflow: visible;
-  }
-
-  /* Allow header to scroll with the panel instead of sticking to top */
-  body.music-page .modal-header {
-    position: relative;
-    top: auto;
-    z-index: 1;
-    border-bottom: none;
-  }
-}
+/* Extra small screens: tighten paddings and increase scroll area
+  NOTE: removed rule that made the entire modal card scrollable. Keep
+  scrolling behavior limited to .modal-body so layout/JS centering remains
+  consistent across breakpoints. */
 /* Blurb that lives in the header info (muted, compact) */
 body.music-page .modal-blurb {
   margin: 6px 0 0;

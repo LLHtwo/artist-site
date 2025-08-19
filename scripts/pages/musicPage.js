@@ -1,7 +1,6 @@
 import { getAlbums, resolveCover } from '../data/api.js';
 import { albumCard } from '../components/albumCard.js';
-import { slugify, getUI } from '../core/utils.js';
-import { formatFancyDate, capitalize } from '../core/utils.js';
+import { slugify, getUI, formatFancyDate, capitalize } from '../core/utils.js';
 
 export async function initMusicPage() {
   const heroEl = document.getElementById('featured');
@@ -143,7 +142,24 @@ function renderHero(root, albums) {
     learn.type = 'button';
     learn.textContent = UI.learnMore || 'Learn more';
     learn.addEventListener('click', () => {
-      // openModal is exposed on window by modal.js
+      // On small viewports navigate to the album's fullscreen HTML page (slug-based)
+      const isMobile = window.matchMedia('(max-width: 700px)').matches;
+      if (isMobile) {
+        if (a.slug) {
+          location.href = `${a.slug}.html`;
+          return;
+        }
+        if (a.link && typeof a.link === 'string' && a.link.endsWith('.html')) {
+          location.href = a.link;
+          return;
+        }
+        if (a.link) {
+          window.open(a.link, '_blank', 'noopener');
+          return;
+        }
+        return;
+      }
+      // openModal is exposed on window by modal.js for larger screens
       if (typeof window.openModal === 'function') window.openModal(a);
     });
     streamWrap.appendChild(learn);

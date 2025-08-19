@@ -1,0 +1,177 @@
+/* Minimal overrides for the socials page that reuse site-wide tokens in layout.css */
+.wrap {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px
+}
+
+.links {
+    width: 100%;
+    max-width: 520px;
+    margin: 12px auto 0; /* center container horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center child buttons */
+}
+
+/* make the hero and footer match the buttons' width/centering */
+.page-hero {
+    width: 100%;
+    max-width: 520px;
+    margin: 12px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.page-hero__content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.foot-links {
+    width: 100%;
+    max-width: 520px;
+    margin: 18px auto 0;
+    justify-content: center;
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px
+}
+
+.social-label {
+    font-size: 16px;
+    font-weight: 600
+}
+
+.full-btn {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px; /* match .btn sizing feel */
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--fg);
+    text-decoration: none;
+    margin: 8px 0;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.5);
+    transition: transform .1s ease, box-shadow .1s;
+    width: 100%;
+    max-width: 520px; /* align with container */
+}
+.full-btn:active {
+    transform: translateY(1px);
+}
+
+.muted {
+    color: var(--muted)
+}
+
+.foot-links {
+    margin-top: 18px;
+    font-size: 13px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+/* hero image aligned to the right */
+.social-hero {
+    display: flex;
+    justify-content: flex-end; /* push image to the right */
+    align-items: center; /* vertically center image */
+    margin-bottom: 12px;
+}
+
+.social-hero img {
+    /* fixed hero image size (desktop) */
+    width: 160px;
+    height: 160px;
+    flex: 0 0 160px; /* keep image a fixed column in flex layout */
+    object-fit: cover;
+    border-radius: 12px;
+    align-self: center;
+}
+
+/* ensure the page title sits to the left while the image stays right-aligned */
+#page-title {
+    margin: 0;
+    margin-right: auto; /* push following items (the image) to the right */
+    text-align: left;
+    font-size: 28px;
+}
+
+/* Decorative animated background (subtle, low-contrast) */
+.wrap {
+    position: relative; /* establish stacking context for background */
+    overflow: hidden;
+}
+
+.wrap::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10%;
+    z-index: 0;
+    pointer-events: none;
+    /* include the latest cover as a very blurred backdrop, then layer subtle gradients */
+    background-image:
+        url("/assets/covers/spacewalk.webp"),
+        radial-gradient(400px 300px at 10% 20%, rgba(125,211,252,0.06), transparent 20%),
+        radial-gradient(420px 320px at 85% 80%, rgba(29,185,84,0.05), transparent 20%),
+        radial-gradient(600px 420px at 50% 40%, rgba(255,255,255,0.02), transparent 25%);
+    background-size: cover, auto, auto, auto;
+    background-position: center 20%, center, center, center;
+    background-repeat: no-repeat;
+    /* heavy blur + gentle saturation for the cover image */
+    filter: blur(64px) saturate(110%);
+    transform: translateZ(0);
+    animation: socials-bg-move 20s linear infinite;
+    opacity: 0.9;
+}
+
+.wrap::after {
+    /* faint noise / vignette to give depth */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.22));
+    mix-blend-mode: multiply;
+}
+
+.container { position: relative; z-index: 2; }
+
+@keyframes socials-bg-move {
+    0% { transform: translate3d(0,0,0) scale(1); }
+    50% { transform: translate3d(-6%, -3%, 0) scale(1.03); }
+    100% { transform: translate3d(0,0,0) scale(1); }
+}
+
+/* Accessibility: disable motion for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    .wrap::before { animation: none; filter: blur(34px); }
+}
+
+/* Slightly tone-down on small screens for performance */
+@media (max-width: 600px) {
+    .wrap::before { filter: blur(36px) saturate(100%); opacity: 0.85; }
+    .social-hero img { width: 120px; height: 120px; flex: 0 0 120px; }
+    /* stack the hero on small screens and center content */
+    .page-hero { flex-direction: column; align-items: center; }
+    .page-hero__content { text-align: center; width: 100%; }
+    /* center the page title on small screens */
+    #page-title { margin-right: 0; text-align: center; }
+}
+
+/* ensure page content takes remaining space beside the fixed image */
+.page-hero__content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
