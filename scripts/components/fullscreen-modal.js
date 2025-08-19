@@ -2,6 +2,8 @@ import { getUI, capitalize, formatFancyDate, renderInlineMarkdown } from '../cor
 
 // Renders a modal-like album feature inline on the page (not as an overlay).
 // Returns the root element so callers can insert or remove it.
+import { isFuture } from '../core/utils.js';
+
 export function renderFullscreenModal(album, { container = null, allowClose = true } = {}) {
   if (!album) throw new Error('album is required');
 
@@ -83,7 +85,7 @@ export function renderFullscreenModal(album, { container = null, allowClose = tr
     return undefined;
   };
 
-  const isFutureRelease = album && album.releaseDate && (new Date(album.releaseDate).getTime() > Date.now());
+  const isFutureRelease = album && album.releaseDate && isFuture(album.releaseDate);
   if (isFutureRelease) {
     const href = album.link || '#';
     const pre = document.createElement('a');

@@ -1,5 +1,5 @@
 import { getAlbums, resolveCover } from '../data/api.js';
-import { getUI, capitalize } from '../core/utils.js';
+import { getUI, capitalize, isFuture } from '../core/utils.js';
 
 export async function loadFeaturedAlbum() {
   const coverEl = document.getElementById('featured-cover');
@@ -15,8 +15,8 @@ export async function loadFeaturedAlbum() {
     featured.cover = await resolveCover(featured);
     coverEl.src = featured.cover;
     coverEl.alt = `Cover of ${featured.title}`;
-    const upcoming = (new Date(featured.releaseDate)).getTime() > Date.now();
-    if (labelEl) labelEl.textContent = upcoming ? (getUI().upcoming || 'Upcoming') : (getUI().latestRelease || 'Latest Release');
+  const upcoming = isFuture(featured.releaseDate);
+  if (labelEl) labelEl.textContent = upcoming ? (getUI().upcoming || 'Upcoming') : (getUI().latestRelease || 'Latest Release');
     titleEl.textContent = featured.title;
     if (subtextEl) {
       const type = featured.type ? featured.type.charAt(0).toUpperCase() + featured.type.slice(1) : '';
