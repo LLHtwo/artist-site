@@ -1,6 +1,8 @@
 import { el } from '../core/dom.js';
 import { getUI, capitalize, formatFancyDate, renderInlineMarkdown } from '../core/utils.js';
 
+import { isFuture } from '../core/utils.js';
+
 export function openModal(album) {
   const modal = document.getElementById('album-modal');
   if (!modal) return;
@@ -74,7 +76,9 @@ export function openModal(album) {
 
   // If the album release date is in the future, show a single pre-save button
   // that uses the album.link (this is used for unreleased/coming-soon releases).
-  const isFutureRelease = album && album.releaseDate && (new Date(album.releaseDate).getTime() > Date.now());
+  // Use the shared isFuture helper (calendar-day aware). No tz override here so
+  // it uses the visitor's local timezone.
+  const isFutureRelease = album && album.releaseDate && isFuture(album.releaseDate);
   if (isFutureRelease) {
     const href = album.link || '#';
     const pre = document.createElement('a');

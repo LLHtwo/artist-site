@@ -1,6 +1,6 @@
 import { getAlbums, resolveCover } from '../data/api.js';
 import { albumCard } from '../components/albumCard.js';
-import { slugify, getUI, formatFancyDate, capitalize } from '../core/utils.js';
+import { slugify, getUI, formatFancyDate, capitalize, isFuture } from '../core/utils.js';
 
 export async function initMusicPage() {
   const heroEl = document.getElementById('featured');
@@ -135,7 +135,7 @@ function renderHero(root, albums) {
     return undefined;
   };
   // If this is a future release, show a single "Learn more" button that opens the modal
-  const isFutureRelease = a && a.releaseDate && (new Date(a.releaseDate).getTime() > Date.now());
+  const isFutureRelease = a && a.releaseDate && isFuture(a.releaseDate);
   if (isFutureRelease) {
     const learn = document.createElement('button');
     learn.className = 'btn btn-primary stream-btn';

@@ -77,7 +77,7 @@
 /* Small-screen: make the "Other releases" box horizontally scrollable
    Keep this scoped to the #related.grid container so the rest of the site
    keeps its normal grid/layout behavior on larger screens. */
-@media (max-width: 599px) {
+@media (max-width: 1000px) {
     /* use the id+class exactly as in the markup */
     #related.grid {
         display: flex; /* row layout for horizontal scroll */
