@@ -37,8 +37,7 @@
     "link": "https://distrokid.com/hyperfollow/llh1/spacewalk",
     "spotify": "https://open.spotify.com/album/2eOKZJtuW7DCANirEvh0Ok",
     "apple-music": "https://music.apple.com/de/album/spacewalk/1833228693",
-    "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_lRs5R8nhm_ZJITk2W5KZn1YC2kfAVLk5Q",
-    "latest": true
+    "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_lRs5R8nhm_ZJITk2W5KZn1YC2kfAVLk5Q"
   },
   {
     "title": "Born For More",
@@ -46,6 +45,10 @@
     "type": "album",
     "releaseDate": "2025-10-01",
     "link": "https://distrokid.com/hyperfollow/llh1/born-for-more",
-    "featured": true
+    "spotify": "https://open.spotify.com/album/2eOKZJtuW7DCANirEvh0Ok",
+    "apple-music": "https://music.apple.com/de/album/spacewalk/1833228693",
+    "youtube": "https://www.youtube.com/playlist?list=OLAK5uy_lRs5R8nhm_ZJITk2W5KZn1YC2kfAVLk5Q",
+    "featured": true,
+    "latest": true
   }
 ]

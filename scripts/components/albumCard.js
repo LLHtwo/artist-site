@@ -75,18 +75,16 @@ export function albumCard(a) {
     return null;
   };
 
+  // replaced click handler: always use mobile navigation behavior
   card.addEventListener('click', (ev) => {
-    // If on a small viewport, navigate to the album's fullscreen HTML page
-    const isMobile = window.matchMedia('(max-width: 600px)').matches;
-    if (isMobile) {
-      const target = getMobileTarget(a);
-      if (!target) return;
+    const target = getMobileTarget(a);
+    if (target) {
       if (target.newTab) window.open(target.href, '_blank', 'noopener');
       else location.href = target.href;
       return;
     }
 
-    // Otherwise dynamically import and open the modal as before
+    // If no navigation target, fall back to modal if available
     (async () => {
       try {
         const modalModule = await import('./modal.js');
@@ -102,15 +100,24 @@ export function albumCard(a) {
     })();
   });
 
+  // replaced keydown handler: always use mobile navigation behavior for Enter
   card.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
-      const isMobile = window.matchMedia('(max-width: 600px)').matches;
-      if (isMobile) {
-        const href = getCanonicalLink(a) || '#';
-        if (href === '#') return;
+      const target = getMobileTarget(a);
+      if (target) {
+        if (target.newTab) window.open(target.href, '_blank', 'noopener');
+        else location.href = target.href;
+        return;
+      }
+
+      // If no mobile target, try canonical link in a new tab
+      const href = getCanonicalLink(a);
+      if (href) {
         window.open(href, '_blank', 'noopener');
         return;
       }
+
+      // Otherwise fallback to modal
       (async () => {
         try {
           const modalModule = await import('./modal.js');
