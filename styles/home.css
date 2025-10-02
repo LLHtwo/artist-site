@@ -1,9 +1,0 @@
-/* Home page bundle - imports only the components used on the index (home) page */
-@import url('components/layout.css');
-@import url('components/header.css');
-@import url('components/hero.css');
-@import url('components/latest-release.css');
-@import url('components/socials.css');
-@import url('components/badge.css');
-
-/* Any home-only overrides can go here */

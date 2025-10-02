@@ -1,0 +1,4 @@
+.icon-thumb { width: 36px; height: 36px; border-radius: 6px; object-fit: cover; display: inline-block; }
+.social-icon-img { width: 24px; height: 24px; display: inline-block; }
+.social-icon-img--sm { width: 20px; height: 20px; }
+.social-icon { width: 28px; height: 28px; flex: 0 0 28px; }

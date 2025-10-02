@@ -1,94 +1,67 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLH | Genre-Bending Artist & Producer</title>
-  <meta name="description" content="LLH creates music that blends rap, electronic, and experimental sounds into raw, emotional stories. Unique, unpredictable, and always evolving" />
-  <meta name="theme-color" content="#0f0f12" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="LLH" />
-  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-  <link rel="stylesheet" href="/styles/styles.css" />
-  <link rel="stylesheet" href="/styles/home.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLH | Genre-Bending Artist &amp; Producer</title>
+  <meta name="description"
+    content="LLH creates music that blends rap, electronic, and experimental sounds into raw, emotional stories. Unique, unpredictable, and always evolving">
+  <meta name="theme-color" content="#0f0f12">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="LLH">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/utilities.css" />
+  <link rel="stylesheet" href="/css/components/nav.css" />
+  <link rel="stylesheet" href="/css/components/buttons.css" />
+  <link rel="stylesheet" href="/css/components/icons.css" />
+  <link rel="stylesheet" href="/css/components/hero.css" />
+  <link rel="stylesheet" href="/css/components/social.css" />
+  <link rel="stylesheet" href="/css/components/footer.css" />
 </head>
 
 <body class="has-header">
-  <header class="header" role="banner">
-        <div class="container">
-            <a class="brand" href="index.html" aria-label="Home">
-                <span class="brand-name">LLH</span>
-            </a>
-            <nav class="nav" aria-label="Primary">
-                <a class="navlink" href="about.html">About</a>
-                <a class="navlink" href="music.html">Music</a>
-                <a class="navlink" href="contact.html">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <header class="header">
+    <div class="container">
+      <a class="brand" href="index.html" aria-label="Home">
+        <span class="brand-name">LLH</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a class="navlink" href="/about">About</a>
+        <a class="navlink" href="/music">Music</a>
+        <a class="navlink" href="/contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
   <main id="main" class="main" tabindex="-1">
     <section class="hero home-hero" aria-labelledby="hero-title">
       <div class="container hero-wrapper home-hero-wrapper">
         <div class="hero-main home-hero-main">
-          <img class="hero-photo home-hero-photo" src="assets/LLH.webp" alt="LLH performing" />
+          <img class="hero-photo home-hero-photo" src="assets/LLH.webp" alt="LLH performing">
           <h1 id="hero-title" class="hero-title">LLH</h1>
           <p class="hero-tagline home-hero-tagline">Not one genre, but a constellation of them. Music as infinite and
             unpredictable as the night sky.</p>
-          <a id="listen-btn" class="btn btn-primary listen-btn home-listen-btn" href="born-for-more.html" rel="noopener"
+          <a id="listen-btn" class="btn btn-primary listen-btn home-listen-btn" href="/music" rel="noopener"
             data-label="Listen Now">Listen Now</a>
         </div>
         <div class="hero-featured home-hero-featured">
           <img id="featured-cover" class="featured-cover home-featured-cover" src="assets/covers/born-for-more.webp"
-            alt="Featured cover" />
+            alt="Featured cover">
           <div class="featured-info home-featured-info">
-            <p id="featured-label" class="featured-label home-featured-label" data-default="Upcoming">Upcoming</p>
+            <p id="featured-label" class="featured-label home-featured-label" data-default="Latest Release">Latest
+              Release</p>
             <h2 id="featured-title" class="featured-title home-featured-title" data-default="Born For More">Born For
               More</h2>
             <p id="featured-subtext" class="featured-subtext home-featured-subtext" data-default="Album">Album <span
                 class="featured-sep" aria-hidden="true">•</span> <a id="featured-learn"
-                class="featured-learn home-featured-learn" href="born-for-more.html" aria-label="Learn more about this release"
-                rel="noopener">Learn More</a></p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="featured-release" aria-labelledby="release-heading">
-      <div class="container release-inner">
-        <div class="latest-release-card home-latest-release-card">
-          <div class="latest-release-header home-latest-release-header" data-default="LATEST RELEASE">LATEST RELEASE
-          </div>
-          <div class="latest-release-content home-latest-release-content">
-            <div class="latest-release-cover home-latest-release-cover">
-              <img id="latest-release-cover" src="assets/covers/break-it-down.webp" alt="Album cover" />
-            </div>
-            <div class="latest-release-info home-latest-release-info">
-              <div class="release-title-row home-release-title-row">
-                <h2 id="release-heading" class="release-title"></h2>
-                <span id="latest-badge"></span>
-              </div>
-              <p id="release-description"
-                data-default="An addictive, loop-driven house track — hypnotic energy built for summer nights."></p>
-              <div class="stream-buttons">
-                <a class="btn stream-btn" target="_blank" rel="noopener" aria-label="Spotify">
-                  <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
-                  Spotify
-                </a>
-                <a class="btn stream-btn" target="_blank" rel="noopener" aria-label="Apple Music">
-                  <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
-                  Apple Music
-                </a>
-                <a class="btn stream-btn" target="_blank" rel="noopener" aria-label="YouTube">
-                  <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
-                  YouTube
-                </a>
-              </div>
-            </div>
+                class="featured-learn home-featured-learn" href="born-for-more"
+                aria-label="Learn more about this release" rel="noopener">Learn More</a></p>
           </div>
         </div>
       </div>
@@ -98,46 +71,52 @@
       <div class="container">
         <h2 id="about-heading" class="section-title" data-default="About Me">About Me</h2>
         <p class="muted">
-          LLH is a German artist and producer whose music lives between genres, shifting from rap and electronic to
-          cinematic soundscapes. What started with piano lessons and choir solos evolved into self-produced projects
-          that explore both storytelling and raw emotion. With influences ranging from Kanye West to Grimes and even
-          Rammstein, LLH blends worlds that usually don’t meet, creating something unique, personal, and unpredictable.
+          LLH is a 20-year-old artist from Germany whose music refuses to sit in one genre. Across rap, house, techno,
+          and experimental electronic, his projects capture different sides of his creativity — sometimes raw and
+          spontaneous, other times ambitious and carefully shaped. What began as just a way to process thoughts and
+          moods has grown into a series of albums that each stand in their own space.
+          From the loose, unfiltered spirit of his early work to the more conceptual direction of recent releases like
+          Spacewalk and Born For More, LLH’s catalog shows constant change and a refusal to repeat himself. At the
+          center of it all is honesty, whether in a hard-hitting rap track or a drifting electronic piece, the music
+          stays personal and true to where he’s at in life. And he’s nowhere near finished.
         </p>
       </div>
     </section>
   </main>
 
+  <!-- Latest Release Section -->
+
+
   <section class="social-links" aria-labelledby="social-heading">
     <div class="container">
       <div class="social-icons">
         <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-          <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+          <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
         </a>
         <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-          <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+          <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
         </a>
         <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-          <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+          <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
         </a>
         <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
           aria-label="Spotify">
-          <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+          <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
         </a>
         <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
           aria-label="Apple Music">
-          <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+          <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
         </a>
       </div>
     </div>
   </section>
 
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container">
       <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
     </div>
   </footer>
 
-  <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

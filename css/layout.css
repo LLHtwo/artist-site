@@ -1,0 +1,29 @@
+/* Page background wrapper with animated backdrop */
+.wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 32px; position: relative; overflow: hidden; }
+.wrap::before {
+content: "";
+position: absolute; inset: -20% -10%; z-index: 0; pointer-events: none;
+background-image:
+url(/assets/covers/spacewalk.webp),
+radial-gradient(400px 300px at 10% 20%, rgba(125,211,252,.06), transparent 20%),
+radial-gradient(420px 320px at 85% 80%, rgba(29,185,84,.05), transparent 20%),
+radial-gradient(600px 420px at 50% 40%, rgba(255,255,255,.02), transparent 25%);
+background-size: cover, auto, auto, auto;
+background-position: center 20%, center, center, center;
+background-repeat: no-repeat;
+filter: blur(64px) saturate(110%);
+transform: translateZ(0);
+animation: socials-bg-move 20s linear infinite; opacity: .9;
+}
+.wrap::after {
+content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+background: linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.22));
+mix-blend-mode: multiply;
+}
+
+
+/* Discography grid */
+.discography-grid { display: grid; gap: 24px; }
+@media (max-width: 639px) { .discography-grid { grid-template-columns: 1fr; } }
+@media (min-width: 640px) and (max-width: 979px) { .discography-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px) { .discography-grid { grid-template-columns: repeat(3, 1fr); } }

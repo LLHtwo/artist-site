@@ -1,0 +1,25 @@
+.album-card {
+background: var(--card); border: 1px solid #1e2028; border-radius: var(--radius-lg); padding: 16px;
+box-shadow: var(--shadow-1); transition: transform .2s, box-shadow .2s; cursor: pointer;
+display: flex; flex-direction: column; text-decoration: none; color: inherit;
+}
+.album-card:hover { transform: scale(1.05); box-shadow: var(--shadow-2); }
+
+
+.album-cover { width: 100%; border-radius: 12px; }
+.album-title { margin: 12px 0 4px; font-size: 1.2rem; font-weight: 600; }
+.album-meta { margin: 0 0 8px; color: var(--muted); font-size: .85rem; }
+.album-blurb { margin: 0; font-size: .9rem; }
+
+
+/* Compact variant */
+.album-card.compact, .album-card--compact {
+align-items: center; gap: 12px; border-radius: 10px; box-shadow: var(--shadow-soft-1); transform: none;
+}
+.album-card.compact:hover { transform: scale(1.03); box-shadow: var(--shadow-soft-2); }
+.album-card.compact .album-cover, .album-card--compact .album-cover {
+width: 200px; height: 200px; min-width: 200px; max-width: 200px; border-radius: 8px; object-fit: cover;
+box-shadow: 0 2px 8px rgba(0,0,0,.08); margin: 0 auto;
+}
+.album-card.compact .album-title { margin: 6px 0 0; font-size: .98rem; font-weight: 700; line-height: 1.15; }
+.album-card.compact .album-meta { margin: 4px 0 0; font-size: .82rem; }

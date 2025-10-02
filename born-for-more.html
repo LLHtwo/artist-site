@@ -1,39 +1,288 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Born For More | LLH</title>
     <meta name="description"
-        content="LLH’s concept project tracing ambition, fame, and fallout. Blending rap, electronic, and cinematic anthems into a cohesive narrative arc." />
-    <meta name="theme-color" content="#0f0f12" />
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="LLH" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="stylesheet" href="/styles/components/fullscreen-modal.css" />
-    <link rel="stylesheet" href="/styles/components/album-compact.css" />
+        content="LLH’s concept project tracing ambition, fame, and fallout. Blending rap, electronic, and cinematic anthems into a cohesive narrative arc.">
+    <meta name="theme-color" content="#0f0f12">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="LLH">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/components/buttons.css" />
+    <link rel="stylesheet" href="/css/components/nav.css" />
+    <link rel="stylesheet" href="/css/components/icons.css" />
+    <link rel="stylesheet" href="/css/components/cards.album.css" />
+    <link rel="stylesheet" href="/css/components/modal.css" />
+    <link rel="stylesheet" href="/css/components/social.css" />
+    <link rel="stylesheet" href="/css/components/footer.css" />
+    <link rel="stylesheet" href="/css/components/related.css" />
 </head>
 
 <body class="has-header">
-    <header class="header" role="banner">
+    <header class="header">
         <div class="container">
-            <a class="brand" href="index.html" aria-label="Home">
+            <a class="brand" href="/" aria-label="Home">
                 <span class="brand-name">LLH</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a class="navlink" href="about.html">About</a>
-                <a class="navlink" href="music.html">Music</a>
-                <a class="navlink" href="contact.html">Contact</a>
+                <a class="navlink" href="/about">About</a>
+                <a class="navlink" href="/music">Music</a>
+                <a class="navlink" href="/contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section data-fullscreen-album="born-for-more" class="fullscreen-placeholder" aria-labelledby="fs-album-title">
+    <section class="fullscreen-modal" aria-labelledby="fs-album-title">
+        <article class="modal-content modal-content--fullwidth">
+
+            <!-- Close button: top-right, links back to /music -->
+            <a class="modal-close" href="/music" aria-label="Close">
+                ×
+            </a>
+
+            <header class="modal-header">
+                <img class="modal-cover" src="assets/covers/born-for-more.webp" alt="Born For More (album cover)">
+
+                <div class="modal-info">
+                    <h2 id="fs-album-title" class="modal-title">Born For More</h2>
+                    <p class="modal-subtitle">Album • October 1st 2025</p>
+
+                    <p class="modal-lead modal-blurb">My magnum opus. A story about fame, ego, and collapse.</p>
+
+                    <div class="modal-streams">
+                        <a class="btn stream-btn" href="https://open.spotify.com/album/4gZ7xippQfaeuTvE3ghKtY" target="_blank" rel="noopener" aria-label="Spotify">
+                            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+                            Spotify
+                        </a>
+                        <a class="btn stream-btn" href="https://music.apple.com/album/born-for-more/1836700361" target="_blank" rel="noopener" aria-label="Apple Music">
+                            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+                            Apple Music
+                        </a>
+                        <a class="btn stream-btn" href="https://www.youtube.com/playlist?list=OLAK5uy_l3EKe7_DUN7BBVrbjDQIVwCORdcyMyK9s" target="_blank" rel="noopener" aria-label="YouTube">
+                            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+                            YouTube
+                        </a>
+                        <a class="btn stream-btn" href="https://distrokid.com/hyperfollow/llh1/born-for-more"
+                            target="_blank" rel="noopener" aria-label="More">
+                            <img src="assets/svg/more.svg" alt="More" class="social-icon-img">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="modal-body">
+                <h2 class="modal-section-title">Overview</h2>
+                <h3 class="modal-section-title">Story</h3>
+                <p class="modal-note"><em>Born For More</em> began without a master plan. The first songs, like
+                    <em>Glory</em> and <em>Go Away</em>, were just instrumentals I made for fun while I was still
+                    working on <em>Spacewalk</em>. At that point, I wasn’t setting out to write a rap album or a concept
+                    piece, I was just experimenting. But as the tracks piled up, the idea of a narrative took hold.
+                </p>
+                <p class="modal-note">Originally, I thought the story would follow an egomaniac who gradually learns
+                    humility and ends up grounded. But it didn’t really work and felt forced. So, I flipped it: instead
+                    of redemption, the arc became one of rise and collapse. Fourteen tracks charting the journey from
+                    innocent ambition, through success and ego, into temptation and unraveling. At first, I tried
+                    sticking to my old “seven songs per album” rule, but seven wasn’t nearly enough for the story.
+                    Doubling it gave me plenty of room to let the arc develop.</p>
+                <p class="modal-note">Some tracks existed before the concept (<em>Project 1</em>, <em>Glory</em>, <em>Go
+                        Away</em>), while others were built to fill specific roles (<em>Famous</em> as the intro,
+                    <em>Bye Bye</em> as the breakout, <em>Orbit</em> as the pause). Together, they formed something
+                    bigger than the sum of their parts.
+                </p>
+
+                <h3 class="modal-section-title">Writing &amp; Themes</h3>
+                <p class="modal-note">The first act of the album feels closest to me. Songs like <em>Famous</em>,
+                    <em>Little Leak</em> or <em>Glory</em> are grounded in my own thoughts ambition, doubt, believing I
+                    wouldn’t let money change me. But as the story progresses, it drifts into fiction. The character
+                    becomes larger-than-life, and by the end, he’s someone unrecognizable, lost in ego and
+                    self-destruction.
+                </p>
+                <p class="modal-note">The best song of the album is probably <em>Silver Lining</em>. It captures the
+                    peak of the journey, one perfect day where everything clicks. But even there, cracks appear. The
+                    bridge hints that the dream won’t last, setting up the collapse that follows. It’s the centerpiece
+                    both thematically and sonically, tying the whole arc together.</p>
+
+                <h3 class="modal-section-title">Production</h3>
+                <p class="modal-note">I wasn’t chasing influences consciously, but they’re there. Late 2024 I started
+                    listening to Kanye, especially <em>My Beautiful Dark Twisted Fantasy</em> struck me, which
+                    absolutely shaped the scope and ambition. I mean, the cover art nods to it as an obvious homage.
+                    Beyond that, I also let songs lean into their own world: <em>Little Leak</em> with east coast 90s
+                    production, <em>Temptation</em> channeling The Prodigy’s abrasive electronic energy, <em>Project
+                        1</em> with those <em>Yeezus</em>-like synths.</p>
+                <p class="modal-note">My process was mostly beat-first, lyrics-after. Once I had the structure, I didn’t
+                    reshuffle songs much, they just locked into place naturally. The hardest to finish was probably
+                    <em>October</em>, the drum loop has a really loud cymbal that actually made me go insane. But once
+                    the mix came together, it became one of my favorite songs on the album. I mean, every song on the
+                    album is my favorite song, to be honest.
+                </p>
+
+                <h3 class="modal-section-title">Reflection</h3>
+                <p class="modal-note">To me, this album feels like my magnum opus. It’s the first time I’ve built
+                    something this ambitious and pulled it off, a full on cinematic arc. Every track has a reason to be
+                    there, and the production leaps far ahead of my earlier work. Sure, there are imperfections I’d fix
+                    if I reopened the sessions, but the album as a whole is the best thing I’ve done.</p>
+                <p class="modal-note">I see <em>Born For More</em> as the defining LLH record – the one that marks the
+                    real beginning. It’s ambitious, messy, emotional, and larger than life. Hopefully it doesn’t mirror
+                    my own future too closely (though I wouldn’t mind the penthouse). But whether it’s read as fiction,
+                    reflection, or prophecy, it’s the statement I wanted to make: I was <strong>born for more</strong>.
+                </p>
+
+                <h2 class="modal-section-title">Track-by-Track</h2>
+                <h3 class="modal-section-title">1. Famous</h3>
+                <p class="modal-note">Famous was written from scratch to be the opener, because none of the songs I
+                    already had at that time worked as an intro. Its intro is obviously inspired by Kendrick Lamar’s
+                    <em>PRIDE.</em> – reflective, understated, almost vulnerable. Meanwhile, the rest of the song
+                    carries more of the wide-eyed optimism of Mac Miller’s <em>K.I.D.S</em>. It’s dreamy and warm, more
+                    like a daydream of fame than a victory lap, untouched yet by ego or cynicism. The production leans
+                    into this vibe: soft synth beds, subtle bright flourishes, but really dynamic drums. Lyrically, it
+                    asks “what if?” instead of “look at me,” keeping it grounded and innocent. That balance makes it the
+                    perfect opening statement, an invitation into the world of the album before the chaos sets in.
+                </p>
+
+                <h3 class="modal-section-title">2. Little Leak</h3>
+                <p class="modal-note">This track went through multiple versions. At one point it sat right before
+                    <em>Bye Bye</em> with completely different lyrics — more about pushing through self-doubt and
+                    finding the courage to share my music. Later, I shifted it back to the second spot and reshaped it
+                    into something more meta: a song about questioning whether what I’m doing even makes sense. It deals
+                    with that uncomfortable awareness of being a white kid stepping into rap, asking whether I’m just
+                    imitating a culture that isn’t mine. Musically, it’s funky and head-nodding, with that 90s bounce in
+                    the drums that gives it swagger but undercuts the confidence with lyrics full of hesitation. It’s
+                    one of the tracks where I pull back the curtain — not fully in character, but not fully me either.
+                    That uncertainty makes it a perfect “Act I” track, because it captures the tension before the
+                    breakout.
+                </p>
+
+                <h3 class="modal-section-title">3. Glory</h3>
+                <p class="modal-note">One of the earliest tracks I made for the album. It all started with a chopped
+                    vocal sample — “they all want glory, come and seek it.” That hook grabbed me instantly, and I just
+                    built the song around it. The structure is simple but powerful: it starts bare with only the vocal,
+                    then the synths swell in like a wave, knocking the door down. I didn’t set out with any grand idea
+                    for <em>Glory</em>. It was pure instinct, a beat that grew into a track without overthinking. Later,
+                    it slid perfectly into the arc — the sound of ambition, of chasing something bigger.
+                    Production-wise, I love the way the synths feel like sunlight bursting through clouds. It’s not the
+                    deepest track conceptually, but it doesn’t need to be — it’s pure energy, a shot of adrenaline early
+                    in the story.</p>
+
+                <h3 class="modal-section-title">4. Project 1</h3>
+                <p class="modal-note">This is the oldest song on the record. I made it back in August 2024, right after
+                    finishing <em>Imagination</em>. Inspired by Kanye’s <em>On Sight</em> from <em>Yeezus</em>, it was
+                    jagged, abrasive, and a little too weird to put anywhere at the time. For almost a year it just sat
+                    in my hard drive, always tempting me with the thought: “this is too good to waste, you gotta use
+                    this at some point.” When I built out the first act of <em>Born For More</em>, I realized it finally
+                    had a home. I tweaked the arrangement a little, rearranged some sections, but most of it is still
+                    the original. Even the chorus is largely untouched, which is wild considering how much my mixing and
+                    writing had improved since then. <em>Project 1</em> stands out because of its rawness — it doesn’t
+                    try to be clean or polished, it just slaps. It’s an experiment that became a keystone in the story,
+                    almost like the ghost of an earlier version of me haunting this bigger, more ambitious project.</p>
+
+                <h3 class="modal-section-title">5. Bye Bye / Now I’m Here</h3>
+                <p class="modal-note">This song was always the breakout. It started from a bass loop I stumbled on, and
+                    from that moment, everything clicked. I knew I had the skeleton of the anthem that would mark the
+                    turning point of the album. Structurally, it’s unusual: no chorus, just three verses broken up by
+                    drops and a soaring bridge. The subtly audible “<em>Bye Bye</em>” vocal is me, repeated and pitched
+                    to become this ghostly refrain. To me, the magic of this track is the bridge. I always pictured
+                    myself on a stadium stage, singing those lines with thousands of people singing them back, before
+                    the music cuts out and the crowd carries the moment into the drop. It’s long, maybe even indulgent,
+                    but it earns it. This was me writing with scale in mind, pushing past bedroom production into
+                    arena-sized imagination.</p>
+
+                <h3 class="modal-section-title">6. Orbit</h3>
+                <p class="modal-note">After the bombast of <em>Bye Bye</em>, I knew the album needed a moment of
+                    stillness. <em>Orbit</em> is exactly that — the deep breath after the leap. It’s serene,
+                    atmospheric, and built around this little voice sample I found from an Apollo mission: “nice to be
+                    in orbit.” That one line was enough to give the track its identity. The production is stripped back
+                    compared to the surrounding tracks. A soft piano, subtle percussion and lots of reverb makes it feel
+                    like floating in zero-G. It’s not about lyrics or narrative detail — it’s about vibe. It’s the calm
+                    before the next storm, and one of the tracks that holds a special place for me because of its mood.
+                </p>
+
+                <h3 class="modal-section-title">7. Silver Lining</h3>
+                <p class="modal-note">This is the centerpiece of the album, no question. I wanted to capture the feeling
+                    of one perfect day: living life fully, soaking in every detail, riding that high where everything
+                    feels aligned. It took me multiple rewrites to get it right — the only thing that stayed consistent
+                    was the hook. Eventually, I built a structure that leads you through a slice-of-life arc, from
+                    morning to night, full of color and joy. But even in that joy, I wanted to hint at cracks. The
+                    bridge foreshadows the decline, showing that perfection isn’t sustainable. Production-wise, this is
+                    me at my sharpest: the sound design is lush, wide, and confident, with layers building into a
+                    euphoric climax. If <em>Born For More</em> has a crown jewel, this is it.</p>
+
+                <h3 class="modal-section-title">8. That Way</h3>
+                <p class="modal-note">The comedown. To me, <em>That Way</em> is the sound of walking home from a party
+                    at 3 a.m., alone, and suddenly feeling sad for no reason. I actually recorded the vocals in one of
+                    those exact moods — tired, drained, melancholy. It was a raw first or second take, and I kept it
+                    because it was so genuine. Musically, it’s sparse compared to the tracks before it. Empty space,
+                    gentle beats, muted melodies. It feels hollow by design, reflecting that weird emotional vacuum you
+                    can’t explain. Coming right after <em>Silver Lining</em>, it’s the crash that makes the high even
+                    sharper.</p>
+
+                <h3 class="modal-section-title">9. Hurricane</h3>
+                <p class="modal-note">One of the first songs I made for the album, before I even had the concept nailed
+                    down. Originally it was just supposed to sound like a rainy day, but it found new meaning in the
+                    story as the marker where things start falling apart. It doesn’t hammer the narrative directly, but
+                    the vibe makes it indispensable. The defining feature is the synth in the chorus, which blooms open
+                    with each chord like a storm cloud breaking. It’s moody, uneasy, but still catchy.
+                    <em>Hurricane</em> may not be the most important story beat, but it adds texture and atmosphere,
+                    deepening the middle stretch of the album.
+                </p>
+
+                <h3 class="modal-section-title">10. October</h3>
+                <p class="modal-note">This track was a beast to finish. The instrumental came first, but when I added
+                    the drums, I got stuck with this cymbal that refused to sit right in the mix. No matter what I did,
+                    it pierced through and drove me crazy. I almost scrapped the track over it, but eventually I found a
+                    balance. Lyrically, it’s one of my strongest. The line “Step aside, step aside, when I arrive it’s
+                    game over / Chains hang heavy, heart cold like October” hit so hard I had to make it the title. This
+                    is the turning point where the character gives up vulnerability and embraces full ego. The sound is
+                    heavy, cold, and aggressive, perfectly matching the lyrical shift.</p>
+
+                <h3 class="modal-section-title">11. Temptation</h3>
+                <p class="modal-note">This track wasn’t written for the album at first — it was just me experimenting
+                    with a Prodigy-inspired synth bass and some chaotic vocal chops. But when I realized the hook —
+                    “Give into temptation, alright, alright” — could fit the narrative, it clicked into place. Suddenly
+                    it was the perfect soundtrack to the character’s descent into drugs, lust, and numbness. It’s less
+                    of a rap track and more of a rave track: pulsing, abrasive, with lots of dead space that makes every
+                    drop hit harder. The final verse strips down bare, leaving only the essentials. That was intentional
+                    — it’s the vulnerability peeking through in the middle of the chaos.</p>
+
+                <h3 class="modal-section-title">12. Go Away</h3>
+                <p class="modal-note">Written in a single night, half-drunk. I started at 10 p.m., went to the club at
+                    11, came back in the early hours and recorded lyrics with my wrecked voice. That demo had a rawness
+                    I loved — sadly I couldn’t keep it for the final cut because I made some tweaks in the lyrics, but
+                    the energy stuck. Eventually I managed to capture the same sarcastic bravado, even if I never got my
+                    voice to sound like that again. The song masks pain with ego, swinging between heartbreak and
+                    mockery. The bass arp drives it forward with a sneer, while the lyrics drip with sarcasm. It’s
+                    toxic, a little ugly, but that’s the point: the mask is fully on now.</p>
+
+                <h3 class="modal-section-title">13. Hell of a Life</h3>
+                <p class="modal-note">Originally this was the intro track, and you can still hear it in how it opens —
+                    chaotic, brash, no filter. But it worked better later in the arc, once the character has fully lost
+                    control. The point here wasn’t to sound polished, it was to let the ego run wild. Writing it was
+                    pure fun: throwing out ridiculous rhymes and absurd bars with a straight face. Lines like the
+                    “ketchup / catch up” one are so dumb they’re brilliant. I can imagine it’s by far the least popular
+                    track, but it’s also one of the most unique. It captures the unhinged side of the character, and in
+                    a way, it’s me letting loose too — laughing at the absurdity while delivering it like it’s gospel.
+                </p>
+
+                <h3 class="modal-section-title">14. Born For More</h3>
+                <p class="modal-note">The finale. At first it was buried deeper in the tracklist, but I realized it
+                    belonged at the end as the epilogue. It’s got this marching rhythm, almost militaristic, that feels
+                    like a closing statement. The vibe is triumphant and tragic at the same time — like the character
+                    has burned everything down but still insists he was “born for more.” Vocally, it pushed me out of my
+                    range. There are notes in this song I honestly don’t think I could hit again — it was a one-time
+                    thing, caught in the moment. That makes it even more special. When the track fades into silence, I
+                    wanted listeners to just sit there, reflecting. It’s not a neat resolution, but it’s the only way
+                    this story could end.</p>
+            </div>
+        </article>
     </section>
 
     <main id="main" class="main" tabindex="-1">
@@ -42,22 +291,22 @@
                 <h2 id="more-heading" class="section-title">Other releases</h2>
                 <div id="related" class="grid">
                     <!-- lightweight related items rendered by a small script -->
-                    <a class="album-card compact album-link" href="spacewalk.html" aria-label="Spacewalk">
+                    <a class="album-card compact album-link" href="spacewalk" aria-label="Spacewalk">
                         <img class="album-cover" src="assets/covers/spacewalk.webp" alt="Spacewalk cover">
                         <h3 class="album-title">Spacewalk</h3>
                         <p class="album-meta">Album • 20 Aug 2025</p>
                     </a>
-                    <a class="album-card compact album-link" href="break-it-down.html" aria-label="Break It Down">
+                    <a class="album-card compact album-link" href="break-it-down" aria-label="Break It Down">
                         <img class="album-cover" src="assets/covers/break-it-down.webp" alt="Break It Down cover">
                         <h3 class="album-title">Break It Down</h3>
                         <p class="album-meta">Single • 1 Apr 2025</p>
                     </a>
-                    <a class="album-card compact album-link" href="imagination.html" aria-label="Imagination">
+                    <a class="album-card compact album-link" href="imagination" aria-label="Imagination">
                         <img class="album-cover" src="assets/covers/imagination.webp" alt="Imagination cover">
                         <h3 class="album-title">Imagination</h3>
                         <p class="album-meta">Album • 31 Jul 2024</p>
                     </a>
-                    <a class="album-card compact album-link" href="make-me-feel-alright.html"
+                    <a class="album-card compact album-link" href="make-me-feel-alright"
                         aria-label="Make Me Feel Alright">
                         <img class="album-cover" src="assets/covers/make-me-feel-alright.webp"
                             alt="Make Me Feel Alright cover">
@@ -73,32 +322,31 @@
         <div class="container">
             <div class="social-icons">
                 <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
                 </a>
                 <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
                 </a>
                 <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
                 </a>
                 <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
                     aria-label="Spotify">
-                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
                 </a>
                 <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
                     aria-label="Apple Music">
-                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
         </div>
     </footer>
-    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

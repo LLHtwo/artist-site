@@ -1,0 +1,51 @@
+.latest-release-card {
+--pad: 22px; --radius: 18px;
+width: min(100%, 960px);
+padding: var(--pad);
+padding-top: calc(var(--pad) + 34px);
+background: var(--card);
+border: 1px solid #1e2028;
+border-radius: var(--radius);
+box-shadow: 0 8px 32px rgba(0,0,0,.18), 0 1.5px 6px rgba(0,0,0,.10);
+display: block; position: relative; overflow: hidden;
+margin: 0 auto;
+}
+
+
+/* Optional cover background when [data-cover] is present */
+.latest-release-card[data-cover] { --bg-img: url(../../assets/covers/born-for-more.webp); }
+.latest-release-card[data-cover]::before {
+content: ""; position: absolute; inset: 0;
+background: var(--bg-img, none); background-size: cover; background-position: center;
+filter: brightness(.55) saturate(1.05); opacity: .85; z-index: 0; transition: filter .4s ease;
+}
+.latest-release-card[data-cover]:hover::before { filter: brightness(.62) saturate(1.15); }
+
+
+.latest-release-card > *, .latest-release-card .latest-release-content, .latest-release-card .latest-release-info { position: relative; z-index: 1; }
+
+
+.latest-release-header {
+font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+padding: 4px 14px 4px 12px; border: 1px solid #2a2d39; border-radius: var(--radius-pill);
+background: linear-gradient(135deg, rgba(125,211,252,.12), rgba(125,211,252,.04));
+display: inline-flex; align-items: center; gap: .4ch;
+position: absolute; top: 10px; right: 14px;
+box-shadow: 0 4px 16px -4px rgba(0,0,0,.35);
+backdrop-filter: blur(4px) saturate(140%);
+-webkit-backdrop-filter: blur(4px) saturate(140%);
+}
+
+
+.latest-release-content { display: flex; gap: 24px; flex-wrap: wrap; }
+.latest-release-content.no-cover { flex-direction: column; }
+.latest-release-cover img { width: 200px; height: 100%; object-fit: cover; border-radius: 16px; box-shadow: 0 4px 32px rgba(0,0,0,.18); }
+
+
+.release-title-row { display: flex; align-items: center; gap: 12px; }
+.stream-buttons { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+.release-meta { margin: 0 0 .75rem; font-size: .9rem; color: var(--muted); letter-spacing: .02em; }
+
+
+.latest-release-card .release-title { font-size: clamp(2.5rem, 5vw, 3.75rem); line-height: 1.05; margin: .25rem 0 .4rem; font-weight: 800; }
+.latest-release-card .release-subtitle { margin: 0 0 .85rem; font-size: 1rem; font-weight: 600; color: var(--muted); }
