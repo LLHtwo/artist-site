@@ -1,41 +1,142 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Spacewalk | LLH</title>
     <meta name="description"
-        content="An instrumental, cinematic LLH journey inspired by vast, interstellar emotion. Textural electronics, atmosphere, and motion — immerse and explore." />
-    <meta name="theme-color" content="#0f0f12" />
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="LLH" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="styles/styles.css" />
-    <link rel="stylesheet" href="/styles/components/fullscreen-modal.css" />
-    <link rel="stylesheet" href="/styles/components/album-compact.css" />
+        content="A wordless, cinematic trip through space inspired by Interstellar.">
+    <meta name="theme-color" content="#0f0f12">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="LLH">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components/buttons.css" />
+    <link rel="stylesheet" href="/css/components/nav.css" />
+    <link rel="stylesheet" href="/css/components/icons.css" />
+    <link rel="stylesheet" href="/css/components/cards.album.css" />
+    <link rel="stylesheet" href="/css/components/modal.css" />
+    <link rel="stylesheet" href="/css/components/social.css" />
+    <link rel="stylesheet" href="/css/components/footer.css" />
+    <link rel="stylesheet" href="/css/components/related.css" />
 </head>
 
 <body class="has-header">
-    <header class="header" role="banner">
+    <header class="header">
         <div class="container">
             <a class="brand" href="index.html" aria-label="Home">
                 <span class="brand-name">LLH</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a class="navlink" href="about.html">About</a>
-                <a class="navlink" href="music.html">Music</a>
-                <a class="navlink" href="contact.html">Contact</a>
+                <a class="navlink" href="/about">About</a>
+                <a class="navlink" href="/music">Music</a>
+                <a class="navlink" href="/contact">Contact</a>
             </nav>
         </div>
     </header>
 
-    <section data-fullscreen-album="spacewalk" class="fullscreen-placeholder" aria-labelledby="fs-album-title">
-    </section>
+    <section class="fullscreen-modal" aria-labelledby="fs-album-title">
+    <article class="modal-content modal-content--fullwidth">
 
+            <!-- Close button: top-right, links back to /music -->
+            <a class="modal-close" href="/music" aria-label="Close">
+                ×
+            </a>
+
+            <header class="modal-header">
+                <img class="modal-cover" src="assets/covers/spacewalk.webp" alt="Spacewalk (album cover)">
+
+                <div class="modal-info">
+                    <h2 id="fs-album-title" class="modal-title">Spacewalk</h2>
+                    <p class="modal-subtitle">Album • August 20, 2025</p>
+
+                    <p class="modal-lead modal-blurb">A wordless, cinematic trip through space inspired by Interstellar.</p>
+
+                    <div class="modal-streams">
+                        <a class="btn stream-btn" href="https://open.spotify.com/album/2eOKZJtuW7DCANirEvh0Ok"
+                            target="_blank" rel="noopener" aria-label="Spotify">
+                            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+                            Spotify
+                        </a>
+                        <a class="btn stream-btn" href="https://music.apple.com/album/spacewalk/1833228693"
+                            target="_blank" rel="noopener" aria-label="Apple Music">
+                            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+                            Apple Music
+                        </a>
+                        <a class="btn stream-btn"
+                            href="https://www.youtube.com/playlist?list=OLAK5uy_lRs5R8nhm_ZJITk2W5KZn1YC2kfAVLk5Q"
+                            target="_blank" rel="noopener" aria-label="YouTube">
+                            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+                            YouTube
+                        </a>
+                        <a class="btn stream-btn" href="https://distrokid.com/hyperfollow/llh1/spacewalk"
+                            target="_blank" rel="noopener" aria-label="More">
+                            <img src="assets/svg/more.svg" alt="More" class="social-icon-img">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="modal-body">
+                <h3 class="modal-section-title">Story</h3>
+                <p class="modal-note">By the time I started <em>Spacewalk</em>, life had shifted again. In September
+                    2024 I moved out to study in another city, into a shared apartment. The walls were thin, and singing
+                    felt awkward because I knew everyone could hear me, so I leaned into instrumentals instead. That’s
+                    how this whole project was born: an electronic, wordless album.</p>
+                <p class="modal-note">I’d always liked house and techno, but I never really nailed the sound before.
+                    With <em>Spacewalk</em>, I finally felt like I was figuring it out, making tracks that actually
+                    sounded how I wanted them to. At first, it wasn’t a concept album at all, just a bunch of electronic
+                    songs. But when I started naming them, I realized they could fit into a bigger arc. That’s when the
+                    idea of making it a kind of <em>Interstellar</em>-inspired journey developed.</p>
+
+                <h3 class="modal-section-title">Writing &amp; Themes</h3>
+                <p class="modal-note">The album tells the story of a space mission. It starts with wonder and discovery,
+                    but gradually shifts into chaos and loss. <em>Nocturne</em> and <em>Mirage</em> are wide-eyed,
+                    gazing out into the stars. <em>Spacewalk</em> is a bit more dynamic, in a movie this track would be
+                    played over like a montage or something. <em>Disturbance</em> sprinkles in a little tension in
+                    between, that strangeness of space creeping in. Then, something goes wrong in <em>Breach</em>, the
+                    mission collapses and communication breaks down. <em>Lost Signal</em> then has the vibe of being
+                    stranded in space, everyone else millions of miles away. Finally, <em>Detach</em> closes it all with
+                    sacrifice: one person letting go, so the other can survive.</p>
+                <p class="modal-note">It’s a narrative, but the songs also stand on their own. Each track has a distinct
+                    personality, its own sound design, but together they tell this cinematic arc. I wanted it to feel
+                    like a continuous piece, something you could just close your eyes to and drift away with.</p>
+
+                <h3 class="modal-section-title">Production</h3>
+                <p class="modal-note">If there’s one thing this project taught me, it’s to get way more creative with
+                    synths. Every track has some unique element, a texture or sound, that makes it stand out. Compared
+                    to my vocal albums, this was pure experimentation: I wasn’t worried about structure as much, I was
+                    just doing what felt right. The hardest part was probably <em>Detach</em>. I had this idea of a
+                    really emotional, interstellar-like ending, but I just couldn’t make it sound right. It took a while
+                    to get there, but once I did, everything clicked.</p>
+                <p class="modal-note">Overall, I was really pushing myself to make something that felt big and
+                    cinematic. I wanted the production to match the scope of the story, and I think I got pretty close.
+                </p>
+
+                <h3 class="modal-section-title">Looking Back</h3>
+                <p class="modal-note">I see <em>Spacewalk</em> as a turning point. It showed me I could make electronic
+                    music that actually worked, and it gave me confidence with sound design in a way my vocal albums
+                    didn’t. If there’s one thing I’d change, it’s the reliance on drum loops. I still haven’t dug into
+                    making the drums myself, which is definitely a bit lazy. But honestly, if it helps me realize the
+                    vision of the song, and it sounds good – why not use them?</p>
+                <p class="modal-note">Even though it came out so close to <em>Born For More</em>, and I didn’t really do
+                    any promo for it, I don’t regret releasing it. It’s its own universe, a cinematic little voyage, and
+                    it captures exactly what I wanted: that feeling of drifting through space, somewhere between wonder
+                    and loneliness.</p>
+
+
+            </div>
+
+        </article>
+    </section>
     <main id="main" class="main" tabindex="-1">
         <section class="section" aria-labelledby="more-heading">
             <div class="container">
@@ -45,7 +146,7 @@
                     <a class="album-card compact album-link" href="born-for-more.html" aria-label="Born For More">
                         <img class="album-cover" src="assets/covers/born-for-more.webp" alt="Born For More cover">
                         <h3 class="album-title">Born For More</h3>
-                        <p class="album-meta">Album • Upcoming</p>
+                        <p class="album-meta">Album • 1 Oct 2025</p>
                     </a>
                     <a class="album-card compact album-link" href="break-it-down.html" aria-label="Break It Down">
                         <img class="album-cover" src="assets/covers/break-it-down.webp" alt="Break It Down cover">
@@ -73,32 +174,31 @@
         <div class="container">
             <div class="social-icons">
                 <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
                 </a>
                 <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
                 </a>
                 <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
                 </a>
                 <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
                     aria-label="Spotify">
-                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
                 </a>
                 <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
                     aria-label="Apple Music">
-                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
         </div>
     </footer>
-    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,33 @@
+.btn {
+padding: 8px 12px; border-radius: var(--radius-md);
+background: #20222c; color: #e7eaf7; font-weight: 500;
+text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+border: 1px solid transparent; cursor: pointer;
+transition: background .15s, box-shadow .15s, transform .15s;
+}
+.btn:hover { background: #262938; }
+.btn:active { transform: translateY(1px); }
+
+
+.btn-secondary { background: #18181b; color: var(--muted); border: 1px solid #23232a; font-weight: 500; opacity: .85; }
+.btn-secondary:hover { background: #23232a; color: #dde1ee; opacity: 1; }
+
+
+.btn-primary { background: var(--accent); color: #0f0f12; font-weight: 600; }
+.btn-primary:hover { background: #a0e8ff; }
+
+
+.btn-small { padding: 6px 10px; border-radius: var(--radius-sm); font-size: .9rem; }
+
+
+.btn-ghost { background: transparent; border: 1px solid rgba(255,255,255,.06); color: var(--fg); }
+.btn-ghost:hover { background: rgba(255,255,255,.02); }
+
+
+/* Stream button variant used inside modals too */
+.stream-btn {
+background: #23232a; border: 1px solid #2a2d39; border-radius: .7rem; padding: .6rem 1.2rem;
+font-weight: 600; color: #dde1ee; box-shadow: 0 1px 4px rgba(0,0,0,.07);
+transition: background .2s, box-shadow .2s;
+}
+.stream-btn:hover { background: #191a20; box-shadow: 0 2px 8px rgba(0,0,0,.10); }

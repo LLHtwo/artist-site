@@ -1,129 +1,146 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LLH | Discography & Music</title>
-  <meta name="description" content="Explore LLH’s music — from rap and electronic to cinematic soundscapes. Listen to albums, singles, and stories behind each release." />
-  <meta name="theme-color" content="#0f0f12" />
-  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-  <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-  <meta name="apple-mobile-web-app-title" content="LLH" />
-  <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-  <link rel="stylesheet" href="/styles/styles.css" />
-  <link rel="stylesheet" href="/styles/music.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LLH | Discography &amp; Music</title>
+  <meta name="description"
+    content="Explore LLH’s music — from rap and electronic to cinematic soundscapes. Listen to albums, singles, and stories behind each release.">
+  <meta name="theme-color" content="#0f0f12">
+  <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+  <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+  <meta name="apple-mobile-web-app-title" content="LLH">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+  <link rel="stylesheet" href="/css/tokens.css" />
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/utilities.css" />
+  <link rel="stylesheet" href="/css/animations.css" />
+  <link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/css/components/buttons.css" />
+  <link rel="stylesheet" href="/css/components/nav.css" />
+  <link rel="stylesheet" href="/css/components/icons.css" />
+  <link rel="stylesheet" href="/css/components/cards.album.css" />
+  <link rel="stylesheet" href="/css/components/modal.css" />
+  <link rel="stylesheet" href="/css/components/latest-release.css" />
+  <link rel="stylesheet" href="/css/components/social.css" />
+  <link rel="stylesheet" href="/css/components/footer.css" />
+  <link rel="stylesheet" href="/css/components/related.css" />
+  <link rel="stylesheet" href="/css/components/hero.css" />
+  <link rel="stylesheet" href="/css/pages/music.css" />
 </head>
 
 <body class="music-page has-header">
-  <!-- Top nav identical to index.html -->
-  <header class="header" role="banner">
+  <header class="header">
     <div class="container">
-      <a class="brand" href="index.html" aria-label="Home">
+      <a class="brand" href="/" aria-label="Home">
         <span class="brand-name">LLH</span>
       </a>
       <nav class="nav" aria-label="Primary">
-        <a class="navlink" href="about.html">About</a>
-        <a class="navlink" href="music.html" aria-current="page">Music</a>
-        <a class="navlink" href="contact.html">Contact</a>
+        <a class="navlink" href="/about">About</a>
+        <a class="navlink" href="/music" aria-current="page">Music</a>
+        <a class="navlink" href="/contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="main" class="main" tabindex="-1">
-    <!-- Featured hero (smaller, right-sided) -->
-    <!-- Featured hero (compact) -->
-    <section id="hero" class="hero hero--compact music-hero" aria-labelledby="featured-heading">
-      <div class="container hero-container music-hero-container">
-        <article id="featured" class="featured-card music-featured-card" aria-live="polite"
-          data-default-no-featured="No featured release.">
-          <div class="featured-section music-featured-section">
-
-            <div class="featured-section-content music-featured-content">
-              <div class="featured-section-header-row music-featured-header-row">
-                <span class="featured-section-header music-featured-header">Featured</span>
+    <section class="section latest-release" aria-labelledby="latest-release-heading">
+      <div class="container">
+        <article class="latest-release-card" data-cover="assets/covers/born-for-more.webp">
+          <div class="latest-release-header" id="latest-release-badge">Latest Release</div>
+          <div class="latest-release-content no-cover">
+            <div class="latest-release-info">
+              <div class="release-title-row">
+                <h1 id="latest-release-heading" class="release-title">Born For More</h1>
               </div>
-              <!-- INFO (left) -->
-              <div class="featured-section-info music-featured-info">
-                <h2 id="featured-title" class="featured-section-title music-featured-title"></h2>
-                <p id="featured-meta" class="featured-section-meta music-featured-meta"></p>
-                <p id="featured-tagline" class="featured-section-tagline music-featured-tagline" hidden data-default="">
-                </p>
-                <p class="featured-section-subtext music-featured-subtext"
-                  data-default="If you're seeing this, something went wrong. Or the page hasn't loaded yet. Give it a moment.">
-                  If you're seeing this, something went wrong. Or the page hasn't loaded yet. Give it a moment.
-                </p>
-                <div class="featured-section-actions music-featured-actions">
-                </div>
+              <p class="release-subtitle">Album</p>
+              <p id="release-description">A concept record tracing ambition, ego and collapse across 14 tracks.</p>
+              <p class="release-meta">Released Oct 1, 2025</p>
+              <div class="stream-buttons">
+                <a class="btn stream-btn" href="https://open.spotify.com/album/4gZ7xippQfaeuTvE3ghKtY" target="_blank" rel="noopener" aria-label="Listen on Spotify">
+                  <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+                  Spotify
+                </a>
+                <a class="btn stream-btn" href="https://music.apple.com/album/born-for-more/1836700361" target="_blank" rel="noopener" aria-label="Listen on Apple Music">
+                  <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+                  Apple Music
+                </a>
+                <a class="btn stream-btn" href="https://www.youtube.com/playlist?list=OLAK5uy_l3EKe7_DUN7BBVrbjDQIVwCORdcyMyK9s" target="_blank" rel="noopener" aria-label="Watch on YouTube">
+                  <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+                  YouTube
+                </a>
+                <a class="btn btn-primary" href="born-for-more" aria-label="Learn more about Born For More">Learn
+                  More</a>
               </div>
-              </figure>
             </div>
           </div>
         </article>
       </div>
     </section>
 
-
-
-    <!-- Discography grid -->
     <section class="section" aria-labelledby="discog-heading">
       <div class="container">
         <h2 id="discog-heading" class="section-title" data-default="Discography">Discography</h2>
-        <div id="discography" class="discography-grid" aria-live="polite"></div>
-      </div>
-    </section>
-
-    <!-- Closing call-to-action -->
-    <section class="cta-section">
-      <div class="container cta-inner">
-        <p class="cta-text" data-default="Follow on Socials for information about new releases.">Follow on Socials for
-          information about new releases.</p>
-        <div class="social-icons">
-          <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-            <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+        <div id="discography" class="discography-grid" aria-live="polite">
+          <!-- Static discography: generated from assets/albums.json to avoid JS dependency -->
+          <a class="album-card album-link" href="born-for-more.html" aria-label="Born For More">
+            <img class="album-cover" src="assets/covers/born-for-more.webp" alt="Born For More cover">
+            <h3 class="album-title">Born For More</h3>
+            <p class="album-meta">Album • October 1, 2025</p>
           </a>
-          <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-            <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+          <a class="album-card album-link" href="spacewalk.html" aria-label="Spacewalk">
+            <img class="album-cover" src="assets/covers/spacewalk.webp" alt="Spacewalk cover">
+            <h3 class="album-title">Spacewalk</h3>
+            <p class="album-meta">Album • August 20, 2025</p>
           </a>
-          <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+          <a class="album-card album-link" href="break-it-down.html" aria-label="Break It Down">
+            <img class="album-cover" src="assets/covers/break-it-down.webp" alt="Break It Down cover">
+            <h3 class="album-title">Break It Down</h3>
+            <p class="album-meta">Single • April 1, 2025</p>
           </a>
-          <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
-            aria-label="Spotify">
-            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+          <a class="album-card album-link" href="imagination.html" aria-label="Imagination">
+            <img class="album-cover" src="assets/covers/imagination.webp" alt="Imagination cover">
+            <h3 class="album-title">Imagination</h3>
+            <p class="album-meta">Album • July 31, 2024</p>
           </a>
-          <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
-            aria-label="Apple Music">
-            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+          <a class="album-card album-link" href="make-me-feel-alright.html" aria-label="Make Me Feel Alright">
+            <img class="album-cover" src="assets/covers/make-me-feel-alright.webp" alt="Make Me Feel Alright cover">
+            <h3 class="album-title">Make Me Feel Alright</h3>
+            <p class="album-meta">Album • March 16, 2024</p>
           </a>
         </div>
       </div>
     </section>
-
-    <noscript>
-      <div class="container">
-        <p class="muted">JavaScript is disabled, so releases can’t be loaded. Enable JavaScript to see the discography.
-        </p>
+    <section class="cta-section">
+      <div class="social-icons">
+        <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
+          <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
+        </a>
+        <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
+          <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
+        </a>
+        <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
+          <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+        </a>
+        <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
+          aria-label="Spotify">
+          <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+        </a>
+        <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
+          aria-label="Apple Music">
+          <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+        </a>
       </div>
-    </noscript>
+    </section>
   </main>
-
-  <!-- Floating album modal -->
-  <div id="album-modal" class="modal hidden" aria-hidden="true"></div>
-
-
-  <footer class="footer" role="contentinfo">
+  <footer class="footer">
     <div class="container">
-      <p>© <span id="year"></span> LLH — All rights reserved. <a
-          href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
+      <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
     </div>
   </footer>
-
-  <!-- Page scripts: main.js handles shared widgets; music-page.js builds the hero,
-         discography grid and modal from assets/albums.json. -->
-  <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

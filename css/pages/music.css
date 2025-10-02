@@ -1,0 +1,16 @@
+/* Page‑scoped adjustments to prevent style bleed */
+body.music-page.modal-open { overflow: hidden; }
+body.music-page .section:first-of-type { margin-top: 24px; }
+body.music-page .album-card:hover { transform: scale(1.04); }
+body.music-page .modal-content--large { animation: fadeInUp .3s ease both; }
+body.music-page .modal-blurb { margin: 6px 0 0; color: var(--muted); font-size: .95rem; }
+
+
+/* CTA block on music page */
+.cta-section { text-align: center; padding: 80px 24px; }
+.cta-text { font-size: 1.1rem; }
+
+
+/* Page hero title alignment on social page */
+#page-title { margin: 0; margin-right: auto; text-align: left; font-size: 28px; }
+@media (max-width: 600px) { #page-title { margin-right: 0; text-align: center; } }

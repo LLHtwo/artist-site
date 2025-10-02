@@ -1,40 +1,149 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Imagination | LLH</title>
     <meta name="description"
-        content="LLH explores possibility and mood with genre-bending production. A release that shifts between pulse, space, and cinematic edges." />
-    <meta name="theme-color" content="#0f0f12" />
-    <link rel="canonical" href="https://llhmusic.com/releases/imagination.html" />
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="LLH" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="stylesheet" href="/styles/components/fullscreen-modal.css" />
-    <link rel="stylesheet" href="/styles/components/album-compact.css" />
+        content="LLH explores possibility and mood with genre-bending production. A release that shifts between pulse, space, and cinematic edges.">
+    <meta name="theme-color" content="#0f0f12">
+    <link rel="canonical" href="https://llhmusic.com/releases/imagination.html">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="LLH">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components/buttons.css" />
+    <link rel="stylesheet" href="/css/components/nav.css" />
+    <link rel="stylesheet" href="/css/components/icons.css" />
+    <link rel="stylesheet" href="/css/components/cards.album.css" />
+    <link rel="stylesheet" href="/css/components/modal.css" />
+    <link rel="stylesheet" href="/css/components/social.css" />
+    <link rel="stylesheet" href="/css/components/footer.css" />
+    <link rel="stylesheet" href="/css/components/related.css" />
 </head>
 
 <body class="has-header">
-    <header class="header" role="banner">
+    <header class="header">
         <div class="container">
             <a class="brand" href="index.html" aria-label="Home">
                 <span class="brand-name">LLH</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a class="navlink" href="about.html">About</a>
-                <a class="navlink" href="music.html">Music</a>
-                <a class="navlink" href="contact.html">Contact</a>
+                <a class="navlink" href="/about">About</a>
+                <a class="navlink" href="/music">Music</a>
+                <a class="navlink" href="/contact">Contact</a>
             </nav>
         </div>
     </header>
-    <!-- Placeholder: main.js will replace this element with the fullscreen modal for the album 'imagination' -->
-    <section data-fullscreen-album="imagination" class="fullscreen-placeholder" aria-labelledby="fs-album-title">
+    <section class="fullscreen-modal" aria-labelledby="fs-album-title">
+    <article class="modal-content modal-content--fullwidth">
+
+            <!-- Close button: top-right, links back to /music -->
+            <a class="modal-close" href="/music" aria-label="Close">
+                ×
+            </a>
+
+            <header class="modal-header">
+                <img class="modal-cover" src="assets/covers/imagination.webp" alt="Imagination (album cover)">
+
+                <div class="modal-info">
+                    <h2 id="fs-album-title" class="modal-title">Imagination</h2>
+                    <p class="modal-subtitle">Album • July 31, 2024</p>
+
+                    <p class="modal-lead modal-blurb">A quick follow-up where I chased bigger sounds and daydreamed out
+                        loud.</p>
+
+                    <div class="modal-streams">
+                        <a class="btn stream-btn" href="https://open.spotify.com/album/057KWVk00jGDcAcaaVGQR6"
+                            target="_blank" rel="noopener" aria-label="Spotify">
+                            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+                            Spotify
+                        </a>
+                        <a class="btn stream-btn" href="https://music.apple.com/album/imagination/1761531118"
+                            target="_blank" rel="noopener" aria-label="Apple Music">
+                            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+                            Apple Music
+                        </a>
+                        <a class="btn stream-btn"
+                            href="https://www.youtube.com/playlist?list=OLAK5uy_mKWfG4xY447pisi8vKhtFACEUC1vYFYss"
+                            target="_blank" rel="noopener" aria-label="YouTube">
+                            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+                            YouTube
+                        </a>
+                        <a class="btn stream-btn" href="https://distrokid.com/hyperfollow/llh1/imagination"
+                            target="_blank" rel="noopener" aria-label="More">
+                            <img src="assets/svg/more.svg" alt="More" class="social-icon-img">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="modal-body">
+                <h3 class="modal-section-title">Story</h3>
+                <p class="modal-note">By the time I put this one together, life looked really different from when I made
+                    <em>Make Me Feel Alright</em>. I was more settled in, had a friend group, knew people from house
+                    parties and park evenings, and felt way more comfortable in my environment. Funny enough, I actually
+                    got along better with the girls in my grade than the guys, but either way, I finally felt like I
+                    belonged somewhere. Still, I had those nights where everything caught up with me and I just needed
+                    music as therapy again.</p>
+                <p class="modal-note">This album started as another collection of songs, but this time I knew I wanted
+                    it to become a project. Once I had seven tracks, I said, “alright, that’s the album,” and locked it
+                    in. Interestingly, the first song I wrote for it was <em>Record Deals</em>, which ended up as the
+                    last track on the final version. The overall mood wasn’t super different from the first album; still
+                    personal, still me working through those late-night emotions, but I definitely wanted to make it
+                    sound a bit more “normal,” a little closer to mainstream pop than my first one.</p>
+
+                <h3 class="modal-section-title">The Quick Infatuation Swap</h3>
+                <p class="modal-note">One of the biggest last-minute moves I made was with <em>Quick Infatuation</em>.
+                    Originally it was a completely different song with a totally different production. The problem was:
+                    the key sat right in the dead spot of my vocal range, so no matter how I sang it, it didn’t work,
+                    and when I tried to change the key, it didn’t sound right anymore. Instead of pushing through, I
+                    panicked because I’d already set myself a release date for August 1st, so I scrapped the original
+                    version and built a new song from scratch only two weeks before release. I’ve regretted it ever
+                    since. The lyrics weren’t fleshed out, and it just doesn’t hit the way the original did. At some
+                    point, I’ll definitely drop the real <em>Quick Infatuation</em> on like a “The Vault” release,
+                    because that version was really good.</p>
+
+                <h3 class="modal-section-title">Writing &amp; Themes</h3>
+                <p class="modal-note">Like the first album, this one was therapy for me. Most songs tie back to real
+                    events or people, the title track <em>Imagination</em> especially, which I wrote about a girl I
+                    wasn’t sure was into me. In my head, I thought dropping the song would make her come up to me and
+                    say, “yeah, I like you too.” Spoiler: that never happened. But at the time, it felt like I was
+                    shooting my shot in my own way. The rest of the album was me trying to balance that deeply personal
+                    writing with the idea of making music that felt more accessible.</p>
+
+                <h3 class="modal-section-title">Production</h3>
+                <p class="modal-note">Sound-wise, it’s pretty close to <em>Make Me Feel Alright</em> because I started
+                    it almost immediately after finishing that one. I still used Logic with loops as a base, leaned on
+                    reverb, and aimed for atmosphere. But I did learn from the first project, so the production here is
+                    at least a little tighter. I still used the mastering assistant, but I tried to do more proper
+                    mixing. Overall, though, both albums live in the same universe – which makes sense, since they’re
+                    only about four months apart. One influence that snuck in was Avicii. <em>Record Deals</em> was
+                    basically my “what if I made something like <em>Levels</em>” experiment. It didn’t end up being the
+                    next <em>Levels</em> (thanks to me not doing any marketing for the album), but at least the ambition
+                    was there.</p>
+
+                <h3 class="modal-section-title">Looking Back</h3>
+                <p class="modal-note">I don’t think <em>Imagination</em> is as strong as <em>Make Me Feel Alright</em>.
+                    It’s less cohesive and feels more like seven different songs and genres mashed together, even more
+                    than MMFA. But I think you can still hear the progression, the mixing’s a bit better, the production
+                    more confident, and it shows I was starting to think about what kind of artist I wanted to be. If I
+                    could fix one thing, it’d definitely be the mix and master, like in <em>Make Me Feel Alright</em>.
+                    Still, for all its flaws, it’s part of my story, and it shows that hunger to just keep going, keep
+                    releasing, and keep figuring myself out.</p>
+
+
+            </div>
+
+        </article>
     </section>
 
     <main id="main" class="main" tabindex="-1">
@@ -46,7 +155,7 @@
                     <a class="album-card compact album-link" href="born-for-more.html" aria-label="Born For More">
                         <img class="album-cover" src="assets/covers/born-for-more.webp" alt="Born For More cover">
                         <h3 class="album-title">Born For More</h3>
-                        <p class="album-meta">Album • Upcoming</p>
+                        <p class="album-meta">Album • 1 Oct 2025</p>
                     </a>
                     <a class="album-card compact album-link" href="spacewalk.html" aria-label="Spacewalk">
                         <img class="album-cover" src="assets/covers/spacewalk.webp" alt="Spacewalk cover">
@@ -74,32 +183,31 @@
         <div class="container">
             <div class="social-icons">
                 <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
                 </a>
                 <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
                 </a>
                 <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
                 </a>
                 <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
                     aria-label="Spotify">
-                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
                 </a>
                 <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
                     aria-label="Apple Music">
-                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
         </div>
     </footer>
-    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

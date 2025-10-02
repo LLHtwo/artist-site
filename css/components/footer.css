@@ -1,0 +1,3 @@
+.footer{border-top:1px solid rgba(255,255,255,0.03);padding-top:18px;text-align:center}
+.footer a{color:var(--color-muted);display:inline-block}
+.footer p{margin:0}

@@ -1,0 +1,29 @@
+html, body { height: 100%; }
+* { box-sizing: border-box; }
+html { overflow-x: clip; overflow-y: scroll; scrollbar-gutter: stable; }
+body {
+margin: 0;
+background: var(--bg);
+color: var(--fg);
+font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, sans-serif;
+-webkit-font-smoothing: antialiased;
+text-rendering: optimizeLegibility;
+}
+img { max-width: 100%; height: auto; display: block; }
+
+
+/* Form/interactive inherit */
+a, button, input, select, textarea { font: inherit; }
+
+
+a { color: inherit; text-decoration: none; }
+.link { color: var(--link); text-decoration: none; transition: color .12s ease, text-decoration .12s ease; }
+.link:visited { color: var(--link-visited); }
+.link:hover, .link:focus, .link:active { color: var(--link-hover); text-decoration: underline; }
+
+
+a:focus-visible, button:focus-visible {
+outline: 2px solid var(--ring);
+outline-offset: 2px;
+border-radius: var(--radius-md);
+}

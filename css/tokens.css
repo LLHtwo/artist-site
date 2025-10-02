@@ -1,0 +1,32 @@
+:root {
+/* Colors */
+--bg: #0f0f12;
+--fg: #f6f7fb;
+--muted: #a6aab7;
+--card: #141418;
+--accent: #7dd3fc;
+--ring: rgba(125, 211, 252, .35);
+--link: #dde6ef;
+--link-visited: #c9d2dd;
+--link-hover: #c1cbd8;
+
+
+/* Modal contrast */
+--fm-contrast: #cbd5e1;
+--fm-border: rgba(255, 255, 255, .04);
+
+
+/* Radii */
+--radius-sm: 10px;
+--radius-md: 12px;
+--radius-lg: 16px;
+--radius-pill: 999px;
+
+
+/* Shadows */
+--shadow-1: 0 2px 6px rgba(0,0,0,.2);
+--shadow-2: 0 6px 20px rgba(0,0,0,.4);
+--shadow-soft-1: 0 2px 6px rgba(0,0,0,.06);
+--shadow-soft-2: 0 6px 20px rgba(0,0,0,.28);
+--shadow-card-strong: 0 10px 40px rgba(0,0,0,.5);
+}

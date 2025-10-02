@@ -1,0 +1,6 @@
+/* Horizontal scroll behavior for #related on narrow widths */
+@media (max-width: 1000px) {
+#related.grid { display: flex; gap: 12px; padding: 12px 8px; overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; }
+#related.grid .album-card { flex: 0 0 auto; scroll-snap-align: start; }
+#related.grid .album-cover { width: 160px; height: 160px; min-width: 160px; }
+}

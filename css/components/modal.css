@@ -1,0 +1,102 @@
+/* Container + visibility */
+.modal, .fullscreen-modal { position: relative; }
+.modal.hidden { display: none; }
+
+
+/* Shells */
+.modal-content, .modal-content--large, .modal-content--fullwidth {
+background: var(--card); max-width: 900px; width: 95%; border-radius: var(--radius-lg);
+padding: 24px; box-shadow: var(--shadow-card-strong); color: inherit; margin: 0 auto;
+}
+.modal-content { display: flex; flex-direction: column; max-height: calc(100dvh - 120px); overflow: hidden; position: relative; }
+.modal-content--large { display: flex; flex-direction: column; }
+
+
+.modal-header { display: flex; gap: 20px; margin-bottom: 16px; position: sticky; top: 0; z-index: 1; background: inherit; padding-bottom: 8px; padding-right: 56px; border-bottom: 1px solid rgba(255,255,255,.08); }
+.modal-cover { width: 175px; height: 175px; object-fit: cover; border-radius: 12px; }
+.modal-info { display: flex; flex-direction: column; gap: 10px; }
+.modal-title { margin: 0 0 6px; font-size: 1.6rem; font-weight: 700; letter-spacing: -.02em; }
+.modal-subtitle { margin: 0; color: var(--muted); font-size: .95rem; }
+.modal-lead { color: #dde1ee; margin-top: 6px; font-size: 1rem; }
+
+
+.modal-body { flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; padding-right: 6px; }
+.modal-body p { margin-top: 0; }
+.modal-body .modal-lead { position: sticky; top: 0; background: inherit; padding: 8px 0; margin-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.08); }
+
+
+.modal-section-title { margin: 18px 0 6px; font-size: 1.05rem; color: #fff; }
+.modal-note-title { margin: 0 0 8px; font-size: 18px; font-weight: 700; }
+.modal-note, .modal-section-body { margin: 10px 0; }
+
+
+.modal-streams { display: flex; gap: 10px; margin: 1rem 0; flex-wrap: wrap; }
+.modal-streams .btn { padding: 8px 14px; border-radius: var(--radius-md); }
+
+
+.modal-close { position: absolute; top: 8px; right: 12px; background: none; border: 0; color: var(--fg); font-size: 28px; line-height: 1; cursor: pointer; z-index: 3; padding: 6px; }
+
+
+/* Fullwidth flavor */
+.fullscreen-modal { width: 100%; margin: 20px 0; }
+.modal-content--fullwidth {
+overflow: visible; max-height: none; /* full height */
+}
+.modal-content--fullwidth .modal-header { display: flex; gap: 20px; margin-bottom: 0; position: static; background: inherit; padding-bottom: 8px; padding-right: 56px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.modal-content--fullwidth .modal-cover { width: 175px; height: 175px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 40px rgba(2,6,23,.6); }
+.modal-content--fullwidth .modal-body { overflow: visible; max-height: none; }
+
+
+/* Typography overrides for fullwidth */
+.modal-title { font-size: 28px; font-weight: 700; letter-spacing: -.02em; }
+.modal-subtitle { color: var(--fm-contrast, var(--muted)); font-size: 14px; }
+.modal-lead { color: var(--fm-contrast, var(--muted)); font-size: 16px; line-height: 1.5; margin: 6px 0 0; }
+
+/* Headings inside fullscreen / fullwidth modals */
+.modal-content--fullwidth h1,
+.fullscreen-modal h1 {
+	color: var(--fg);
+	font-size: clamp(28px, 4.5vw, 44px);
+	line-height: 1.05;
+	font-weight: 800;
+	letter-spacing: -0.02em;
+}
+
+.modal-content--fullwidth h2,
+.fullscreen-modal h2 {
+	color: var(--fm-contrast, var(--muted));
+	font-size: clamp(20px, 3.5vw, 28px);
+	line-height: 1.15;
+	font-weight: 700;
+}
+
+/* Ensure modal body headings inherit spacing and don't get clipped on small screens */
+.modal-content--fullwidth .modal-body h1,
+.modal-content--fullwidth .modal-body h2,
+.modal-content--fullwidth .modal-body h3,
+.fullscreen-modal .modal-body h1,
+.fullscreen-modal .modal-body h2,
+.fullscreen-modal .modal-body h3 {
+	word-break: break-word;
+}
+
+
+/* Responsive */
+@media (max-width: 860px) {
+.modal-content, .modal-content--large, .modal-content--fullwidth {
+width: calc(100% - 28px); padding: 18px; max-height: calc(100dvh - 48px);
+}
+.modal-header { flex-direction: column; align-items: stretch; gap: 12px; padding-right: 18px; }
+.modal-cover { width: 100%; height: auto; max-height: 360px; margin: 0 auto; }
+.modal-title { font-size: 1.25rem; margin-right: 0; text-align: left; }
+.modal-body { max-height: calc(100dvh - 460px); }
+.modal-body .modal-lead { position: static; top: auto; background: transparent; padding: 0; border-bottom: none; }
+
+
+/* Fullwidth tweaks */
+.modal-content--fullwidth { width: calc(100% - 28px); padding: 18px; max-height: none; box-sizing: border-box; }
+.modal-content--fullwidth .modal-header { flex-direction: column; align-items: stretch; gap: 12px; padding-right: 18px; }
+.modal-title { font-size: 22px; text-align: center; }
+.modal-subtitle, .modal-lead { text-align: center; }
+.modal-streams { justify-content: center; }
+}

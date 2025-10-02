@@ -1,0 +1,148 @@
+/* ============================
+   Variables (defaults)
+   ============================ */
+:root {
+    --surface: #0f0f127f;
+    --text: #fff;
+    --muted: #9aa0a6;
+}
+
+/* ============================
+   Layout / Page container
+   ============================ */
+.page-hero {
+    width: 100%;
+    max-width: 520px;
+    margin: 12px auto 0;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.page-hero__content {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+/* ============================
+   Social hero block (image + align)
+   ============================ */
+.social-hero {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.social-hero img {
+    width: 160px;
+    height: 160px;
+    flex: 0 0 160px;
+    object-fit: cover;
+    border-radius: 12px;
+    align-self: center;
+}
+
+/* ============================
+   Links list (buttons styled like stream buttons)
+   ============================ */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 18px 0 28px;
+}
+
+.links .btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    text-decoration: none;
+    border-radius: 10px;
+    background: var(--surface, #0f0f127f);
+    color: var(--text, #fff);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.links .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.165);
+}
+
+.links .btn:active {
+    transform: translateY(0);
+}
+
+/* ============================
+   Icons and labels
+   ============================ */
+.social-icon {
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.icon-thumb {
+    width: 28px;
+    height: 28px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.links .social-label {
+    font-weight: 600;
+}
+
+.links .muted {
+    font-size: 0.9rem;
+    opacity: 0.75;
+}
+
+/* ============================
+   Footer links
+   ============================ */
+.foot-links {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 22px;
+    flex-wrap: wrap;
+}
+
+.foot-links .link {
+    color: var(--muted, #9aa0a6);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+/* ============================
+   Responsive rules
+   ============================ */
+@media (max-width: 600px) {
+    .social-hero img {
+        width: 120px;
+        height: 120px;
+        flex: 0 0 120px;
+    }
+
+    .page-hero {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .page-hero__content {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .links .btn {
+        padding: 10px 12px;
+        gap: 10px;
+    }
+}

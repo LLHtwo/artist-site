@@ -1,40 +1,129 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Make Me Feel Alright | LLH</title>
     <meta name="description"
-        content="Early LLH era: heartfelt songwriting meets electronic lift. Explore the story behind the tracks and listen across streaming platforms." />
-    <meta name="theme-color" content="#0f0f12" />
-    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg" />
-    <link rel="shortcut icon" href="/assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="LLH" />
-    <link rel="manifest" href="/assets/favicon/site.webmanifest" />
-    <link rel="stylesheet" href="/styles/styles.css" />
-    <link rel="stylesheet" href="/styles/components/fullscreen-modal.css" />
-    <link rel="stylesheet" href="/styles/components/album-compact.css" />
+        content="My first album. Late-night self-therapy turned into spacey, honest songs.">
+    <meta name="theme-color" content="#0f0f12">
+    <link rel="icon" type="image/png" href="/assets/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon/favicon.svg">
+    <link rel="shortcut icon" href="/assets/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png">
+    <meta name="apple-mobile-web-app-title" content="LLH">
+    <link rel="manifest" href="/assets/favicon/site.webmanifest">
+    <link rel="stylesheet" href="/css/tokens.css" />
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/utilities.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+    <link rel="stylesheet" href="/css/components/buttons.css" />
+    <link rel="stylesheet" href="/css/components/nav.css" />
+    <link rel="stylesheet" href="/css/components/icons.css" />
+    <link rel="stylesheet" href="/css/components/cards.album.css" />
+    <link rel="stylesheet" href="/css/components/modal.css" />
+    <link rel="stylesheet" href="/css/components/social.css" />
+    <link rel="stylesheet" href="/css/components/footer.css" />
+    <link rel="stylesheet" href="/css/components/related.css" />
 </head>
 
 <body class="has-header">
-    <header class="header" role="banner">
+    <header class="header">
         <div class="container">
             <a class="brand" href="index.html" aria-label="Home">
                 <span class="brand-name">LLH</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a class="navlink" href="about.html">About</a>
-                <a class="navlink" href="music.html">Music</a>
-                <a class="navlink" href="contact.html">Contact</a>
+                <a class="navlink" href="/about">About</a>
+                <a class="navlink" href="/music">Music</a>
+                <a class="navlink" href="/contact">Contact</a>
             </nav>
         </div>
     </header>
-    <!-- Placeholder: main.js will replace this element with the fullscreen modal for the album 'make-me-feel-alright' -->
-    <section data-fullscreen-album="make-me-feel-alright" class="fullscreen-placeholder"
-        aria-labelledby="fs-album-title">
+    <section class="fullscreen-modal" aria-labelledby="fs-album-title">
+        <article class="modal-content modal-content--fullwidth">
+
+            <!-- Close button: top-right, links back to /music -->
+            <a class="modal-close" href="/music" aria-label="Close">
+                ×
+            </a>
+
+            <header class="modal-header">
+                <img class="modal-cover" src="assets/covers/make-me-feel-alright.webp"
+                    alt="Make Me Feel Alright (album cover)">
+
+                <div class="modal-info">
+                    <h2 id="fs-album-title" class="modal-title">Make Me Feel Alright</h2>
+                    <p class="modal-subtitle">Album • March 16, 2024</p>
+
+                    <p class="modal-lead modal-blurb">My first album. Late-night self-therapy turned into spacey, honest
+                        songs.
+                    </p>
+
+                    <div class="modal-streams">
+                        <a class="btn stream-btn" href="https://open.spotify.com/album/2vrypQqzNCq7RE5EK0nm5M"
+                            target="_blank" rel="noopener" aria-label="Spotify">
+                            <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
+                            Spotify
+                        </a>
+                        <a class="btn stream-btn" href="https://music.apple.com/album/make-me-feel-alright/1736342422"
+                            target="_blank" rel="noopener" aria-label="Apple Music">
+                            <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
+                            Apple Music
+                        </a>
+                        <a class="btn stream-btn"
+                            href="https://youtube.com/playlist?list=OLAK5uy_m3ajFuLkAAPwhJuFHWOCOPlsVUHQvWV4k&si=Py2uDAeU2t7GXjFz"
+                            target="_blank" rel="noopener" aria-label="YouTube">
+                            <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
+                            YouTube
+                        </a>
+                        <a class="btn stream-btn" href="https://distrokid.com/hyperfollow/llh1/make-me-feel-alright/"
+                            target="_blank" rel="noopener" aria-label="More">
+                            <img src="assets/svg/more.svg" alt="More" class="social-icon-img">
+                            More
+                        </a>
+                    </div>
+                </div>
+            </header>
+
+            <div class="modal-body">
+                <h3 class="modal-section-title">Story</h3>
+                <p class="modal-note">This whole music thing kind of came together by accident. I had a couple songs
+                    already lying around – <em>Liftoff</em> and <em>Lucky Break</em> started as instrumentals I just put
+                    up onto YouTube for fun. At some point I thought, “why not throw some lyrics over these?” and that
+                    was basically the spark. From there, whenever I felt like crap, usually late at night, I just opened
+                    up Logic and spit out whatever was in my head. At the time, I was in a pretty weird spot in life:
+                    stuck in the last part of school, just had to repeat a year, didn’t know that many people in my new
+                    class. Music ended up being where I poured all of that.</p>
+
+                <h3 class="modal-section-title">Writing &amp; Themes</h3>
+                <p class="modal-note">The songs are all super personal, even if they don’t always sound that way.
+                    <em>Liftoff</em> is kinda leaning on the story of <em>Romeo and Juliet</em>. <em>Make Me Feel
+                        Alright</em> was about my ex, <em>Ocean</em>, well I think that one's obvious, and <em>Lucky
+                        Break</em> was trying to process a kind of imposter feeling I sometimes struggled with. There
+                    wasn’t a grand plan or a concept, it was just me making songs whenever I felt like I had to, and
+                    then realizing at some point that they actually worked together as an album.
+                </p>
+
+                <h3 class="modal-section-title">Production</h3>
+                <p class="modal-note">I made everything in Logic, mostly finding an interesting loop and building
+                    something around that. I leaned hard on reverb and arpeggiators, which gave the whole project this
+                    space-y, 80s kind of vibe. Around then, I was listening to a lot of Grimes, and while I wasn’t
+                    copying her, the way she used arps definitely lined up with what I was doing. Honestly, using arps
+                    just made it easier to build melodies that felt alive. The sound is definitely rough around the
+                    edges sometimes, but I think that’s also what gives it character.</p>
+
+                <h3 class="modal-section-title">Looking Back</h3>
+                <p class="modal-note">For me, <em>Make Me Feel Alright</em> is the perfect snapshot of that period. It’s
+                    raw, a bit messy, emotional, but it’s real. If there’s one thing I’d change though, it would be the
+                    mix and mastering. Back then, I just threw Logic’s built-in mastering assistant on everything and
+                    called it a day. But even with the roughness, I think it holds up. <em>Liftoff</em> especially still
+                    feels like such a strong opener that I’ve even thought about doing something more with it. As a
+                    first album, it couldn’t have been a better starting point: maybe a bit unpolished, but honest, and
+                    definitely the beginning of everything I’ve built since.</p>
+            </div>
+        </article>
     </section>
 
     <main id="main" class="main" tabindex="-1">
@@ -46,7 +135,7 @@
                     <a class="album-card compact album-link" href="born-for-more.html" aria-label="Born For More">
                         <img class="album-cover" src="assets/covers/born-for-more.webp" alt="Born For More cover">
                         <h3 class="album-title">Born For More</h3>
-                        <p class="album-meta">Album • Upcoming</p>
+                        <p class="album-meta">Album • October 1, 2025</p>
                     </a>
                     <a class="album-card compact album-link" href="spacewalk.html" aria-label="Spacewalk">
                         <img class="album-cover" src="assets/covers/spacewalk.webp" alt="Spacewalk cover">
@@ -72,32 +161,31 @@
         <div class="container">
             <div class="social-icons">
                 <a href="https://www.instagram.com/llh.music/" target="_blank" rel="noopener" aria-label="Instagram">
-                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img" />
+                    <img src="assets/svg/instagram.svg" alt="Instagram" class="social-icon-img">
                 </a>
                 <a href="https://www.tiktok.com/@llh.music" target="_blank" rel="noopener" aria-label="TikTok">
-                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img" />
+                    <img src="assets/svg/tiktok.svg" alt="TikTok" class="social-icon-img">
                 </a>
                 <a href="https://www.youtube.com/@llh_music" target="_blank" rel="noopener" aria-label="YouTube">
-                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img" />
+                    <img src="assets/svg/youtube.svg" alt="YouTube" class="social-icon-img">
                 </a>
-                <a href="https://open.spotify.com/intl-de/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
+                <a href="https://open.spotify.com/artist/4dPLkakRF7qLklrsetNCvE" target="_blank" rel="noopener"
                     aria-label="Spotify">
-                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img" />
+                    <img src="assets/svg/spotify.svg" alt="Spotify" class="social-icon-img">
                 </a>
                 <a href="https://music.apple.com/de/artist/llh/1736331001" target="_blank" rel="noopener"
                     aria-label="Apple Music">
-                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img" />
+                    <img src="assets/svg/apple-music.svg" alt="Apple Music" class="social-icon-img">
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
+    <footer class="footer">
         <div class="container">
             <p>© 2025 LLH — All rights reserved. <a href="mailto:contact@llhmusic.com">contact@llhmusic.com</a></p>
         </div>
     </footer>
-    <script type="module" src="scripts/main.js"></script>
 </body>
 
 </html>

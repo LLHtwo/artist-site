@@ -1,0 +1,29 @@
+.header { position: relative; z-index: 20; background: transparent; }
+.header .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 12px; }
+
+
+.brand { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+.brand-name { font-weight: 700; font-size: 18px; margin: 0; letter-spacing: .4px; }
+
+
+nav { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.navlink {
+display: inline-flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: var(--radius-md);
+background: transparent; color: var(--fg); font-weight: 500; border: 1px solid transparent;
+transition: background .12s, color .12s, box-shadow .12s;
+}
+.navlink:hover { background: rgba(255,255,255,.06); }
+.navlink[aria-current="page"], .navlink.active {
+background: linear-gradient(180deg, #15161b, #121216);
+color: var(--accent);
+border-color: rgba(125,211,252,.10);
+box-shadow: 0 6px 20px rgba(0,0,0,.45);
+}
+.navlink--ghost { background: transparent; border: 1px solid rgba(255,255,255,.04); color: var(--muted); }
+
+
+@media (max-width: 640px) {
+.header .container { padding-block: 10px; }
+nav { gap: 8px; }
+.navlink { padding: 8px 10px; border-radius: 10px; }
+}
